@@ -3,8 +3,9 @@
 \select@language {magyar} \contentsline {chapter}{\numberline {1}Bevezetés}{1}{chapter.1}%
 \select@language {magyar} \contentsline {chapter}{\numberline {2}Szoftververifikáció}{2}{chapter.2}%
 \select@language {magyar} \contentsline {chapter}{\numberline {3}K-indukció}{3}{chapter.3}%
-\select@language {magyar} \contentsline {section}{\numberline {3.1}Elmélet}{3}{section.3.1}%
+\select@language {magyar} \contentsline {section}{\numberline {3.1}Elméleti háttér}{3}{section.3.1}%
 \select@language {magyar} \contentsline {section}{\numberline {3.2}Jelölésrendszer}{3}{section.3.2}%
+\select@language {magyar} \contentsline {section}{\numberline {3.3}A probléma formalizálása}{4}{section.3.3}%
 \select@language {magyar} \contentsline {chapter}{\numberline {4}Implementálás}{5}{chapter.4}%
 \select@language {magyar} \contentsline {section}{\numberline {4.1}Adatszerkezet}{5}{section.4.1}%
 \select@language {magyar} \contentsline {chapter}{\numberline {5}Benchmark}{6}{chapter.5}%
