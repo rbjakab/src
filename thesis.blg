@@ -6,10 +6,12 @@ A level-1 auxiliary file: include/titlepage.aux
 A level-1 auxiliary file: include/declaration.aux
 A level-1 auxiliary file: content/abstract.aux
 A level-1 auxiliary file: content/introduction.aux
+A level-1 auxiliary file: tartalom/verifikacio.aux
 A level-1 auxiliary file: tartalom/k_indukcio.aux
+A level-1 auxiliary file: tartalom/implementalas.aux
+A level-1 auxiliary file: tartalom/benchmark.aux
 A level-1 auxiliary file: tartalom/osszefoglalo.aux
 A level-1 auxiliary file: content/acknowledgement.aux
-I found no \citation commands---while reading file thesis.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -22,45 +24,44 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 0 entries,
+You've used 2 entries,
             4991 wiz_defined-function locations,
-            1124 strings with 11556 characters,
-and the built_in function-call counts, 289 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 58
-:= -- 16
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
+            1141 strings with 12044 characters,
+and the built_in function-call counts, 8177 in all, are:
+= -- 1424
+> -- 107
+< -- 1
++ -- 531
+- -- 174
+* -- 152
+:= -- 273
+add.period$ -- 7
+call.type$ -- 2
+change.case$ -- 10
 chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+cite$ -- 2
+duplicate$ -- 1421
+empty$ -- 114
+format.name$ -- 10
+if$ -- 1555
 int.to.chr$ -- 0
-int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 96
-num.names$ -- 0
-pop$ -- 0
+int.to.str$ -- 2
+missing$ -- 1
+newline$ -- 109
+num.names$ -- 6
+pop$ -- 227
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 8
 quote$ -- 22
-skip$ -- 1
+skip$ -- 103
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 810
+swap$ -- 936
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 10
 warning$ -- 0
-while$ -- 0
-width$ -- 0
-write$ -- 93
-(There was 1 error message)
+while$ -- 36
+width$ -- 3
+write$ -- 119

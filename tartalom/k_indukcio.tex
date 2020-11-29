@@ -1,2 +1,35 @@
 \chapter{K-indukció}
-K--indukció...
+
+Az elkészített programom a \emph{k}-indukció nevű matematikai módszerre \cite{k_induction_principle} támaszkodik. Ebben a fejezetben ismertetem az elméleti módszert, illetve pszeudokód szinten bemutatom az ezen a matematikai módszeren alapuló algoritmus működését és bemutatom annak helyességét.
+
+\section{Elmélet}
+
+Tekintsük az alább látható teljes indukció tételét a természetes számok halmaza fölött (kiegészítve 0-val): 
+\begin{align}
+	P(0) \wedge \forall n (P(n) \Rightarrow P(n+1)) \Rightarrow \forall nP(n).
+\end{align}
+Lényege, hogy megnézzük az első lépésre teljesül-e a feltétel (az angol szakirodalomban ez a \emph{base-case}). Ha igen, akkor megnézzük ennek tudatában azt, hogy az $n+1$. lépés következik-e az $n$. lépésből (indukciós lépés -- \emph{induction case}). Ha sikerül ezt belátnunk, akkor készen vagyunk, bebizonyítottuk az összes lépésre a feltételt.
+\newline
+\newline
+Ezt tovább gondolva megtehetjük azt, hogy az első két lépésre nézzük meg, hogy teljesítik-e a feltételt:
+\begin{align}
+	P(0) \wedge P(1) \wedge \forall n ((P(n) \wedge P(n+1)) \Rightarrow P(n+2) ) \Rightarrow \forall n P(n).
+\end{align}
+Ezt az elvet általánosíthatjuk \emph{k} lépésre, $k \geq 1$, melyet a irodalom \cite{k_induction_principle} k-indukciónak nevez, formálisan:\footnote{A k-indukció helyességének a bizonyítására a dolgozatomban nem térek ki.}
+\begin{align}
+	\left( \bigwedge_{i=0}^{k-1} P(i) \right) \wedge \forall n \left( \left( \bigwedge_{i=0}^{k-1} P(n+i) \right) \Rightarrow P(n+k) \right) \Rightarrow \forall n P(n).
+\end{align}
+
+\section{Jelölésrendszer}
+
+Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölések és fogalmak bevezetésére. Adott egy tranzakciós relációkból felépülő gráf, melyben $T(x, y)$-al jelöljük azt, ha létezik egy, az \emph{x} állapotból az \emph{y} állapotba mutató tranzakciós reláció \cite{k_induction_article}. Így már tudjuk definiálni az útvonal fogalmát, mely állapotok sorozatát jelenti \emph{T}-n keresztül
+\begin{align}
+	utvonal(s_{[0..n]})~\dot{=}~\bigwedge_{0 \leq i < n} T(s_{i}, s_{i+1})
+\end{align}
+Ahol $s_{[0..n]}$ rövidítés az $(s_{0}, s_{1}, ..., s_{n})$ állapotsorozatra. Az \emph{utvonal} $n$ hosszúságú, ha $n$ darab tranzakcióból áll. Nulla hosszúságú \emph{utvonal} egy darab állapotot tartalmaz és nem értelmezzük rajta a tranzakció műveletét. Azt a megállapítást, hogy egy \emph{Q} tulajdonság igaz az útvonal összes állapotára, úgy fogjuk írni, hogy $\forall . Q(s_{[0..n]})$.
+\newline
+\newline
+Egy fontos fogalom a ciklus mentes útvonal, melyben minden elem egyedi:
+\begin{align}
+	cmutvonal(s_{[0..n]})~\dot{=}~utvonal(s_{[0..n]}) \wedge \bigwedge_{0 \leq i < j \leq n} s_{i} \neq s_{j}
+\end{align}

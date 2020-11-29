@@ -26,7 +26,7 @@
   \bibEarlyBegin
 \else \let\bibEarlyEnd\relax \fi
 
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
 \frenchspacing
 \makeatletter
 \global\def\bibIE@lowc{%
@@ -92,5 +92,21 @@
 \def\bibTechRep#1{Jelent\'{e}s}
 \def\bibInSelf#1{In u\H{o}: }
 \csname bibOverride\endcsname
+
+\bibitem{k_induction_article}
+Mary Sheeran\bibAnd 0Satnam Singh\bibAnd 2Gunnar St\aa lmarck:
+\bibNewBlock Checking safety properties using induction and a sat-solver.
+\bibNewBlock In Warren~A. Hunt\bibAnd 1Steven~D. Johnson\bibEd 1: {\em Formal
+  Methods in Computer-Aided Design} (kon\-fe\-ren\-cia\-anyag).
+\bibNewBlock Berlin, Heidelberg, 2000, Springer Berlin Heidelberg, 127--144.~p.
+\bibNewBlock ISBN 978-3-540-40922-9.
+
+\bibitem{k_induction_principle}
+Thomas Wahl:
+\bibNewBlock The k-induction principle.
+\bibNewBlock
+\bibUrll{URL}
+  >http://www.comlab.ox.ac.uk/people/Thomas.Wahl/Publications/k-induction.
+  pdf>.
 
 \end{thebibliography}
