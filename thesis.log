@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  29 NOV 2020 15:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  29 NOV 2020 16:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -594,7 +594,7 @@ LaTeX Info: Redefining \mit on input line 578.
 
  (./include/titlepage.tex
 Package hyperref Info: Option `pageanchor' set `false' on input line 1.
-<figures/bme_logo.pdf, id=63, 705.63625pt x 188.705pt>
+<figures/bme_logo.pdf, id=67, 705.63625pt x 188.705pt>
 File: figures/bme_logo.pdf Graphic file (type pdf)
 <use figures/bme_logo.pdf>
 Package pdftex.def Info: figures/bme_logo.pdf  used on input line 7.
@@ -803,13 +803,13 @@ See the caption package documentation for explanation.
 (./tartalom/implementalas.aux) (./tartalom/benchmark.aux)
 (./tartalom/osszefoglalo.aux) (./content/acknowledgement.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: C295336ABF4F485EA422E5AA51BC6FA4;1803.
+(rerunfilecheck)             Checksum: 6051D4D4F25C2CA5850EC527778AE90E;1987.
  ) 
 Here is how much of TeX's memory you used:
- 15514 strings out of 480804
- 230465 string characters out of 5903687
+ 15516 strings out of 480804
+ 230489 string characters out of 5903687
  546417 words of memory out of 5000000
- 31954 multiletter control sequences out of 15000+600000
+ 31955 multiletter control sequences out of 15000+600000
  606264 words of font info for 76 fonts, out of 8000000 for 9000
  376 hyphenation exceptions out of 8191
  70i,10n,74p,745b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -829,10 +829,10 @@ t/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
 live/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2020/texmf-di
 st/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
 lic/lm/lmsy8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtl10.pfb>
-Output written on thesis.pdf (14 pages, 303489 bytes).
+Output written on thesis.pdf (14 pages, 303652 bytes).
 PDF statistics:
- 238 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
- 30 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 244 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
+ 31 named destinations out of 1000 (max. 500000)
+ 134 words of extra memory for PDF output out of 10000 (max. 10000000)
 
