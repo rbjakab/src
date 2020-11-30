@@ -1,10 +1,8 @@
+\chapter{Háttérismeretek}
 
+Ebben a fejezetben a dolgozat további részeinek megértéséhez szükséges elméleti előismereteket mutatom be. Először a \emph{k}-indukció nevű matematikai módszert \cite{k_induction_principle} ismertetem (\hyperlink{section.2.1}{Alfejezet 2.1.}), majd formalizálom a problémát (\hyperlink{section.2.2}{Alfejezet 2.2.}), végül pszeudokód szinten bemutatom az ezen a matematikai módszeren alapuló algoritmus működését és annak helyességét (\hyperlink{section.2.3}{Alfejezet 2.3.}).
 
-\chapter{K-indukció}
-
-Az elkészített programom a \emph{k}-indukció nevű matematikai módszerre \cite{k_induction_principle} támaszkodik. Ebben a fejezetben ismertetem az elméleti módszert, illetve pszeudokód szinten bemutatom az ezen a matematikai módszeren alapuló algoritmus működését és bemutatom annak helyességét.
-
-\section{Elméleti háttér}
+\section{K-indukció}
 
 Tekintsük az alább látható teljes indukció tételét a természetes számok halmaza fölött (kiegészítve 0-val): 
 \begin{align}
@@ -24,13 +22,17 @@ Ezt az elvet általánosíthatjuk \emph{k} lépésre, $k \geq 1$, melyet a iroda
 
 \section{A probléma formalizálása}
 
-Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölések és fogalmak bevezetésére. Adott egy tranzakciós relációkból felépülő gráf, melyben $T(x, y)$-al jelöljük azt, ha létezik egy, az \emph{x} állapotból az \emph{y} állapotba mutató tranzakciós reláció \cite{k_induction_article}. Így már tudjuk definiálni az útvonal fogalmát, mely állapotok sorozatát jelenti \emph{T}-n keresztül:
+Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölések és fogalmak bevezetésére \cite{k_induction_article}. Adott egy tranzakciós relációkból felépülő gráf, melyben $T(x, y)$-al jelöljük azt, ha létezik egy, az \emph{x} állapotból az \emph{y} állapotba mutató tranzakciós reláció. Így már tudjuk definiálni az útvonal fogalmát, mely állapotok sorozatát jelenti \emph{T}-n keresztül:
 \begin{align}
 	utvonal(s_{[0..n]})~\dot{=}~\bigwedge_{0 \leq i < n} T(s_{i}, s_{i+1})
 \end{align}
 Ahol $s_{[0..n]}$ rövidítés az $(s_{0}, s_{1}, \dots, s_{n})$ állapotsorozatot jelöli. Az \emph{utvonal} $n$ hosszúságú, ha $n$ darab tranzakcióból áll. A nulla hosszúságú \emph{utvonal} egy darab állapotot tartalmaz és nem értelmezzük rajta a tranzakció műveletét. Azt a megállapítást, hogy egy \emph{Q} tulajdonság igaz egy útvonal összes állapotára, úgy fogjuk írni, hogy $\forall . Q(s_{[0..n]})$.
 \newline
 \newline
+Definiáljuk emellett a ciklus mentes útvonalat is: olyan útvonal, melyben minden állapot maximum csak egyszer szerepelhet:
+\begin{align}
+	cmUtvonal(s_{[0..n]})~\dot{=}~utvonal(s_{[0..n]}) \wedge \bigwedge_{0 \leq i < j \leq n} s_{i} \neq s_{j}
+\end{align}
 A továbbiakban lesz olyan, mikor egy útvonal alatt nem csak azt értjük, hogy az tranzakciók sorozata, hanem annak létezését is jelöli. Így, $utvonal_{i}(s_{0}, s_{i})$ alatt azt jelöljük, hogy \emph{létezik} egy útvonal $s_{0}$-ból $s_{i}$-be, mely \emph{i} darab \emph{T}-ből áll.
 \newline
 \newline
@@ -58,38 +60,62 @@ Például úgy, ha megnézzük, hogy a
 \begin{align}
 	\forall s_{0} \dots s_{i}:~\neg(I(s_{0}) \wedge utvonal(s_{[0..i]}) \wedge \neg P(s_{i}))
 \end{align}
-teljesül $i = 0$, $i = 1$, $i = 2$, $\dots$ -re. Ha feltétel megsérül valamelyik elérhető állapotban, akkor ezzel a módszerrel meg fogjuk találni és az oda vezető útvonal ellenpélda lesz a modell \emph{P}-biztonságosságára. Ez egy elvárható eredmény: az algoritmusnak két féle kimenetele kell, hogy legyen: vagy az, hogy a modell \emph{P}-tulajdonságra nézve biztonságos (minden elérhető állapot teljesíti), vagy az, hogy a modell nem \emph{P}-biztonságos, ekkor egy ellenpéldát is kell adnia, mely bizonyítja, hogy az adott kezdőállapotból elindulva, azon végighaladva valóban egy hibaállapotba kerülünk.
+teljesül $i = 0$, $i = 1$, $i = 2$, $\dots$ -re. Ha a feltétel megsérül valamelyik elérhető állapotban, akkor ezzel a módszerrel meg fogjuk találni és az oda vezető útvonal ellenpélda lesz a modell \emph{P}-biztonságosságára. Ez egy elvárható eredmény: az algoritmusnak két féle kimenetele kell, hogy legyen: vagy az, hogy a modell \emph{P}-tulajdonságra nézve biztonságos (minden elérhető állapot teljesíti), vagy az, hogy a modell nem \emph{P}-biztonságos, ekkor egy ellenpéldát is kell adnia, mely bizonyítja, hogy az adott kezdőállapotból elindulva, azon végighaladva valóban egy hibaállapotba kerülünk.
 
-Ha a rendszer \emph{P}-biztonságos, akkor (3.8) minden \emph{i}-re igaz lesz, hiszen nem fogunk tudni találni olyan \emph{i} értéket, melyre ne teljesülne. Felvetődhet a kérdés, hogy mikortól lehet azt mondani, hogy \emph{i} további növelése céltalan, mert már teljes bizonyossággal kijelenthetjük, hogy a modell \emph{P}-biztonságos? A $I(s_{0}) \wedge utvonal(s_{[0..i]})$ feltétel önmagában nem fog gyorsítást eredményezni: vagy végig megy az állapottéren amilyen hosszan csak lehetséges (ezt szeretnénk lerövidíteni), tekintve, hogy minden állapotnak van egy szülőállapota a \emph{T} tranzakciós reláción keresztül, vagy végtelen ciklusba kerül.
+Ha a rendszer \emph{P}-biztonságos, akkor (TODO) minden \emph{i}-re igaz lesz, hiszen nem fogunk tudni találni olyan \emph{i} értéket, melyre ne teljesülne. Felvetődhet a kérdés, hogy mikortól lehet azt mondani, hogy \emph{i} további növelése céltalan, mert már teljes bizonyossággal kijelenthetjük, hogy a modell \emph{P}-biztonságos? A $I(s_{0}) \wedge utvonal(s_{[0..i]})$ feltétel önmagában nem fog gyorsítást eredményezni: vagy végig megy az állapottéren amilyen hosszan csak lehetséges (ezt szeretnénk lerövidíteni), tekintve, hogy minden állapotnak van egy szülőállapota a \emph{T} tranzakciós reláción keresztül, vagy végtelen ciklusba kerül.
+
+Ennél jobb stratégia, ha akkor állunk meg, mikor $I(s_{0})~\wedge~ cmUtvonal(s_{[0..i]})$ ellentmondásos lesz. Ezt használva addig folytatjuk a keresést, míg az összes, ciklusmentes útvonalat be nem jártuk. Legrosszabb esetben ekkor is végigmegy a program a teljes állapottéren, viszont ha az állapottérben ciklikusság figyelhető meg, akkor azt a stratégia maximálisan kihasználja: nem fog végtelen ciklusba kerülni, illetve átlagosan rövidebb (de bizonyosan nem hosszabb) útvonalakat fog bejárni, mint az $I(s_{0}) \wedge utvonal(s_{[0..i]})$.
+
+Ehhez hasonlóan tehetjük azt is, hogy addig ellenőrzünk, amíg a $cmUtvonal(s_{[0..i]}) \wedge \neg P(s_{i})$ nem lesz ellentmondásos: egy, a \emph{P} tulajdonságot sértő állapotból (hibaállapotból) kiindulva addig megyünk ciklusmentes útvonalakon visszafelé, míg be nem járjuk a teljes állapotteret (ez esetben kijelenthetjük, hogy a rendszer nem-\emph{P}-biztonságos), ellenben ha nem járunk be minden \emph{elérhető} állapotot, akkor a rendszer \emph{P}-biztonságos (feltéve, hogy egyik hibaállapotból sem tudjuk bejárni a teljes rendszert). Ez azzal magyarázható, hogy ha a kezdőállapotok halmaza nem elérhető a hibaállapotokból (mert visszafele haladva útközben elakadunk), akkor kijelenthetjük, hogy a modell biztonságos.
 \newline
 \newline
+A \emph{k}-indukció alapú szoftververifikáció az előbb elmondottakra épül. A módszer lényege, hogy elindulunk mind a kezdőállapotokból, mind a hibaállapotokból: míg az előbbiekből előrefelé, addig az utóbbiakból visszafelé. Kijelenthető, hogy a modell biztonságos, ha az előrefelé haladó keresés bejárta a teljes elérhető állapotteret (nincs több ciklusmentes útvonal)\footnote{Természetesen ha közben hibaállapotba jutna, akkor a teljes modellellenőrzés megakadna, s így nem tudná bejárni a teljes állapotteret.}, illetve akkor is biztonságos, ha a hátrafelé haladó keresés megakad.
+
+A \hyperlink{section.2.1}{\emph{2.1.-es alfejezet}}ben bemutatott, és így a módszer nevét adó \emph{k-indukció} úgy kerül a képbe, hogy ha a modellt bejárjuk \emph{k} mélységig, és belátjuk a fentebb említett metodika alapján, hogy a modell biztonságos, akkor kijelenthető, hogy $k+1$ mélységre is biztonságos lesz \cite{donaldson_cikk}, illetve mellé az is, hogy ezzel az indukciós lépést bizonyítottuk \cite{k_induction_article}:
+
+folyt. köv.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{comment}
 \begin{algorithm}[H]
 	\SetAlgoLined
 	\KwResult{}
-	i=0\;
+	i=0\\
 	\While{True}{
-		instructions\;
+		instructions\\
 		\eIf{condition}{
-			instructions1\;
-			instructions2\;
+			instructions1\\
+			instructions2\\
 		}{
-			instructions3\;
+			instructions3\\
 		}
 	}
 	\caption{Checking if model is \emph{P}-safe}
-\end{algorithm}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\end{algorithm}í
+\end{comment}
 

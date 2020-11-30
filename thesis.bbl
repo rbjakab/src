@@ -93,6 +93,22 @@
 \def\bibInSelf#1{In u\H{o}: }
 \csname bibOverride\endcsname
 
+\bibitem{donaldson_cikk}
+Alastair~F. Donaldson\bibAnd 0Leopold Haller\bibAnd 0Daniel Kroening\bibAnd
+  2Philipp R\"ummer:
+\bibNewBlock Software verification using k-induction.
+\bibNewBlock In Eran Yahav\bibEd 0: {\em Static Analysis}
+  (kon\-fe\-ren\-cia\-anyag).
+\bibNewBlock Berlin, Heidelberg, 2011, Springer Berlin Heidelberg, 351--368.~p.
+\bibNewBlock ISBN 978-3-642-23702-7.
+
+\bibitem{alapfogalmak}
+{Dr. Majzik István}:
+\bibNewBlock Rendszertervezés és -integráció.
+\bibNewBlock
+  \textsc{url:}~\url{https://www.mit.bme.hu/system/files/oktatas/targyak/10019/VIMIMA11_RTI_08_Biztonsagi_alapfogalmak_1.pdf},
+  2018.\ 12.
+
 \bibitem{k_induction_article}
 Mary Sheeran\bibAnd 0Satnam Singh\bibAnd 2Gunnar St\aa lmarck:
 \bibNewBlock Checking safety properties using induction and a sat-solver.

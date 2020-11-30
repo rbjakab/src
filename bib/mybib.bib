@@ -1,3 +1,11 @@
+@misc{alapfogalmak,
+	author = {{Dr. Majzik István}},
+	title = {Rendszertervezés és -integráció},
+	howpublished = {\textsc{url:}~\url{https://www.mit.bme.hu/system/files/oktatas/targyak/10019/VIMIMA11_RTI_08_Biztonsagi_alapfogalmak_1.pdf}},
+	month = {12},
+	year = {2018}
+}
+
 @misc{k_induction_principle,
 	author = {Thomas Wahl},
 	title = {The k-Induction Principle},
@@ -19,4 +27,31 @@
 	pages="127--144",
 	abstract="We take a fresh look at the problem of how to check safety properties of finite state machines. We are particularly interested in checking safety properties with the help of a SAT-solver. We describe some novel induction-based methods, and show how they are related to more standard fixpoint algorithms for invariance checking. We also present preliminary experimental results in the verification of FPGA cores. This demonstrates the practicality of combining a SAT-solver with induction for safety property checking of hardware in a real design flow.",
 	isbn="978-3-540-40922-9"
+}
+
+@InProceedings{donaldson_cikk,
+author="Donaldson, Alastair F.
+and Haller, Leopold
+and Kroening, Daniel
+and R{\"u}mmer, Philipp",
+editor="Yahav, Eran",
+title="Software Verification Using k-Induction",
+booktitle="Static Analysis",
+year="2011",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="351--368",
+abstract="We present combined-case k-induction, a novel technique for verifying software programs. This technique draws on the strengths of the classical inductive-invariant method and a recent application of k-induction to program verification. In previous work, correctness of programs was established by separately proving a base case and inductive step. We present a new k-induction rule that takes an unstructured, reducible control flow graph (CFG), a natural loop occurring in the CFG, and a positive integer k, and constructs a single CFG in which the given loop is eliminated via an unwinding proportional to k. Recursively applying the proof rule eventually yields a loop-free CFG, which can be checked using SAT-/SMT-based techniques. We state soundness of the rule, and investigate its theoretical properties. We then present two implementations of our technique: K-Inductor, a verifier for C programs built on top of the CBMC model checker, and K-Boogie, an extension of the Boogie tool. Our experiments, using a large set of benchmarks, demonstrate that our k-induction technique frequently allows program verification to succeed using significantly weaker loop invariants than are required with the standard inductive invariant approach.",
+isbn="978-3-642-23702-7"
+}
+
+@article{armoni_cikk,
+	author = {Armoni, Roy and Fix, Limor and Fraer, Ranan and Huddleston, Scott and Piterman, Nir and Vardi, Moshe},
+	year = {2005},
+	month = {03},
+	pages = {3-16},
+	title = {SAT-based Induction for Temporal Safety Properties},
+	volume = {119},
+	journal = {Electronic Notes in Theoretical Computer Science},
+	doi = {10.1016/j.entcs.2004.12.021}
 }

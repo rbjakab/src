@@ -6,8 +6,8 @@ A level-1 auxiliary file: include/titlepage.aux
 A level-1 auxiliary file: include/declaration.aux
 A level-1 auxiliary file: content/abstract.aux
 A level-1 auxiliary file: content/introduction.aux
-A level-1 auxiliary file: tartalom/verifikacio.aux
 A level-1 auxiliary file: tartalom/k_indukcio.aux
+A level-1 auxiliary file: tartalom/theta.aux
 A level-1 auxiliary file: tartalom/implementalas.aux
 A level-1 auxiliary file: tartalom/benchmark.aux
 A level-1 auxiliary file: tartalom/osszefoglalo.aux
@@ -24,44 +24,44 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 2 entries,
+You've used 4 entries,
             4991 wiz_defined-function locations,
-            1141 strings with 12044 characters,
-and the built_in function-call counts, 8177 in all, are:
-= -- 1424
-> -- 107
-< -- 1
-+ -- 531
-- -- 174
-* -- 152
-:= -- 273
-add.period$ -- 7
-call.type$ -- 2
-change.case$ -- 10
+            1155 strings with 12429 characters,
+and the built_in function-call counts, 13588 in all, are:
+= -- 2428
+> -- 141
+< -- 2
++ -- 914
+- -- 198
+* -- 248
+:= -- 509
+add.period$ -- 14
+call.type$ -- 4
+change.case$ -- 21
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 1421
-empty$ -- 114
-format.name$ -- 10
-if$ -- 1555
+cite$ -- 4
+duplicate$ -- 2243
+empty$ -- 228
+format.name$ -- 22
+if$ -- 2693
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 1
-newline$ -- 109
-num.names$ -- 6
-pop$ -- 227
+int.to.str$ -- 4
+missing$ -- 2
+newline$ -- 121
+num.names$ -- 12
+pop$ -- 406
 preamble$ -- 1
-purify$ -- 8
-quote$ -- 22
-skip$ -- 103
+purify$ -- 17
+quote$ -- 23
+skip$ -- 143
 stack$ -- 0
-substring$ -- 810
-swap$ -- 936
-text.length$ -- 1
+substring$ -- 1421
+swap$ -- 1526
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 10
+type$ -- 20
 warning$ -- 0
-while$ -- 36
-width$ -- 3
-write$ -- 119
+while$ -- 71
+width$ -- 5
+write$ -- 145

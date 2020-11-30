@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  30 NOV 2020 03:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  30 NOV 2020 22:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -137,6 +137,12 @@ Package: relsize 2013/03/29 ver 4.1
 \algocf@algoframe=\box53
 \algocf@algobox=\box54
 )
+(c:/texlive/2020/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks17
+\verbatim@line=\toks18
+\verbatim@in@stream=\read2
+)
 (c:/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2020/10/27 3.51 The Babel package
 
@@ -147,7 +153,7 @@ File: babel.def 2020/10/27 3.51 Babel common definitions
 \l@babelnohyphens=\language32
 
 (c:/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
-\bbl@readstream=\read2
+\bbl@readstream=\read3
 )
 \bbl@dirlevel=\count190
 
@@ -171,7 +177,7 @@ pages
 )
 (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks17
+\@emptytoks=\toks19
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -188,7 +194,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 
 (c:/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks18
+\@emptytoks=\toks20
 \ex@=\dimen146
 ))
 (c:/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty
@@ -218,21 +224,21 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \dotsspace@=\muskip16
 \c@parentequation=\count266
 \dspbrk@lvl=\count267
-\tag@help=\toks19
+\tag@help=\toks21
 \row@=\count268
 \column@=\count269
 \maxfields@=\count270
-\andhelp@=\toks20
+\andhelp@=\toks22
 \eqnshift@=\dimen149
 \alignsep@=\dimen150
 \tagshift@=\dimen151
 \tagwidth@=\dimen152
 \totwidth@=\dimen153
 \lineht@=\dimen154
-\@envbody=\toks21
+\@envbody=\toks23
 \multlinegap=\skip69
 \multlinetaggap=\skip70
-\mathdisplay@stack=\toks22
+\mathdisplay@stack=\toks24
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 )
@@ -264,7 +270,7 @@ Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
 
 (c:/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks23
+\KV@toks@=\toks25
 )
 (c:/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
@@ -446,7 +452,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 (c:/texlive/2020/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count285
 \lst@gtempboxa=\box57
-\lst@token=\toks24
+\lst@token=\toks26
 \lst@length=\count286
 \lst@currlwidth=\dimen178
 \lst@column=\count287
@@ -471,34 +477,34 @@ Package: listings 2020/03/24 1.8d (Carsten Heinz)
 (c:/texlive/2020/texmf-dist/tex/latex/ntheorem/ntheorem.sty
 Style `ntheorem', Version 1.33 <2011/08/15>
 Package: ntheorem 2011/08/15 1.33
-\theorem@style=\toks25
-\theorem@@style=\toks26
-\theorembodyfont=\toks27
-\theoremnumbering=\toks28
+\theorem@style=\toks27
+\theorem@@style=\toks28
+\theorembodyfont=\toks29
+\theoremnumbering=\toks30
 \theorempreskipamount=\skip72
 \theorempostskipamount=\skip73
 \theoremframepreskipamount=\skip74
 \theoremframepostskipamount=\skip75
 \theoreminframepreskipamount=\skip76
 \theoreminframepostskipamount=\skip77
-\theorem@preskip=\toks29
-\theorem@postskip=\toks30
-\theorem@framepreskip=\toks31
-\theorem@framepostskip=\toks32
-\theorem@inframepreskip=\toks33
-\theorem@inframepostskip=\toks34
+\theorem@preskip=\toks31
+\theorem@postskip=\toks32
+\theorem@framepreskip=\toks33
+\theorem@framepostskip=\toks34
+\theorem@inframepreskip=\toks35
+\theorem@inframepostskip=\toks36
 \theoremindent=\dimen182
 \theorem@indent=\dimen183
 \theoremrightindent=\dimen184
 \theorem@rightindent=\dimen185
-\theoremheaderfont=\toks35
-\theoremseparator=\toks36
-\theoremprework=\toks37
-\theorempostwork=\toks38
-\theoremsymbol=\toks39
-\qedsymbol=\toks40
-\theoremkeyword=\toks41
+\theoremheaderfont=\toks37
+\theoremseparator=\toks38
+\theoremprework=\toks39
+\theorempostwork=\toks40
+\theoremsymbol=\toks41
 \qedsymbol=\toks42
+\theoremkeyword=\toks43
+\qedsymbol=\toks44
 \thm@topsep=\skip78
 \thm@topsepadd=\skip79
 Package ntheorem Info: Option `thmmarks' loaded on input line 1175.
@@ -563,7 +569,7 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 )
 (./thesis.aux (./include/titlepage.aux) (./include/declaration.aux)
 (./content/abstract.aux) (./content/introduction.aux)
-(./tartalom/verifikacio.aux) (./tartalom/k_indukcio.aux)
+(./tartalom/k_indukcio.aux) (./tartalom/theta.aux)
 (./tartalom/implementalas.aux) (./tartalom/benchmark.aux)
 (./tartalom/osszefoglalo.aux) (./content/acknowledgement.aux))
 \openout1 = `thesis.aux'.
@@ -594,12 +600,12 @@ LaTeX Font Info:    ... okay on input line 31.
 \scratchbox=\box60
 \nofMPsegments=\count309
 \nofMParguments=\count310
-\everyMPshowfont=\toks43
+\everyMPshowfont=\toks45
 \MPscratchCnt=\count311
 \MPscratchDim=\dimen196
 \MPnumerator=\count312
 \makeMPintoPDFobject=\count313
-\everyMPtoPDFconversion=\toks44
+\everyMPtoPDFconversion=\toks46
 ) (c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 
@@ -736,69 +742,43 @@ Package hyperref Info: Option `pageanchor' set `false' on input line 30.
 
  (./content/introduction.tex
 1. fejezet.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 6.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 6.
-
-Underfull \hbox (badness 10000) in paragraph at lines 3--13
-
- []
-
-
-Underfull \hbox (badness 1168) in paragraph at lines 3--13
-\T1/lmr/m/n/10.95 me-lyet abszt-rak-ci-ós fi-no-mí-tá-son ala-pu-ló al-go-rit-m
-u-sok ter-ve-zé-sé-nek és ér-té-ke-lé-sé-nek
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 3--13
-
- []
-
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-4.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
+.
 (c:/texlive/2020/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) [1
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 17.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 17.
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--24
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--24
+
+ []
+
+[1
 
 
 
 
 
-]
-\openout2 = `tartalom/verifikacio.aux'.
-
-
-(./tartalom/verifikacio.tex
-2. fejezet.
-) [2
-
-
-
-
-]
+]) [2]
 \openout2 = `tartalom/k_indukcio.aux'.
 
  (./tartalom/k_indukcio.tex
-3. fejezet.
+2. fejezet.
 
-Underfull \hbox (badness 10000) in paragraph at lines 12--17
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 30--38
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 30--38
+Underfull \hbox (badness 10000) in paragraph at lines 10--15
 
  []
 
@@ -808,16 +788,48 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--38
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 63--80
+Underfull \hbox (badness 10000) in paragraph at lines 28--33
 
  []
 
-[4]) [5]
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--40
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 69--73
+[]\T1/lmr/m/n/10.95 Ehhez ha-son-ló-an te-het-jük azt is, hogy ad-dig el-len-®r
+-zünk, amíg a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--73
+
+ []
+
+
+Underfull \hbox (badness 1028) in paragraph at lines 69--73
+\T1/lmr/m/n/10.95 el®b-bi-ek-b®l el®-re-fe-lé, ad-dig az utób-bi-ak-ból vissza-
+fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
+ []
+
+) [5]
+\openout2 = `tartalom/theta.aux'.
+
+ (./tartalom/theta.tex
+3. fejezet.
+) [6
+
+
+
+
+]
 \openout2 = `tartalom/implementalas.aux'.
 
  (./tartalom/implementalas.tex
 4. fejezet.
-) [6
+) [7
 
 
 
@@ -827,7 +839,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--80
 
  (./tartalom/benchmark.tex
 5. fejezet.
-) [7
+) [8
 
 
 
@@ -837,7 +849,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--80
 
  (./tartalom/osszefoglalo.tex
 6. fejezet.
-) [8
+) [9
 
 
 
@@ -845,12 +857,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--80
 ]
 \openout2 = `content/acknowledgement.aux'.
 
- (./content/acknowledgement.tex) [9
+ (./content/acknowledgement.tex) [10
 
 
 
 
-] (./thesis.bbl)
+] (./thesis.bbl
+Underfull \hbox (badness 4416) in paragraph at lines 106--111
+[]\T1/lmr/m/n/10.95 Dr. Maj-zik Ist-ván: Rend-szer-ter-ve-zés és -integráció. \
+T1/lmr/m/sc/10.95 url: [][]$\T1/lmtt/m/n/10.95 https : / / www . mit .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--111
+\T1/lmtt/m/n/10.95 bme . hu / system / files / oktatas / targyak / 10019 / VIMI
+MA11 _ RTI _ 08 _ Biztonsagi _
+ []
+
+)
 \tf@thm=\write5
 \openout5 = `thesis.thm'.
 
@@ -859,26 +883,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--80
 Package caption Warning: Unused \captionsetup[figure] on input line 108.
 See the caption package documentation for explanation.
 
-[10
+[11
 
 
 
 ] (./thesis.aux (./include/titlepage.aux) (./include/declaration.aux)
 (./content/abstract.aux) (./content/introduction.aux)
-(./tartalom/verifikacio.aux) (./tartalom/k_indukcio.aux)
+(./tartalom/k_indukcio.aux) (./tartalom/theta.aux)
 (./tartalom/implementalas.aux) (./tartalom/benchmark.aux)
 (./tartalom/osszefoglalo.aux) (./content/acknowledgement.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: FBF610BE5D5E91277880BFE7E571C4AF;1851.
+(rerunfilecheck)             Checksum: E8AC106B81D317E288C4DC986D41CFDF;1939.
  ) 
 Here is how much of TeX's memory you used:
- 16473 strings out of 480804
- 246172 string characters out of 5903687
- 576667 words of memory out of 5000000
- 32894 multiletter control sequences out of 15000+600000
+ 16508 strings out of 480804
+ 246764 string characters out of 5903687
+ 575439 words of memory out of 5000000
+ 32925 multiletter control sequences out of 15000+600000
  606264 words of font info for 76 fonts, out of 8000000 for 9000
  376 hyphenation exceptions out of 8191
- 70i,12n,74p,750b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,10n,74p,829b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2020/tex
 mf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvip
 s/lm/lm-mathsy.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
@@ -895,10 +919,10 @@ t/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
 live/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2020/texmf-di
 st/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
 lic/lm/lmsy8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtl10.pfb>
-Output written on thesis.pdf (15 pages, 306972 bytes).
+Output written on thesis.pdf (16 pages, 317063 bytes).
 PDF statistics:
- 245 PDF objects out of 1000 (max. 8388607)
- 209 compressed objects within 3 object streams
- 33 named destinations out of 1000 (max. 500000)
+ 264 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
+ 36 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 
