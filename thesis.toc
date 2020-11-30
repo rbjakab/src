@@ -4,13 +4,12 @@
 \select@language {magyar} \contentsline {chapter}{\numberline {2}Szoftververifikáció}{2}{chapter.2}%
 \select@language {magyar} \contentsline {chapter}{\numberline {3}K-indukció}{3}{chapter.3}%
 \select@language {magyar} \contentsline {section}{\numberline {3.1}Elméleti háttér}{3}{section.3.1}%
-\select@language {magyar} \contentsline {section}{\numberline {3.2}Jelölésrendszer}{3}{section.3.2}%
-\select@language {magyar} \contentsline {section}{\numberline {3.3}A probléma formalizálása}{4}{section.3.3}%
-\select@language {magyar} \contentsline {section}{\numberline {3.4}A formalizált algoritmus}{4}{section.3.4}%
-\select@language {magyar} \contentsline {chapter}{\numberline {4}Implementálás}{5}{chapter.4}%
-\select@language {magyar} \contentsline {section}{\numberline {4.1}Adatszerkezet}{5}{section.4.1}%
-\select@language {magyar} \contentsline {chapter}{\numberline {5}Benchmark}{6}{chapter.5}%
-\select@language {magyar} \contentsline {section}{\numberline {5.1}Teszteredmények}{6}{section.5.1}%
-\select@language {magyar} \contentsline {chapter}{\numberline {6}Összefoglaló}{7}{chapter.6}%
-\select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{8}{chapter*.4}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{9}{chapter*.4}%
+\select@language {magyar} \contentsline {section}{\numberline {3.2}A probléma formalizálása}{3}{section.3.2}%
+\select@language {magyar} \contentsline {section}{\numberline {3.3}A formalizált algoritmus}{4}{section.3.3}%
+\select@language {magyar} \contentsline {chapter}{\numberline {4}Implementálás}{6}{chapter.4}%
+\select@language {magyar} \contentsline {section}{\numberline {4.1}Adatszerkezet}{6}{section.4.1}%
+\select@language {magyar} \contentsline {chapter}{\numberline {5}Benchmark}{7}{chapter.5}%
+\select@language {magyar} \contentsline {section}{\numberline {5.1}Teszteredmények}{7}{section.5.1}%
+\select@language {magyar} \contentsline {chapter}{\numberline {6}Összefoglaló}{8}{chapter.6}%
+\select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{9}{chapter*.4}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{10}{chapter*.4}%

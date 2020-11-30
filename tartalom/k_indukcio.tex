@@ -1,3 +1,5 @@
+
+
 \chapter{K-indukció}
 
 Az elkészített programom a \emph{k}-indukció nevű matematikai módszerre \cite{k_induction_principle} támaszkodik. Ebben a fejezetben ismertetem az elméleti módszert, illetve pszeudokód szinten bemutatom az ezen a matematikai módszeren alapuló algoritmus működését és bemutatom annak helyességét.
@@ -20,7 +22,7 @@ Ezt az elvet általánosíthatjuk \emph{k} lépésre, $k \geq 1$, melyet a iroda
 	\left( \bigwedge_{i=0}^{k-1} P(i) \right) \wedge \forall n \left( \left( \bigwedge_{i=0}^{k-1} P(n+i) \right) \Rightarrow P(n+k) \right) \Rightarrow \forall n P(n).
 \end{align}
 
-\section{Jelölésrendszer}
+\section{A probléma formalizálása}
 
 Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölések és fogalmak bevezetésére. Adott egy tranzakciós relációkból felépülő gráf, melyben $T(x, y)$-al jelöljük azt, ha létezik egy, az \emph{x} állapotból az \emph{y} állapotba mutató tranzakciós reláció \cite{k_induction_article}. Így már tudjuk definiálni az útvonal fogalmát, mely állapotok sorozatát jelenti \emph{T}-n keresztül:
 \begin{align}
@@ -30,9 +32,8 @@ Ahol $s_{[0..n]}$ rövidítés az $(s_{0}, s_{1}, \dots, s_{n})$ állapotsorozat
 \newline
 \newline
 A továbbiakban lesz olyan, mikor egy útvonal alatt nem csak azt értjük, hogy az tranzakciók sorozata, hanem annak létezését is jelöli. Így, $utvonal_{i}(s_{0}, s_{i})$ alatt azt jelöljük, hogy \emph{létezik} egy útvonal $s_{0}$-ból $s_{i}$-be, mely \emph{i} darab \emph{T}-ből áll.
-
-\section{A probléma formalizálása}
-
+\newline
+\newline
 Legyen \emph{T} egy tranzakciós reláció \emph{S} állapothalmazán. Feltételezzük, hogy \emph{T} a teljes állapottérre értelmezve van, tehát minden állapotnak (a kezdőállapotokat leszámítva) van egy szülőállapota \emph{T}-n keresztül. Jelöljük \emph{I}-vel a kezdőállapotokat, és azt vizsgáljuk, hogy az állapotok teljesítik-e a \emph{P} tulajdonságot.
 
 A problémát informálisan a következőképp foglalhatjuk össze: beszeretnénk azt látni, hogy ha egy kezdőállapotból elindulunk, akkor a tranzakciós relációt ismétlődően alkalmazva csak olyan állapotba fogunk eljutni, mely kielégíti \emph{P}-t. Formálisan a következőt akarjuk belátni:
@@ -43,10 +44,52 @@ Ahol $i \geq 0$. Később látni fogjuk, hogy az algoritmus felhasználja ennek 
 \begin{align}
 	\forall i:~\forall s_{0} \dots s_{i}:~(\neg I(s_{0}) \leftarrow utvonal(s_{[0..i]}) \wedge \neg P(s_{i}))
 \end{align}
-Ahol $\neg I(s_{0})$ azt jelenti, hogy $s_{0}$ nem kezdőállapot, illetve $\neg P(s_{i})$ azt, hogy $s_{i}$ nem elégíti ki a \emph{P} tulajdonságot. A két egyenlet ekvivalens és összetehetőek úgy, hogy azon a probléma szemléletesebb és szimmetrikusabb legyen:
+Ahol $\neg I(s_{0})$ azt jelenti, hogy $s_{0}$ nem kezdőállapot (nem teljesíti a ,,kezdőállapot tulajdonságot''), illetve $\neg P(s_{i})$ azt, hogy $s_{i}$ nem elégíti ki a \emph{P} tulajdonságot. A két egyenlet ekvivalens és összetehetőek úgy, hogy azon a probléma szemléletesebb és szimmetrikusabb legyen:
 \begin{align}
 	\forall i:~\forall s_{0} \dots s_{i}:~\neg(I(s_{0}) \wedge utvonal(s_{[0..i]}) \wedge \neg P(s_{i}))
 \end{align}
-Azaz szavakkal elmondva -- azt akarjuk megmutatni, hogy \emph{nem létezik} olyan útvonal, mely kezdőállapotból indul és egy nem-\emph{P} állapotba jut.
+Azaz szavakkal elmondva -- azt akarjuk megmutatni, hogy \emph{nem létezik} olyan útvonal, mely kezdőállapotból indul és egy \emph{nem-P} állapotba jut.
 
 \section{A formalizált algoritmus}
+
+A fenti ismeretek segítségével hogy tudnánk belátni, hogy a modell a \emph{P} tulajdonságra nézve biztonságos?
+
+Például úgy, ha megnézzük, hogy a 
+\begin{align}
+	\forall s_{0} \dots s_{i}:~\neg(I(s_{0}) \wedge utvonal(s_{[0..i]}) \wedge \neg P(s_{i}))
+\end{align}
+teljesül $i = 0$, $i = 1$, $i = 2$, $\dots$ -re. Ha feltétel megsérül valamelyik elérhető állapotban, akkor ezzel a módszerrel meg fogjuk találni és az oda vezető útvonal ellenpélda lesz a modell \emph{P}-biztonságosságára. Ez egy elvárható eredmény: az algoritmusnak két féle kimenetele kell, hogy legyen: vagy az, hogy a modell \emph{P}-tulajdonságra nézve biztonságos (minden elérhető állapot teljesíti), vagy az, hogy a modell nem \emph{P}-biztonságos, ekkor egy ellenpéldát is kell adnia, mely bizonyítja, hogy az adott kezdőállapotból elindulva, azon végighaladva valóban egy hibaállapotba kerülünk.
+
+Ha a rendszer \emph{P}-biztonságos, akkor (3.8) minden \emph{i}-re igaz lesz, hiszen nem fogunk tudni találni olyan \emph{i} értéket, melyre ne teljesülne. Felvetődhet a kérdés, hogy mikortól lehet azt mondani, hogy \emph{i} további növelése céltalan, mert már teljes bizonyossággal kijelenthetjük, hogy a modell \emph{P}-biztonságos? A $I(s_{0}) \wedge utvonal(s_{[0..i]})$ feltétel önmagában nem fog gyorsítást eredményezni: vagy végig megy az állapottéren amilyen hosszan csak lehetséges (ezt szeretnénk lerövidíteni), tekintve, hogy minden állapotnak van egy szülőállapota a \emph{T} tranzakciós reláción keresztül, vagy végtelen ciklusba kerül.
+\newline
+\newline
+\begin{algorithm}[H]
+	\SetAlgoLined
+	\KwResult{}
+	i=0\;
+	\While{True}{
+		instructions\;
+		\eIf{condition}{
+			instructions1\;
+			instructions2\;
+		}{
+			instructions3\;
+		}
+	}
+	\caption{Checking if model is \emph{P}-safe}
+\end{algorithm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
