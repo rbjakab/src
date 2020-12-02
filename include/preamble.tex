@@ -42,7 +42,9 @@
 %--------------------------------------------------------------------------------------
 % Set up listings
 %--------------------------------------------------------------------------------------
-\definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{blue}{rgb}{.0,.0,.5}
+% \definecolor{lightgray}{rgb}{0.95,0.95,0.95}
+\definecolor{lightgray}{rgb}{0.975,0.975,0.975}
 \lstset{
 	basicstyle=\scriptsize\ttfamily, % print whole listing small
 	keywordstyle=\color{black}\bfseries, % bold black keywords
@@ -55,7 +57,7 @@
 	belowskip=3pt,
 	backgroundcolor=\color{lightgray},
 	columns=flexible,
-	keepspaces=true,
+ 	keepspaces=true,
 	escapeinside={(*@}{@*)},
 	captionpos=b,
 	breaklines=true,
@@ -67,6 +69,15 @@
 		{Á}{{\'A}}1	{É}{{\'E}}1	{Í}{{\'I}}1	{Ó}{{\'O}}1	{Ö}{{\"O}}1	{Ő}{{\H{O}}}1	{Ú}{{\'U}}1	{Ü}{{\"U}}1	{Ű}{{\H{U}}}1
 }
 
+\lstset{
+	basicstyle=\ttfamily,
+	language=C,
+	tabsize=1,
+	frame=single,
+	numbers=left,
+	keywordstyle=\color{blue},
+	morekeywords={assert},
+}
 
 %--------------------------------------------------------------------------------------
 % Set up theorem-like environments

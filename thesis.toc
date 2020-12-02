@@ -15,5 +15,5 @@
 \select@language {magyar} \contentsline {chapter}{\numberline {5}Esettanulmány}{9}{chapter.5}%
 \select@language {magyar} \contentsline {section}{\numberline {5.1}Teszteredmények}{9}{section.5.1}%
 \select@language {magyar} \contentsline {chapter}{\numberline {6}Összefoglaló}{10}{chapter.6}%
-\select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{11}{chapter*.4}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{12}{chapter*.4}%
+\select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{11}{chapter*.5}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{12}{chapter*.5}%
