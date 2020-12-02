@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  30 NOV 2020 22:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  2 DEC 2020 23:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -656,7 +656,7 @@ LaTeX Info: Redefining \mit on input line 578.
 
  (./include/titlepage.tex
 Package hyperref Info: Option `pageanchor' set `false' on input line 1.
-<figures/bme_logo.pdf, id=63, 705.63625pt x 188.705pt>
+<figures/bme_logo.pdf, id=79, 705.63625pt x 188.705pt>
 File: figures/bme_logo.pdf Graphic file (type pdf)
 <use figures/bme_logo.pdf>
 Package pdftex.def Info: figures/bme_logo.pdf  used on input line 7.
@@ -819,17 +819,17 @@ fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
 
  (./tartalom/theta.tex
 3. fejezet.
-) [6
+[6
 
 
 
 
-]
+]) [7]
 \openout2 = `tartalom/implementalas.aux'.
 
  (./tartalom/implementalas.tex
 4. fejezet.
-) [7
+) [8
 
 
 
@@ -839,7 +839,7 @@ fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
 
  (./tartalom/benchmark.tex
 5. fejezet.
-) [8
+) [9
 
 
 
@@ -849,7 +849,7 @@ fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
 
  (./tartalom/osszefoglalo.tex
 6. fejezet.
-) [9
+) [10
 
 
 
@@ -857,19 +857,19 @@ fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
 ]
 \openout2 = `content/acknowledgement.aux'.
 
- (./content/acknowledgement.tex) [10
+ (./content/acknowledgement.tex) [11
 
 
 
 
 ] (./thesis.bbl
-Underfull \hbox (badness 4416) in paragraph at lines 106--111
+Underfull \hbox (badness 4416) in paragraph at lines 113--118
 []\T1/lmr/m/n/10.95 Dr. Maj-zik Ist-ván: Rend-szer-ter-ve-zés és -integráció. \
 T1/lmr/m/sc/10.95 url: [][]$\T1/lmtt/m/n/10.95 https : / / www . mit .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 106--111
+Underfull \hbox (badness 10000) in paragraph at lines 113--118
 \T1/lmtt/m/n/10.95 bme . hu / system / files / oktatas / targyak / 10019 / VIMI
 MA11 _ RTI _ 08 _ Biztonsagi _
  []
@@ -883,7 +883,7 @@ MA11 _ RTI _ 08 _ Biztonsagi _
 Package caption Warning: Unused \captionsetup[figure] on input line 108.
 See the caption package documentation for explanation.
 
-[11
+[12
 
 
 
@@ -893,16 +893,16 @@ See the caption package documentation for explanation.
 (./tartalom/implementalas.aux) (./tartalom/benchmark.aux)
 (./tartalom/osszefoglalo.aux) (./content/acknowledgement.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: E8AC106B81D317E288C4DC986D41CFDF;1939.
+(rerunfilecheck)             Checksum: ADD37140B196DE5926DC39BD5A6F1CD3;2505.
  ) 
 Here is how much of TeX's memory you used:
- 16508 strings out of 480804
- 246764 string characters out of 5903687
- 575439 words of memory out of 5000000
- 32925 multiletter control sequences out of 15000+600000
- 606264 words of font info for 76 fonts, out of 8000000 for 9000
+ 16527 strings out of 480804
+ 247056 string characters out of 5903687
+ 575616 words of memory out of 5000000
+ 32936 multiletter control sequences out of 15000+600000
+ 610527 words of font info for 77 fonts, out of 8000000 for 9000
  376 hyphenation exceptions out of 8191
- 70i,10n,74p,829b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,10n,74p,829b,398s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2020/tex
 mf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvip
 s/lm/lm-mathsy.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
@@ -917,12 +917,13 @@ live/2020/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2020/texmf-dis
 t/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
 /lm/lmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/tex
 live/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2020/texmf-di
-st/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/pub
-lic/lm/lmsy8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtl10.pfb>
-Output written on thesis.pdf (16 pages, 317063 bytes).
+st/fonts/type1/public/lm/lmri9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
+ic/lm/lmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c
+:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtl10.pfb>
+Output written on thesis.pdf (17 pages, 334330 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 227 compressed objects within 3 object streams
- 36 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 306 PDF objects out of 1000 (max. 8388607)
+ 267 compressed objects within 3 object streams
+ 43 named destinations out of 1000 (max. 500000)
+ 158 words of extra memory for PDF output out of 10000 (max. 10000000)
 

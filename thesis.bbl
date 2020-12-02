@@ -102,6 +102,13 @@ Alastair~F. Donaldson\bibAnd 0Leopold Haller\bibAnd 0Daniel Kroening\bibAnd
 \bibNewBlock Berlin, Heidelberg, 2011, Springer Berlin Heidelberg, 351--368.~p.
 \bibNewBlock ISBN 978-3-642-23702-7.
 
+\bibitem{soft_ver_akos}
+{Dr. Hajdu Ákos}:
+\bibNewBlock Formal software verification.
+\bibNewBlock
+  \textsc{url:}~\url{https://ftsrg.mit.bme.hu/software-verification-notes/software-verification.pdf},
+  2020.\ 11.
+
 \bibitem{alapfogalmak}
 {Dr. Majzik István}:
 \bibNewBlock Rendszertervezés és -integráció.
