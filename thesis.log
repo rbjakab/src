@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  3 DEC 2020 03:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  3 DEC 2020 05:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1174,24 +1174,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--46
 
 
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 96--100
+] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 114--118
 []\T1/lmr/m/n/10.95 Ehhez ha-son-ló-an te-het-jük azt is, hogy ad-dig el-len-®r
 -zünk, amíg a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--100
+Underfull \hbox (badness 10000) in paragraph at lines 114--118
 
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 96--100
+Underfull \hbox (badness 1028) in paragraph at lines 114--118
 \T1/lmr/m/n/10.95 el®b-bi-ek-b®l el®-re-fe-lé, ad-dig az utób-bi-ak-ból vissza-
 fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
  []
 
-[6]) [7]
+) [7]
 \openout2 = `tartalom/implementalas.aux'.
 
  (./tartalom/implementalas.tex
@@ -1230,13 +1230,13 @@ fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
 
 
 ] (./thesis.bbl
-Underfull \hbox (badness 4416) in paragraph at lines 113--118
+Underfull \hbox (badness 4416) in paragraph at lines 121--126
 []\T1/lmr/m/n/10.95 Dr. Maj-zik Ist-ván: Rend-szer-ter-ve-zés és -integráció. \
 T1/lmr/m/sc/10.95 url: [][]$\T1/lmtt/m/n/10.95 https : / / www . mit .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 113--118
+Underfull \hbox (badness 10000) in paragraph at lines 121--126
 \T1/lmtt/m/n/10.95 bme . hu / system / files / oktatas / targyak / 10019 / VIMI
 MA11 _ RTI _ 08 _ Biztonsagi _
  []
@@ -1255,37 +1255,38 @@ MA11 _ RTI _ 08 _ Biztonsagi _
 (./tartalom/implementalas.aux) (./tartalom/benchmark.aux)
 (./tartalom/osszefoglalo.aux) (./content/acknowledgement.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: F112BC96DBE39D952FF306DA181B1E0A;2607.
+(rerunfilecheck)             Checksum: 761460E774158C39024FD97949432B16;2607.
  ) 
 Here is how much of TeX's memory you used:
- 30000 strings out of 480804
- 560974 string characters out of 5903687
+ 30017 strings out of 480804
+ 561145 string characters out of 5903687
  1104960 words of memory out of 5000000
- 46122 multiletter control sequences out of 15000+600000
- 616512 words of font info for 79 fonts, out of 8000000 for 9000
+ 46131 multiletter control sequences out of 15000+600000
+ 637612 words of font info for 84 fonts, out of 8000000 for 9000
  376 hyphenation exceptions out of 8191
- 112i,10n,113p,824b,1448s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 112i,10n,113p,824b,1450s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2020/tex
-mf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvip
-s/lm/lm-mathsy.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
+mf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2020/texmf-dist/fonts/enc/
+dvips/lm/lm-rm.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
 }{c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/texlive/2020/
 texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2020/texmf-dist/fonts/type
 1/public/lm/lmbx10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12
 .pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/
 2020/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/texlive/2020/texmf-dist/fo
 nts/type1/public/lm/lmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/l
-m/lmmi8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/tex
-live/2020/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2020/texmf-dis
-t/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public
-/lm/lmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/tex
-live/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2020/texmf-di
-st/fonts/type1/public/lm/lmri9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
-ic/lm/lmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c
-:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtl10.pfb>
-Output written on thesis.pdf (17 pages, 340881 bytes).
+m/lmmi6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/tex
+live/2020/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texlive/2020/texmf-dis
+t/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publi
+c/lm/lmr6.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/te
+xlive/2020/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/texlive/2020/texmf-dis
+t/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
+ic/lm/lmri9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c
+:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texlive/2020/texm
+f-dist/fonts/type1/public/lm/lmtl10.pfb>
+Output written on thesis.pdf (17 pages, 349052 bytes).
 PDF statistics:
- 320 PDF objects out of 1000 (max. 8388607)
- 281 compressed objects within 3 object streams
- 55 named destinations out of 1000 (max. 500000)
+ 330 PDF objects out of 1000 (max. 8388607)
+ 290 compressed objects within 3 object streams
+ 59 named destinations out of 1000 (max. 500000)
  162 words of extra memory for PDF output out of 10000 (max. 10000000)
 

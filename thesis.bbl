@@ -93,6 +93,14 @@
 \def\bibInSelf#1{In u\H{o}: }
 \csname bibOverride\endcsname
 
+\bibitem{beyer13}
+Dirk Beyer\bibAnd 1Stefan L\"owe:
+\bibNewBlock Explicit-state software model checking based on {CEGAR} and
+  interpolation.
+\bibNewBlock In {\em Fundamental Approaches to Software Engineering}.
+\bibNewBlock Lecture Notes in Computer Science sorozat, \bibVolume {7793.}.
+\bibNewBlock 2013, Springer, 146--162.~p.
+
 \bibitem{donaldson_cikk}
 Alastair~F. Donaldson\bibAnd 0Leopold Haller\bibAnd 0Daniel Kroening\bibAnd
   2Philipp R\"ummer:
