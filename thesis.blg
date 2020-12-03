@@ -12,6 +12,10 @@ A level-1 auxiliary file: tartalom/implementalas.aux
 A level-1 auxiliary file: tartalom/benchmark.aux
 A level-1 auxiliary file: tartalom/osszefoglalo.aux
 A level-1 auxiliary file: content/acknowledgement.aux
+Illegal, another \bibstyle command---line 40 of file thesis.aux
+ : \bibstyle
+ :          {apa}
+I'm skipping whatever remains of this command
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -65,3 +69,4 @@ warning$ -- 0
 while$ -- 80
 width$ -- 6
 write$ -- 155
+(There was 1 error message)

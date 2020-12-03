@@ -1,55 +1,81 @@
-\chapter{Implementálás}
+\chapter{Implementáció}
 
-\section{Implementálás folyamata}
+\section{Theta keretrendszer}
+\label{sec:theta_keretrendszer}
 
-Először a ca-lab keretrendszerben kezdtem el dolgozni, melyben egy BMC -t valósítotttam meg.
+A \emph{Theta}\footnote{\url{https://github.com/FTSRG/theta}} egy nyílt forráskódú, általános célú, moduláris és konfigurálható modellellenőrző keretrendszer, melyet absztrakciós finomításon alapuló algoritmusok tervezésének és értékelésének támogatására hoztak létre a különböző formalizmusok elérhetőségi elemzéséhez.
 
-\section{Adatszerkezet}
+A keretrendszer a már évek óta tartó fejlesztéseknek köszönhetően számos eszközt tud nyújtani modellellenőrzéshez:\footnote{2020 decemberének elején.}
 
+\begin{itemize}
+	\item \verb+theta-cfa-cli+ -- Control Flow Automata hibahelyeinek\footnote{Az angol irodalom a \emph{location} kifejezést használja. Én a dolgozatomban a magyar megfelelőjét használom.} elérhetőségét vizsgálja CEGAR alapú algoritmusokkal
+	
+	\item \verb+theta-sts-cli+ -- \emph{Symbolic Transition Systems} biztonsági tulajdonságainak verifikációját végzi CEGAR alapú algoritmusokkal
+	
+	\item \verb+theta-xta-cli+ -- Uppaal időzített automaták verifikációját lehet vele elvégezni
+	
+	\item \verb+theta-xsts-cli+ -- \emph{eXtended Symbolic Transition Systems} biztonsági tulajdonságainak verifikációját végzi CEGAR alapú algoritmusokkal
+\end{itemize}
+\ \\
+A Theta architektúrája négy rétegre osztható. Nevezetesen:
+
+\begin{itemize}
+	\item \textbf{Formalizmusok} -- A Theta legalapvetőbb elemei, melyek való-életbeli problémákat modelleznek le, ahogy azt az előző fejezetben láthattuk (Al-alfejezet \ref{sec:pelda_cfa_alk}). A formalizmusok általában alacsony szintű, matematikai ábrázolások melyek elsőrendű logikai kifejezéseken és gráfszerű struktúrákon alapulnak. Ilyen például a \emph{Symbolic Transition Systems} 
+	
+	\item \textbf{Háttéranalízis} -- 
+	
+	\item \textbf{SMT megoldó} -- 
+	
+	\item \textbf{Eszközök} -- Parancssori alkalmazások melyek futtatható \verb+jar+ fájlba fordíthatóak le. Jellemzően csak beolvassák az inputot és meghívják az alsóbb szinten lévő algoritmusokat. 
+	
+\end{itemize}
+
+\begin{comment}
 \begin{figure}[!htb]
-	\begin{subfigure}[b]{.32\linewidth}
-		\begin{lstlisting}
-			int x = 1;
-			int y = 0;
-			while (x < 10) {
-				if (x % 3 == 0) {
-				y++;
-			}
-			x++;
-		} \end{lstlisting}
-	\caption{Simple C program.}
-	\label{fig:cfa1}		
+\begin{subfigure}[b]{.32\linewidth}
+\begin{lstlisting}
+int x = 1;
+int y = 0;
+while (x < 10) {
+if (x % 3 == 0) {
+y++;
+}
+x++;
+} \end{lstlisting}
+\caption{Simple C program.}
+\label{fig:cfa1}		
 \end{subfigure}	
 \hfill
 \begin{subfigure}[b]{.64\linewidth}
-	\centering
-	\begin{tikzpicture}
-		\tikzstyle{loc}=[circle,draw,fill=white,thick,minimum size=0.6cm,inner sep=0]
-		\tikzstyle{ifelse}=[diamond,draw,fill=white,thick,minimum size=0.6cm,inner sep=5]
-		\tikzstyle{edge}=[-latex,thick]
-		
-		\node [loc] (l0) at ( 0, 0) {$l_0$};
-		\draw[edge] (-0.5,0.5)--(l0);
-		\node [loc] (l1) at ( 0,-1) {$l_1$};
-		\node [loc] (l2) at ( 0,-2) {$l_2$};
-		
-		\node [ifelse] (lf) at ( 4,-2) {$l_{123} \leq 25$};
-		
-		\node [loc] (l3) at ( 0,-3) {$l_3$};
-		\node [loc] (l4) at ( 0,-4) {$l_4$};
-		\node [loc] (l5) at (-4,-3) {$l_5$};
-		\draw[edge] (l0)--node[left]{$\assignop{x}{1}$}(l1);
-		\draw[edge] (l1)--node[left]{$\assignop{y}{0}$}(l2);
-		\draw[edge] (l2)--node[above]{$\assumeop{\neg (x < 10)}$}(lf);
-		\draw[edge] (l2)--node[right]{$\assumeop{x < 10}$}(l3);
-		\draw[edge] (l3)--node[right]{$\assumeop{x \% 3 = 0}$}(l4);
-		\draw[edge] (l3)--node[midway, below]{$\assumeop{\neg (x \% 3 = 0)}$}(l5);
-		\draw[edge] (l4)--node[midway, below]{$\assignop{y}{y + 1}$}(-4,-4)--(l5);
-		\draw[edge] (l5)--(-4,-2)--node[midway, below]{$\assignop{x}{x + 1}$}(l2);
-	\end{tikzpicture}
-	\caption{CFA representation of the program.}
-	\label{fig:cfa2}
+\centering
+\begin{tikzpicture}
+\tikzstyle{loc}=[circle,draw,fill=white,thick,minimum size=0.6cm,inner sep=0]
+\tikzstyle{ifelse}=[diamond,draw,fill=white,thick,minimum size=0.6cm,inner sep=5]
+\tikzstyle{edge}=[-latex,thick]
+
+\node [loc] (l0) at ( 0, 0) {$l_0$};
+\draw[edge] (-0.5,0.5)--(l0);
+\node [loc] (l1) at ( 0,-1) {$l_1$};
+\node [loc] (l2) at ( 0,-2) {$l_2$};
+
+\node [ifelse] (lf) at ( 4,-2) {$l_{123} \leq 25$};
+
+\node [loc] (l3) at ( 0,-3) {$l_3$};
+\node [loc] (l4) at ( 0,-4) {$l_4$};
+\node [loc] (l5) at (-4,-3) {$l_5$};
+\draw[edge] (l0)--node[left]{$\assignop{x}{1}$}(l1);
+\draw[edge] (l1)--node[left]{$\assignop{y}{0}$}(l2);
+\draw[edge] (l2)--node[above]{$\assumeop{\neg (x < 10)}$}(lf);
+\draw[edge] (l2)--node[right]{$\assumeop{x < 10}$}(l3);
+\draw[edge] (l3)--node[right]{$\assumeop{x \% 3 = 0}$}(l4);
+\draw[edge] (l3)--node[midway, below]{$\assumeop{\neg (x \% 3 = 0)}$}(l5);
+\draw[edge] (l4)--node[midway, below]{$\assignop{y}{y + 1}$}(-4,-4)--(l5);
+\draw[edge] (l5)--(-4,-2)--node[midway, below]{$\assignop{x}{x + 1}$}(l2);
+\end{tikzpicture}
+\caption{CFA representation of the program.}
+\label{fig:cfa2}
 \end{subfigure}
 \caption{Simple C program and its corresponding control flow automaton (CFA).}
 \label{fig:cfa}
 \end{figure}
+\end{comment}

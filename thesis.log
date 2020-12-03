@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  3 DEC 2020 00:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  3 DEC 2020 03:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1023,7 +1023,7 @@ LaTeX Info: Redefining \mit on input line 578.
 
  (./include/titlepage.tex
 Package hyperref Info: Option `pageanchor' set `false' on input line 1.
-<figures/bme_logo.pdf, id=82, 705.63625pt x 188.705pt>
+<figures/bme_logo.pdf, id=78, 705.63625pt x 188.705pt>
 File: figures/bme_logo.pdf Graphic file (type pdf)
 <use figures/bme_logo.pdf>
 Package pdftex.def Info: figures/bme_logo.pdf  used on input line 7.
@@ -1145,7 +1145,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--24
  (./tartalom/k_indukcio.tex
 2. fejezet.
 
-Underfull \hbox (badness 10000) in paragraph at lines 10--15
+Underfull \hbox (badness 10000) in paragraph at lines 15--20
 
  []
 
@@ -1155,43 +1155,43 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--15
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 28--33
+Underfull \hbox (badness 10000) in paragraph at lines 34--39
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 35--40
+Underfull \hbox (badness 10000) in paragraph at lines 41--46
 
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 69--73
+) [4]
+\openout2 = `tartalom/theta.aux'.
+
+ (./tartalom/theta.tex
+3. fejezet.
+[5
+
+
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 96--100
 []\T1/lmr/m/n/10.95 Ehhez ha-son-ló-an te-het-jük azt is, hogy ad-dig el-len-®r
 -zünk, amíg a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 69--73
+Underfull \hbox (badness 10000) in paragraph at lines 96--100
 
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 69--73
+Underfull \hbox (badness 1028) in paragraph at lines 96--100
 \T1/lmr/m/n/10.95 el®b-bi-ek-b®l el®-re-fe-lé, ad-dig az utób-bi-ak-ból vissza-
 fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
  []
 
-) [5]
-\openout2 = `tartalom/theta.aux'.
-
- (./tartalom/theta.tex
-3. fejezet.
-[6
-
-
-
-
-]) [7]
+[6]) [7]
 \openout2 = `tartalom/implementalas.aux'.
 
  (./tartalom/implementalas.tex
@@ -1255,16 +1255,16 @@ MA11 _ RTI _ 08 _ Biztonsagi _
 (./tartalom/implementalas.aux) (./tartalom/benchmark.aux)
 (./tartalom/osszefoglalo.aux) (./content/acknowledgement.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 8B4927FC36CE14729D934F464198A82F;2505.
+(rerunfilecheck)             Checksum: F112BC96DBE39D952FF306DA181B1E0A;2607.
  ) 
 Here is how much of TeX's memory you used:
- 29984 strings out of 480804
- 560695 string characters out of 5903687
- 1082959 words of memory out of 5000000
- 46108 multiletter control sequences out of 15000+600000
+ 30000 strings out of 480804
+ 560974 string characters out of 5903687
+ 1104960 words of memory out of 5000000
+ 46122 multiletter control sequences out of 15000+600000
  616512 words of font info for 79 fonts, out of 8000000 for 9000
  376 hyphenation exceptions out of 8191
- 112i,10n,113p,829b,1450s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 112i,10n,113p,824b,1448s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2020/tex
 mf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvip
 s/lm/lm-mathsy.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc
@@ -1282,10 +1282,10 @@ live/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2020/texmf-di
 st/fonts/type1/public/lm/lmri9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
 ic/lm/lmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c
 :/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtl10.pfb>
-Output written on thesis.pdf (17 pages, 340162 bytes).
+Output written on thesis.pdf (17 pages, 340881 bytes).
 PDF statistics:
  320 PDF objects out of 1000 (max. 8388607)
  281 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 170 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 55 named destinations out of 1000 (max. 500000)
+ 162 words of extra memory for PDF output out of 10000 (max. 10000000)
 

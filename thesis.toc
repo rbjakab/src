@@ -2,18 +2,17 @@
 \select@language {english} \contentsline {chapter}{Abstract}{ii}{chapter*.3}%
 \select@language {magyar} \contentsline {chapter}{\numberline {1}Bevezetés}{1}{chapter.1}%
 \select@language {magyar} \contentsline {chapter}{\numberline {2}Háttérismeretek}{3}{chapter.2}%
-\select@language {magyar} \contentsline {section}{\numberline {2.1}K-indukció}{3}{section.2.1}%
-\select@language {magyar} \contentsline {section}{\numberline {2.2}A probléma formalizálása}{3}{section.2.2}%
-\select@language {magyar} \contentsline {section}{\numberline {2.3}A formalizált algoritmus}{4}{section.2.3}%
-\select@language {magyar} \contentsline {chapter}{\numberline {3}Környezet}{6}{chapter.3}%
-\select@language {magyar} \contentsline {section}{\numberline {3.1}Control Flow Automata}{6}{section.3.1}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.1.1}Példák CFA alkalmazásra}{6}{subsection.3.1.1}%
-\select@language {magyar} \contentsline {section}{\numberline {3.2}Theta keretrendszer}{6}{section.3.2}%
-\select@language {magyar} \contentsline {chapter}{\numberline {4}Implementálás}{8}{chapter.4}%
-\select@language {magyar} \contentsline {section}{\numberline {4.1}Implementálás folyamata}{8}{section.4.1}%
-\select@language {magyar} \contentsline {section}{\numberline {4.2}Adatszerkezet}{8}{section.4.2}%
-\select@language {magyar} \contentsline {chapter}{\numberline {5}Esettanulmány}{9}{chapter.5}%
-\select@language {magyar} \contentsline {section}{\numberline {5.1}Teszteredmények}{9}{section.5.1}%
+\select@language {magyar} \contentsline {section}{\numberline {2.1}Általános modellellenőrzés}{3}{section.2.1}%
+\select@language {magyar} \contentsline {section}{\numberline {2.2}Szoftververifikáció}{3}{section.2.2}%
+\select@language {magyar} \contentsline {section}{\numberline {2.3}K-indukció}{3}{section.2.3}%
+\select@language {magyar} \contentsline {section}{\numberline {2.4}A probléma formalizálása}{4}{section.2.4}%
+\select@language {magyar} \contentsline {chapter}{\numberline {3}K-indukciós algoritmus szoftverellenőrzésre}{5}{chapter.3}%
+\select@language {magyar} \contentsline {section}{\numberline {3.1}Control Flow Automata}{5}{section.3.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.1.1}Példák CFA alkalmazásra}{5}{subsection.3.1.1}%
+\select@language {magyar} \contentsline {section}{\numberline {3.2}A formalizált algoritmus}{5}{section.3.2}%
+\select@language {magyar} \contentsline {chapter}{\numberline {4}Implementáció}{8}{chapter.4}%
+\select@language {magyar} \contentsline {section}{\numberline {4.1}Theta keretrendszer}{8}{section.4.1}%
+\select@language {magyar} \contentsline {chapter}{\numberline {5}Kiértékelés}{9}{chapter.5}%
 \select@language {magyar} \contentsline {chapter}{\numberline {6}Összefoglaló}{10}{chapter.6}%
 \select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{11}{chapter*.5}%
 \select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{12}{chapter*.5}%

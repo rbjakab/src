@@ -1,14 +1,74 @@
-\chapter{Környezet}
+\chapter{K-indukciós algoritmus szoftverellenőrzésre}
 
-Ebben a fejezetben bemutatom azokat a technológiákat, melyek szükségesek a programom technikai oldalának megértéséhez. Először ismertetem a Control Flow Automata ábrázolás részleteit (Alfejezet \ref{sec:kornyezet_cfa}), aztán kitérek a Theta keretrendszerre (Alfejezet \ref{sec:kornyezet_theta}).
+Ebben a fejezetben bemutatom azokat a technológiákat, melyek szükségesek a programom technikai oldalának megértéséhez. Először ismertetem a Control Flow Automata ábrázolás részleteit (Alfejezet \ref{sec:control_flow_automata})), aztán az előző fejezetben bemutatott jelölésrendszerrel formalizálom az algoritmust (Alfejezet \ref{sec:formalizalt_alg}).
 
 \section{Control Flow Automata}
-\label{sec:kornyezet_cfa}
+\label{sec:control_flow_automata}
 
-A programkódokat sokféleképpen ábrázolhatjuk \cite{soft_ver_akos}. Legismertebb a programkód, melyet az ember könnyen, gyorsan tud olvasni illetve írni, ellenben a bájtkóddal, melyet a számítógép tud jóval hatékonyabban kezelni. Szoftververifikáció terén is létezik...
+A programkódokat sokféleképpen ábrázolhatjuk \cite{soft_ver_akos}. Legismertebb a programkód, melyet az ember könnyen, gyorsan tud olvasni illetve írni, ellenben a bájtkóddal, melyet a számítógép tud jóval hatékonyabban kezelni. A szoftveres modellellenőrzés elvégzéséhez a programkódot matematikailag pontos, formális ábrázolásban kell megadni, melyet a számítógép is jól tud kezelni. Nézzük a \ref{fig:cfa} ábrát!
+
+Egy C program és a neki teljes mértékben megfeleltethető végrehajtási gráf (\emph{Control Flow Graph (CFG)}) ábrája látható. A CFG egy jól ismert modellezési ábra, 
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{.30\linewidth}
+		\begin{lstlisting}
+	int x = 1;
+	if (y <= 10) {
+			y = 10;
+	}
+	else {
+			while (x < y) {
+					x = 2 * x;
+					y = y - 1;
+			}
+	}
+	x = y + 1; \end{lstlisting}
+	\caption{Egyszerű C program.}
+	\label{fig:cfa1}		
+	\end{subfigure}	
+\hfill
+\begin{subfigure}[b]{.69\linewidth}
+	\centering
+	\begin{tikzpicture}
+		\tikzstyle{loc}=[circle,draw,fill=white,thick,minimum size=0.6cm,inner sep=2]
+		\tikzstyle{stmt}=[rectangle,draw,fill=white,thick,minimum size=0.6cm,inner sep=2,text width=2.0cm,align=center]
+		\tikzstyle{ifel}=[diamond,draw,fill=white,thick,minimum size=0.6cm,inner sep=2,aspect=2]
+		\tikzstyle{edge}=[-latex,thick]
+		
+		\node [loc] (start) at (0, 0) {start};
+		\draw[edge] (-0.75, 0.75)--(start);
+		
+		\node [stmt] (s1) at (0, -1.5) {$x := 1$};
+		
+		\node [ifel] (s2) at (0, -3) {$y \leq 10$};
+		
+		\node [stmt] (s3) at (-2, -4.5) {$y := 10$};
+		\node [ifel] (s4) at ( 2, -4.5) {$x < y$};
+		
+		\node [stmt] (s5) at ( 0, -6) {$x := y+1$};
+		\node [stmt, minimum size=1.1cm] (s6) at ( 4, -6) {$x := 2*x$ $y := y-1$};
+		
+		\node [loc] (end) at (0, -7.5) {vége};
+		
+		\draw[edge] (start) -- (s1);
+		\draw[edge] (s1) -- (s2);
+		\draw[edge] (s2) -| node[above]{igaz}  (s3);
+		\draw[edge] (s2) -| node[above]{hamis} (s4);
+		\draw[edge] (s4) -| node[above]{hamis} (s5);
+		\draw[edge] (s3) -- (s5);
+		\draw[edge] (s4) -| node[above]{igaz}  (s6);
+		\draw[edge] (s6) -| (s4);
+		\draw[edge] (s5) -- (end);
+	\end{tikzpicture}
+	\caption{A program CFG ábrázolása.}
+	\label{fig:cfa2}
+\end{subfigure}
+\caption{Egyszerű C program és a hozzátartó Control Flow Graph (CFG).}
+\label{fig:cfa}
+\end{figure}
 
 \subsection{Példák CFA alkalmazásra}
-\label{sec:kornyezet_peldak}
+\label{sec:pelda_cfa_alk}
 
 \begin{itemize}
 	\item Szoftver
@@ -18,75 +78,42 @@ A programkódokat sokféleképpen ábrázolhatjuk \cite{soft_ver_akos}. Legismer
 	\item Protokoll
 \end{itemize}
 
-\section{Theta keretrendszer}
-\label{sec:kornyezet_theta}
+\section{A formalizált algoritmus}
+\label{sec:formalizalt_alg}
 
-A \emph{Theta}\footnote{\url{https://github.com/FTSRG/theta}} egy nyílt forráskódú, általános célú, moduláris és konfigurálható modellellenőrző keretrendszer, melyet absztrakciós finomításon alapuló algoritmusok tervezésének és értékelésének támogatására hoztak létre a különböző formalizmusok elérhetőségi elemzéséhez.
+A fenti ismeretek segítségével hogy tudnánk belátni, hogy a modell a \emph{P} tulajdonságra nézve biztonságos?
 
-A keretrendszer a már évek óta tartó fejlesztéseknek köszönhetően számos eszközt tud nyújtani modellellenőrzéshez:\footnote{2020 decemberének elején.}
+Például úgy, ha megnézzük, hogy tetszőleges nemnegatív \emph{i} egész esetén teljesül-e a
+\begin{align}
+	\forall s_{0} \dots s_{i}:~\neg(I(s_{0}) \wedge utvonal(s_{[0..i]}) \wedge \neg P(s_{i}))
+\end{align}
+feltétel. Ha megsérül valamelyik elérhető állapotban, akkor ezzel a módszerrel meg fogjuk találni és az oda vezető útvonal ellenpélda lesz a modell \emph{P}-biztonságosságára. Ez egy elvárható eredmény: az algoritmusnak két féle kimenetele kell, hogy legyen: vagy az, hogy a modell \emph{P}-tulajdonságra nézve biztonságos (minden elérhető állapot teljesíti), vagy az, hogy a modell nem \emph{P}-biztonságos, ekkor egy ellenpéldát is kell adnia, mely bizonyítja, hogy az adott kezdőállapotból elindulva, azon végighaladva valóban egy hibaállapotba kerülünk.
 
-\begin{itemize}
-	\item \verb+theta-cfa-cli+ -- Control Flow Automata hibahelyeinek\footnote{Az angol irodalom a \emph{location} kifejezést használja. Én a dolgozatomban a magyar megfelelőjét használom.} elérhetőségét vizsgálja CEGAR alapú algoritmusokkal
-	
-	\item \verb+theta-sts-cli+ -- \emph{Symbolic Transition Systems} biztonsági tulajdonságainak verifikációját végzi CEGAR alapú algoritmusokkal
-	
-	\item \verb+theta-xta-cli+ -- Uppaal időzített automaták verifikációját lehet vele elvégezni
-	
-	\item \verb+theta-xsts-cli+ -- \emph{eXtended Symbolic Transition Systems} biztonsági tulajdonságainak verifikációját végzi CEGAR alapú algoritmusokkal
-\end{itemize}
-\ \\
-A Theta architektúrája négy rétegre osztható. Nevezetesen:
+Ha a rendszer \emph{P}-biztonságos, akkor (TODO) minden \emph{i}-re igaz lesz, hiszen nem fogunk tudni találni olyan \emph{i} értéket, melyre ne teljesülne. Felvetődhet a kérdés, hogy mikortól lehet azt mondani, hogy \emph{i} további növelése céltalan, mert már teljes bizonyossággal kijelenthetjük, hogy a modell \emph{P}-biztonságos? A $I(s_{0}) \wedge utvonal(s_{[0..i]})$ feltétel önmagában nem fog gyorsítást eredményezni: vagy végig megy az állapottéren amilyen hosszan csak lehetséges (ezt szeretnénk lerövidíteni), tekintve, hogy minden állapotnak van egy szülőállapota a \emph{T} tranzakciós reláción keresztül, vagy végtelen ciklusba kerül.
 
-\begin{itemize}
-	\item \textbf{Formalizmusok} -- A Theta legalapvetőbb elemei, melyek való-életbeli problémákat modelleznek le, ahogy azt az előző fejezetben láthattuk (Al-alfejezet \ref{sec:kornyezet_peldak}). A formalizmusok általában alacsony szintű, matematikai ábrázolások melyek elsőrendű logikai kifejezéseken és gráfszerű struktúrákon alapulnak. Ilyen például a \emph{Symbolic Transition Systems} 
+Ennél jobb stratégia, ha akkor állunk meg, mikor $I(s_{0})~\wedge~ cmUtvonal(s_{[0..i]})$ ellentmondásos lesz. Ezt használva addig folytatjuk a keresést, míg az összes, ciklusmentes útvonalat be nem jártuk. Legrosszabb esetben ekkor is végigmegy a program a teljes állapottéren, viszont ha az állapottérben ciklikusság figyelhető meg, akkor azt a stratégia maximálisan kihasználja: nem fog végtelen ciklusba kerülni, illetve átlagosan rövidebb (de bizonyosan nem hosszabb) útvonalakat fog bejárni, mint az $I(s_{0}) \wedge utvonal(s_{[0..i]})$.
 
-	\item \textbf{Háttéranalízis} -- 
-	
-	\item \textbf{SMT megoldó} -- 
-	
-	\item \textbf{Eszközök} -- Parancssori alkalmazások melyek futtatható \verb+jar+ fájlba fordíthatóak le. Jellemzően csak beolvassák az inputot és meghívják az alsóbb szinten lévő algoritmusokat. 
-	
-\end{itemize}
+Ehhez hasonlóan tehetjük azt is, hogy addig ellenőrzünk, amíg a $cmUtvonal(s_{[0..i]}) \wedge \neg P(s_{i})$ nem lesz ellentmondásos: egy, a \emph{P} tulajdonságot sértő állapotból (hibaállapotból) kiindulva addig megyünk ciklusmentes útvonalakon visszafelé, míg be nem járjuk a teljes állapotteret (ez esetben kijelenthetjük, hogy a rendszer nem-\emph{P}-biztonságos), ellenben ha nem járunk be minden \emph{elérhető} állapotot, akkor a rendszer \emph{P}-biztonságos (feltéve, hogy egyik hibaállapotból sem tudjuk bejárni a teljes rendszert). Ez azzal magyarázható, hogy ha a kezdőállapotok halmaza nem elérhető a hibaállapotokból (mert visszafele haladva útközben elakadunk), akkor kijelenthetjük, hogy a modell biztonságos.
+\newline
+\newline
+A \emph{k}-indukció alapú szoftververifikáció az előbb elmondottakra épül. A módszer lényege, hogy elindulunk mind a kezdőállapotokból, mind a hibaállapotokból: míg az előbbiekből előrefelé, addig az utóbbiakból visszafelé. Kijelenthető, hogy a modell biztonságos, ha az előrefelé haladó keresés bejárta a teljes elérhető állapotteret (nincs több ciklusmentes útvonal)\footnote{Természetesen ha közben hibaállapotba jutna, akkor a teljes modellellenőrzés megakadna, s így nem tudná bejárni a teljes állapotteret.}, illetve akkor is biztonságos, ha a hátrafelé haladó keresés megakad.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+A \ref{sec:k_induction}.-as fejezetben bemutatott, és így a módszer nevét adó \emph{k-indukció} úgy kerül a képbe, hogy ha a modellt bejárjuk \emph{k} mélységig, és belátjuk a fentebb említett metodika alapján, hogy a modell biztonságos, akkor kijelenthető, hogy $k+1$ mélységre is biztonságos lesz \cite{donaldson_cikk}, illetve mellé az is, hogy ezzel az indukciós lépést bizonyítottuk \cite{k_induction_article}:
 
 \begin{comment}
-\begin{figure}[h]
-	\centering
-	\begin{lstlisting}[style=CStyle]
-		#include <stdio.h>
-		int main(void)
-		{
-			printf("Hello World!"); 
-		} \end{lstlisting}
-	\caption{My code.}
-	\hfill
-	\subfloat[Flower two.]{\includegraphics[width=0.4\textwidth]{figures/cfg.png}\label{fig:cfg}}
-	\caption{My flowers.}
-\end{figure}
+\begin{algorithm}[H]
+\SetAlgoLined
+\KwResult{}
+i=0\\
+\While{True}{
+instructions\\
+\eIf{condition}{
+instructions1\\
+instructions2\\
+}{
+instructions3\\
+}
+}
+\caption{Checking if model is \emph{P}-safe}
+\end{algorithm}í
 \end{comment}
