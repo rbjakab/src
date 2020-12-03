@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  3 DEC 2020 05:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  3 DEC 2020 13:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1023,7 +1023,7 @@ LaTeX Info: Redefining \mit on input line 578.
 
  (./include/titlepage.tex
 Package hyperref Info: Option `pageanchor' set `false' on input line 1.
-<figures/bme_logo.pdf, id=78, 705.63625pt x 188.705pt>
+<figures/bme_logo.pdf, id=74, 705.63625pt x 188.705pt>
 File: figures/bme_logo.pdf Graphic file (type pdf)
 <use figures/bme_logo.pdf>
 Package pdftex.def Info: figures/bme_logo.pdf  used on input line 7.
@@ -1174,29 +1174,42 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--46
 
 
 
-] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 114--118
+]
+Package hyperref Info: bookmark level for unknown example defaults to 0 on inpu
+t line 88.
+
+Underfull \hbox (badness 3138) in paragraph at lines 119--119
+[]\T1/lmr/bx/n/10 (b) |\T1/lmr/m/n/10 Fel-té-te-les el-ága-zás a
+ []
+
+
+Underfull \hbox (badness 7308) in paragraph at lines 172--172
+[]\T1/lmr/bx/n/10 (e) |\T1/lmr/m/n/10 Fel-té-te-les el-ága-zás a
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 214--218
 []\T1/lmr/m/n/10.95 Ehhez ha-son-ló-an te-het-jük azt is, hogy ad-dig el-len-®r
 -zünk, amíg a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--118
+Underfull \hbox (badness 10000) in paragraph at lines 214--218
 
  []
 
 
-Underfull \hbox (badness 1028) in paragraph at lines 114--118
+Underfull \hbox (badness 1028) in paragraph at lines 214--218
 \T1/lmr/m/n/10.95 el®b-bi-ek-b®l el®-re-fe-lé, ad-dig az utób-bi-ak-ból vissza-
 fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
  []
 
-) [7]
+[7]) [8]
 \openout2 = `tartalom/implementalas.aux'.
 
  (./tartalom/implementalas.tex
 4. fejezet.
-) [8
+) [9
 
 
 
@@ -1206,7 +1219,7 @@ fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
 
  (./tartalom/benchmark.tex
 5. fejezet.
-) [9
+) [10
 
 
 
@@ -1216,7 +1229,7 @@ fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
 
  (./tartalom/osszefoglalo.tex
 6. fejezet.
-) [10
+) [11
 
 
 
@@ -1224,7 +1237,7 @@ fe-lé. Ki-je-lent-he-t®, hogy a mo-dell
 ]
 \openout2 = `content/acknowledgement.aux'.
 
- (./content/acknowledgement.tex) [11
+ (./content/acknowledgement.tex) [12
 
 
 
@@ -1245,7 +1258,7 @@ MA11 _ RTI _ 08 _ Biztonsagi _
 \tf@thm=\write6
 \openout6 = `thesis.thm'.
 
- [12
+ [13
 
 
 
@@ -1255,16 +1268,16 @@ MA11 _ RTI _ 08 _ Biztonsagi _
 (./tartalom/implementalas.aux) (./tartalom/benchmark.aux)
 (./tartalom/osszefoglalo.aux) (./content/acknowledgement.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 761460E774158C39024FD97949432B16;2607.
+(rerunfilecheck)             Checksum: 18DE3E1EF90BAFED8208D5A34550EFC3;2417.
  ) 
 Here is how much of TeX's memory you used:
- 30017 strings out of 480804
- 561145 string characters out of 5903687
- 1104960 words of memory out of 5000000
- 46131 multiletter control sequences out of 15000+600000
+ 30061 strings out of 480804
+ 561842 string characters out of 5903687
+ 1146961 words of memory out of 5000000
+ 46157 multiletter control sequences out of 15000+600000
  637612 words of font info for 84 fonts, out of 8000000 for 9000
  376 hyphenation exceptions out of 8191
- 112i,10n,113p,824b,1450s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 112i,10n,113p,960b,1448s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2020/tex
 mf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2020/texmf-dist/fonts/enc/
 dvips/lm/lm-rm.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
@@ -1283,10 +1296,10 @@ t/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/publ
 ic/lm/lmri9.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c
 :/texlive/2020/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/texlive/2020/texm
 f-dist/fonts/type1/public/lm/lmtl10.pfb>
-Output written on thesis.pdf (17 pages, 349052 bytes).
+Output written on thesis.pdf (18 pages, 357309 bytes).
 PDF statistics:
- 330 PDF objects out of 1000 (max. 8388607)
- 290 compressed objects within 3 object streams
- 59 named destinations out of 1000 (max. 500000)
- 162 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 361 PDF objects out of 1000 (max. 8388607)
+ 319 compressed objects within 4 object streams
+ 77 named destinations out of 1000 (max. 500000)
+ 154 words of extra memory for PDF output out of 10000 (max. 10000000)
 

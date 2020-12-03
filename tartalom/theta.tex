@@ -30,8 +30,8 @@ Háromféle utasítással foglalkozunk:
 	\item A \emph{havoc} operátor a $\mathit{havoc}~v_i$ formában írható le, ahol $v_i \in V$ egy változó. A \emph{havoc} hozzá rendel a $v_i$ változóhoz egy nem-determinisztikus értéket, a többi változót érintetlenül hagyja. Például arra lehet használni, mikor szimulálni szeretnénk a felhasználói bemenetet.
 \end{itemize}
 
-\paragraph{Grafikai megjelenés.}
-A helyeket és az éleket körök és nyilak jelölik, ebben a sorrendben. Az egyes élek felett/mellett láthatóak az utasítások, amely jelen esetben vagy hozzárendelés vagy feltevés. 
+\paragraph{Grafikai megjelenítés.}
+A helyeket körök, az éleket nyilak jelölik. Az egyes élek felett illetve mellett láthatóak az utasítások, amely jelen esetben hozzárendelés vagy feltevés. A kezdőállapotot egy bejövő nyíllal jelöljük. \cite{soft_ver_akos}.
 
 \begin{figure}[!htb]
 	\begin{subfigure}[b]{.30\linewidth}
@@ -39,8 +39,7 @@ A helyeket és az éleket körök és nyilak jelölik, ebben a sorrendben. Az eg
 	int x = 1;
 	if (y <= 10) {
 			y = 10;
-	}
-	else {
+	} else {
 			while (x < y) {
 					x = 2 * x;
 					y = y - 1;
@@ -57,44 +56,145 @@ A helyeket és az éleket körök és nyilak jelölik, ebben a sorrendben. Az eg
 		\tikzstyle{loc}=[circle,align=center,draw,fill=white,thick,minimum size=0.6cm,inner sep=2]
 		\tikzstyle{edge}=[-latex,thick]
 		
-		\node [loc] (l1) at (0, 0) {l1};
-		\draw[edge] (-0.75, 0.75)--(l1);
+		\node [loc] (l0) at (0, 0) {$l_0$};
+		\draw[edge] (-0.75, 0.75)--(l0);
 		
-		\node [loc] (l2) at ( 0, -1.75) {l2};
-		\node [loc] (l3) at (-3, -1.75) {l3};
-		\node [loc] (l4) at ( 3, -1.75) {l4};
-		\node [loc] (l5) at ( 0, -3.5)  {l5};
-		\node [loc] (l6) at ( 3, -3.5)  {l6};
-		\node [loc] (l7) at ( 3, -5.25) {l7};
-		\node [loc] (l8) at ( 0, -5.25) {l8};
+		\node [loc] (l1) at ( 0, -1.75) {$l_1$};
+		\node [loc] (l2) at (-3, -1.75) {$l_2$};
+		\node [loc] (l3) at ( 3, -1.75) {$l_3$};
+		\node [loc] (l4) at ( 0, -3.5)  {$l_4$};
+		\node [loc] (l5) at ( 3, -3.5)  {$l_5$};
+		\node [loc] (l6) at ( 3, -5.25) {$l_6$};
+		\node [loc] (l7) at ( 0, -5.25) {$l_7$};
 		
-		\draw[edge] (l1) -- node[midway, right]{$x := 1$}  (l2);
-		\draw[edge] (l2) -- node[midway, above, sloped]{$[y \leq 10]$}  (l3);
-		\draw[edge] (l2) -- node[midway, above, sloped]{$[\neg(y \leq 10)]$}  (l4);
-		\draw[edge] (l3) -- node[midway, above, sloped]{$y := 10$}  (l5);
-		\draw[edge] (l4) -- node[midway, above, sloped]{$[\neg(x < y)]$}  (l5);
-		\draw[edge] (l4) -- node[midway, left]{$[x < y]$}  (l6);
-		\draw[edge] (l5) -- node[midway, left]{$x := y+1$} (l8);
-		\draw[edge] (l6) -- node[midway, left]{$x := 2*x$} (l7);
-		\draw[edge] (l7) to [bend right = 45] node[midway, right]{$y := y-1$} (l4);
+		\draw[edge] (l0) -- node[midway, right]{$x := 1$}  (l1);
+		\draw[edge] (l1) -- node[midway, above, sloped]{$[y \leq 10]$}  (l2);
+		\draw[edge] (l1) -- node[midway, above, sloped]{$[\neg(y \leq 10)]$}  (l3);
+		\draw[edge] (l2) -- node[midway, above, sloped]{$y := 10$}  (l4);
+		\draw[edge] (l3) -- node[midway, above, sloped]{$[\neg(x < y)]$}  (l4);
+		\draw[edge] (l3) -- node[midway, left]{$[x < y]$}  (l5);
+		\draw[edge] (l4) -- node[midway, left]{$x := y+1$} (l7);
+		\draw[edge] (l5) -- node[midway, left]{$x := 2*x$} (l6);
+		\draw[edge] (l6) to [bend right = 45] node[midway, right]{$y := y-1$} (l3);
 	\end{tikzpicture}
 	\caption{A program CFA ábrázolása.}
 	\label{fig:cfa2}
 \end{subfigure}
-\caption{Egyszerű C program és a hozzátartozó Control Flow Automaton (CFA).}
+\caption{Egy C program és a hozzá tartozó Control Flow Automaton (CFA).}
 \label{fig:cfa}
 \end{figure}
 
-\subsection{Példák CFA alkalmazásra}
-\label{sec:pelda_cfa_alk}
+\begin{example}
+	Egy C nyelvű program és egy hozzá tartozó CFA látható a \ref{fig:cfa} ábrán. A kezdőhely az $l_0$, a termináló hely az $l_7$, mely lehet végső- (final location) illetve hibahely (error location). Egy útvonal a kezdőhelytől az $l_4$ helyre leírható úgy, hogy $l_0 \rightarrow l_1 \rightarrow l_2 \rightarrow l_4$. Az $l_1$ helyen egy elágazást figyelhetünk meg, ahol ha feltétel a $[y \leq 10]$ teljesül, akkor úgy a program az $l_1$ helyről továbbmegy az $l_2$ helyre, míg ha nem teljesül, akkor az $l_3$ helyre kerül a program. Az elágazásokban a kimenő élekre a feltételek úgy vannak megfogalmazva, hogy míg az egyiken az eredeti feltétel, addig a másikon annak a negáltja figyelhető meg. Ez azért van így, hogy szemléltesse az ábra, hogy ezt egy algoritmus fogja feldolgozni, amely számára ebben a formátumban könnyebb megadni az automatát.
+\end{example}
 
+\paragraph{Programábrázolás.} A \ref{fig:structprog} ábra megmutatja, hogy az alap elemei a strukturált programozásnak miként képezhetőek le CFA alakba \cite{soft_ver_akos}.
 \begin{itemize}
-	\item Szoftver
+	\item \emph{Szekvenciális} állításokat (\ref{fig:structprogseq} és \ref{fig:structprogseqcfa} ábra) úttal reprezentáljuk, mely helyek és élek közt alternál.
 	
-	\item Hardver
+	\item \emph{Feltételes elágazásokat} (pl. \textit{ha-akkor} állítások, \ref{fig:structprogsel} és \ref{fig:structprogselcfa} ábra) különváló utakkal tudunk reprezentálni őrfeltételekkel.
 	
-	\item Protokoll
+	\item \emph{Feltételes ciklusokat} (\ref{fig:structprogrep} és \ref{fig:structprogrepcfa} ábra) a CFA-ban körökkel tudunk ábrázolni. Egy vezérlési hely felel a ciklusfejért, amelyből két kimenő él fut. Az egyik bemegy a ciklusba, a másik pedig kilép abból. A ciklusban további szekvenciák, elágazások vagy akár újabb ciklusok is történhetnek, azonban az út mindig visszatér a ciklusfejhez.
 \end{itemize}
+
+\begin{figure}[!htb]
+	\begin{subfigure}[b]{.29\linewidth}
+		\begin{lstlisting}
+			stmt1;
+			stmt2;
+			...\end{lstlisting}
+		\caption{Szekvencia a programban.}
+		\label{fig:structprogseq}		
+	\end{subfigure}	
+	\hfill
+	\begin{subfigure}[b]{.29\linewidth}
+		\begin{lstlisting}
+			if (cond) {
+				stmt1;
+				...
+			} else {
+				stmt2;
+				...
+			}\end{lstlisting}
+		\caption{Feltételes elágazás a programban.}
+		\label{fig:structprogsel}		
+	\end{subfigure}	
+	\hfill
+	\begin{subfigure}[b]{.29\linewidth}
+		\begin{lstlisting}
+			while (cond) {
+				stmt;
+				...
+			}\end{lstlisting}
+		\caption{Feltételes ciklus a programban.}
+		\label{fig:structprogrep}		
+	\end{subfigure}	
+	\hfill
+	\begin{subfigure}[b]{.3\linewidth}
+		\centering
+		\begin{tikzpicture}
+			\tikzstyle{loc}=[circle,draw,fill=white,thick,minimum size=0.4cm,inner sep=0]
+			\tikzstyle{edge}=[-latex,thick]
+			
+			\node [loc] (l0) at ( 0, 0) {};
+			\node [loc] (l1) at ( 0,-1) {};
+			\node [loc] (l2) at ( 0,-2) {};
+			\node [loc] (l3) at ( 0,-3) {};
+			
+			\draw[edge] (l0)--node[left]{$\mathit{stmt1}$}(l1);
+			\draw[edge] (l1)--node[left]{$\mathit{stmt2}$}(l2);
+			\draw[edge] (l2)--node[left]{$\ldots$}(l3);
+		\end{tikzpicture}
+		\caption{Szekvencia a CFA-ban.}
+		\label{fig:structprogseqcfa}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{.3\linewidth}
+		\centering
+		\begin{tikzpicture}
+			\tikzstyle{loc}=[circle,draw,fill=white,thick,minimum size=0.4cm,inner sep=0]
+			\tikzstyle{edge}=[-latex,thick]
+			
+			\node [loc] (l0) at (   0, 0) {};
+			\node [loc] (l1) at (-0.5,-1) {};
+			\node [loc] (l2) at ( 0.5,-1) {};
+			\node [loc] (l3) at (-0.5,-2) {};
+			\node [loc] (l4) at ( 0.5,-2) {};
+			\node [loc] (l5) at (   0,-3) {};
+			
+			\draw[edge] (l0)--node[left]{$\assumeop{\mathit{cond}}$}(l1);
+			\draw[edge] (l0)--node[right]{$\assumeop{\neg \mathit{cond}}$}(l2);
+			\draw[edge] (l1)--node[left]{$\mathit{stmt1}$}(l3);
+			\draw[edge] (l2)--node[right]{$\mathit{stmt2}$}(l4);
+			\draw[edge] (l3)--node[left]{$\ldots$}(l5);
+			\draw[edge] (l4)--node[right]{$\ldots$}(l5);
+		\end{tikzpicture}
+		\caption{Feltételes elágazás a CFA-ban.}
+		\label{fig:structprogselcfa}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{.3\linewidth}
+		\centering
+		\begin{tikzpicture}
+			\tikzstyle{loc}=[circle,draw,fill=white,thick,minimum size=0.4cm,inner sep=0]
+			\tikzstyle{edge}=[-latex,thick]
+			
+			\node [loc] (l0) at ( 0, 0) {};
+			\node [loc] (l1) at ( 0,-1) {};
+			\node [loc] (l2) at ( 0,-2) {};
+			\node [loc] (l3) at ( 0,-3) {};
+			
+			\draw[edge] (l0)--node[left]{$\assumeop{\mathit{cond}}$}(l1);
+			\draw[edge] (l1)--node[left]{$\mathit{stmt}$}(l2);
+			\draw[edge] (l2)--(-1.5,-2)--node[left]{$\ldots$}(-1.5,0)--(l0);
+			\draw[edge] (l0)--(0.5,0)--node[right]{$\assumeop{\neg \mathit{cond}}$}(0.5,-2.5)--(0,-2.5)--(l3);
+		\end{tikzpicture}
+		\caption{Feltételes ciklus a CFA-ban.}
+		\label{fig:structprogrepcfa}
+	\end{subfigure}
+	\caption{A strukturált programozás elemei (szekvencia, feltételes elágazás, feltételes ciklus) és a megvalósításuk CFA modelleken.}
+	\label{fig:structprog}
+\end{figure}
 
 \section{A formalizált algoritmus}
 \label{sec:formalizalt_alg}
