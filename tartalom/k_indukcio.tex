@@ -28,18 +28,19 @@ Ezt az elvet általánosíthatjuk \emph{k} lépésre, $k \geq 1$, melyet a iroda
 \section{A probléma formalizálása}
 \label{sec:problema_form}
 
-Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölések és fogalmak bevezetésére \cite{k_induction_article}. Adott egy tranzakciós relációkból felépülő gráf, melyben $T(x, y)$-al jelöljük azt, ha létezik egy, az \emph{x} állapotból az \emph{y} állapotba mutató tranzakciós reláció. Így már tudjuk definiálni az útvonal fogalmát, mely állapotok sorozatát jelenti \emph{T}-n keresztül:
+Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölések és fogalmak bevezetésére \cite{k_induction_article}. Adott egy tranzakciós relációkból felépülő gráf, melyben $T(x, y)$-al jelöljük azt, ha létezik egy, az $x \in S$ állapotból az $y \in S$ állapotba mutató tranzakciós reláció, ahol \emph{S} az állapotok halmazát jelöli. Így már tudjuk definiálni az útvonal fogalmát, mely állapotok sorozatát jelenti \emph{T}-n keresztül:
 \begin{align}
-	utvonal(s_{[0..n]})~\dot{=}~\bigwedge_{0 \leq i < n} T(s_{i}, s_{i+1})
+	\label{eq:relacio_sor}
+	\mathit{utvonal}(s_{[0..n]})~\dot{=}~\bigwedge_{0 \leq i < n} T(s_{i}, s_{i+1}),
 \end{align}
-Ahol $s_{[0..n]}$ rövidítés az $(s_{0}, s_{1}, \dots, s_{n})$ állapotsorozatot jelöli. Az \emph{utvonal} $n$ hosszúságú, ha $n$ darab tranzakcióból áll. A nulla hosszúságú \emph{utvonal} egy darab állapotot tartalmaz és nem értelmezzük rajta a tranzakció műveletét. Azt a megállapítást, hogy egy \emph{Q} tulajdonság igaz egy útvonal összes állapotára, úgy fogjuk írni, hogy $\forall . Q(s_{[0..n]})$.
+ahol $s_i \in S$ és a $s_{[0..n]}$ rövidítés az $(s_{0}, s_{1}, \dots, s_{n})$ állapotsorozatot jelöli. Az \emph{utvonal} $n$ hosszúságú, ha $n$ darab tranzakcióból áll. A nulla hosszúságú \emph{utvonal} egy darab állapotot tartalmaz és nem értelmezzük rajta a tranzakció műveletét. Azt a megállapítást, hogy egy \emph{Q} tulajdonság igaz egy útvonal összes állapotára, úgy fogjuk írni, hogy $\forall . Q(s_{[0..n]})$.
 \newline
 \newline
 Definiáljuk emellett a ciklus mentes útvonalat is: olyan útvonal, melyben minden állapot maximum csak egyszer szerepelhet:
 \begin{align}
-	cmUtvonal(s_{[0..n]})~\dot{=}~utvonal(s_{[0..n]}) \wedge \bigwedge_{0 \leq i < j \leq n} s_{i} \neq s_{j}
+	\mathit{cmUtvonal}(s_{[0..n]})~\dot{=}~\mathit{utvonal}(s_{[0..n]}) \wedge \bigwedge_{0 \leq i < j \leq n} s_{i} \neq s_{j}
 \end{align}
-A továbbiakban lesz olyan, mikor egy útvonal alatt nem csak azt értjük, hogy az tranzakciók sorozata, hanem annak létezését is jelöli. Így, $utvonal_{i}(s_{0}, s_{i})$ alatt azt jelöljük, hogy \emph{létezik} egy útvonal $s_{0}$-ból $s_{i}$-be, mely \emph{i} darab \emph{T}-ből áll.
+A továbbiakban lesz olyan, mikor egy útvonal alatt nem csak azt értjük, hogy az tranzakciók sorozata, hanem annak létezését is jelöli. Így, $\mathit{utvonal}_{i}(s_{0}, s_{i})$ alatt azt jelöljük, hogy \emph{létezik} egy útvonal $s_{0}$-ból $s_{i}$-be, mely \emph{i} darab \emph{T}-ből áll.
 \newline
 \newline
 Legyen \emph{T} egy tranzakciós reláció \emph{S} állapothalmazán. Feltételezzük, hogy \emph{T} a teljes állapottérre értelmezve van, tehát minden állapotnak (a kezdőállapotokat leszámítva) van egy szülőállapota \emph{T}-n keresztül. Jelöljük \emph{I}-vel a kezdőállapotokat, és azt vizsgáljuk, hogy az állapotok teljesítik-e a \emph{P} tulajdonságot.
@@ -52,7 +53,7 @@ Ahol $i \geq 0$. Később látni fogjuk, hogy az algoritmus felhasználja ennek 
 \begin{align}
 	\forall i:~\forall s_{0} \dots s_{i}:~(\neg I(s_{0}) \leftarrow utvonal(s_{[0..i]}) \wedge \neg P(s_{i}))
 \end{align}
-Ahol $\neg I(s_{0})$ azt jelenti, hogy $s_{0}$ nem kezdőállapot (nem teljesíti a ,,kezdőállapot tulajdonságot''), illetve $\neg P(s_{i})$ azt, hogy $s_{i}$ nem elégíti ki a \emph{P} tulajdonságot. A két egyenlet ekvivalens és összetehetőek úgy, hogy azon a probléma szemléletesebb és szimmetrikusabb legyen:
+ahol $\neg I(s_{0})$ azt jelenti, hogy $s_{0}$ nem kezdőállapot (nem teljesíti a ,,kezdőállapot tulajdonságot''), illetve $\neg P(s_{i})$ azt, hogy $s_{i}$ nem elégíti ki a \emph{P} tulajdonságot. A két egyenlet ekvivalens és összetehetőek úgy, hogy azon a probléma szemléletesebb és szimmetrikusabb legyen:
 \begin{align}
 	\forall i:~\forall s_{0} \dots s_{i}:~\neg(I(s_{0}) \wedge utvonal(s_{[0..i]}) \wedge \neg P(s_{i}))
 \end{align}
