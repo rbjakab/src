@@ -6,13 +6,13 @@ A level-1 auxiliary file: include/titlepage.aux
 A level-1 auxiliary file: include/declaration.aux
 A level-1 auxiliary file: content/abstract.aux
 A level-1 auxiliary file: content/introduction.aux
-A level-1 auxiliary file: tartalom/k_indukcio.aux
-A level-1 auxiliary file: tartalom/theta.aux
-A level-1 auxiliary file: tartalom/implementalas.aux
+A level-1 auxiliary file: tartalom/masodik_fejezet.aux
+A level-1 auxiliary file: tartalom/harmadik_fejezet.aux
+A level-1 auxiliary file: tartalom/negyedik_fejezet.aux
 A level-1 auxiliary file: tartalom/benchmark.aux
 A level-1 auxiliary file: tartalom/osszefoglalo.aux
 A level-1 auxiliary file: content/acknowledgement.aux
-Illegal, another \bibstyle command---line 41 of file thesis.aux
+Illegal, another \bibstyle command---line 42 of file thesis.aux
  : \bibstyle
  :          {apa}
 I'm skipping whatever remains of this command
@@ -28,45 +28,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 6 entries,
+You've used 7 entries,
             4991 wiz_defined-function locations,
-            1170 strings with 12804 characters,
-and the built_in function-call counts, 18435 in all, are:
-= -- 3337
-> -- 161
+            1175 strings with 12974 characters,
+and the built_in function-call counts, 21983 in all, are:
+= -- 3977
+> -- 235
 < -- 3
-+ -- 1262
-- -- 212
-* -- 324
-:= -- 703
-add.period$ -- 22
-call.type$ -- 6
-change.case$ -- 30
++ -- 1443
+- -- 281
+* -- 358
+:= -- 810
+add.period$ -- 24
+call.type$ -- 7
+change.case$ -- 35
 chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 2979
-empty$ -- 343
-format.name$ -- 29
-if$ -- 3730
+cite$ -- 7
+duplicate$ -- 3688
+empty$ -- 389
+format.name$ -- 34
+if$ -- 4484
 int.to.chr$ -- 0
-int.to.str$ -- 6
+int.to.str$ -- 7
 missing$ -- 5
-newline$ -- 133
-num.names$ -- 16
-pop$ -- 565
+newline$ -- 139
+num.names$ -- 18
+pop$ -- 691
 preamble$ -- 1
-purify$ -- 24
+purify$ -- 28
 quote$ -- 23
-skip$ -- 177
+skip$ -- 245
 stack$ -- 0
-substring$ -- 1983
-swap$ -- 2044
+substring$ -- 2295
+swap$ -- 2415
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 33
+type$ -- 38
 warning$ -- 0
-while$ -- 97
-width$ -- 7
-write$ -- 171
+while$ -- 110
+width$ -- 8
+write$ -- 182
 (There was 1 error message)

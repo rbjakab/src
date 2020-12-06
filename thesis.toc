@@ -21,7 +21,14 @@
 \select@language {magyar} \contentsline {paragraph}{Állítás.}{10}{section*.13}%
 \select@language {magyar} \contentsline {chapter}{\numberline {4}Implementáció}{11}{chapter.4}%
 \select@language {magyar} \contentsline {section}{\numberline {4.1}Theta keretrendszer}{11}{section.4.1}%
-\select@language {magyar} \contentsline {chapter}{\numberline {5}Kiértékelés}{12}{chapter.5}%
-\select@language {magyar} \contentsline {chapter}{\numberline {6}Összefoglaló}{13}{chapter.6}%
-\select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{14}{chapter*.14}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{15}{chapter*.14}%
+\select@language {magyar} \contentsline {section}{\numberline {4.2}A program implementálása}{12}{section.4.2}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Bemenet}{12}{subsection.4.2.1}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Architektúra}{12}{subsection.4.2.2}%
+\select@language {magyar} \contentsline {paragraph}{Osztályok.}{12}{section*.14}%
+\select@language {magyar} \contentsline {paragraph}{Függvények.}{15}{section*.16}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.3}Működés}{17}{subsection.4.2.3}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.4}Kimenet}{17}{subsection.4.2.4}%
+\select@language {magyar} \contentsline {chapter}{\numberline {5}Kiértékelés}{19}{chapter.5}%
+\select@language {magyar} \contentsline {chapter}{\numberline {6}Összefoglaló}{20}{chapter.6}%
+\select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{21}{chapter*.18}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{22}{chapter*.18}%
