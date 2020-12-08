@@ -1,10 +1,12 @@
 \chapter{Háttérismeretek}
 
-Ebben a fejezetben a dolgozat további részeinek megértéséhez szükséges elméleti előismereteket mutatom be. Először a \emph{k}-indukció nevű matematikai módszert \cite{k_induction_principle} ismertetem (\hyperlink{section.2.1}{Alfejezet 2.1.}), majd formalizálom a problémát (\hyperlink{section.2.2}{Alfejezet 2.2.}), végül pszeudokód szinten bemutatom az ezen a matematikai módszeren alapuló algoritmus működését és annak helyességét (\hyperlink{section.2.3}{Alfejezet 2.3.}).
+Ebben a fejezetben a dolgozat további részeinek megértéséhez szükséges elméleti előismereteket mutatom be. Először $ \ldots $, majd a \emph{k}-indukció nevű matematikai módszert \cite{k_induction_principle} ismertetem a (\ref{sec:k_induction}) alfejezetben, majd végül formalizálom a problémát a (\ref{sec:problema_form}) alfejezetben.
 
 \section{Általános modellellenőrzés}
+\label{sec:alt_mod}
 
 \section{Szoftververifikáció}
+\label{sec:szoftverver}
 
 \section{K-indukció}
 \label{sec:k_induction}
@@ -13,7 +15,7 @@ Tekintsük az alább látható teljes indukció tételét a természetes számok
 \begin{align}
 	P(0) \wedge \forall n (P(n) \Rightarrow P(n+1)) \Rightarrow \forall nP(n).
 \end{align}
-Lényege, hogy megnézzük az első lépésre teljesül-e a feltétel (az angol szakirodalomban ez a \emph{base-case}). Ha igen, akkor megnézzük ennek tudatában azt, hogy az $n+1$. lépés következik-e az $n$. lépésből (indukciós lépés -- \emph{induction case}). Ha sikerül ezt belátnunk, akkor készen vagyunk, bebizonyítottuk az összes lépésre a feltételt.
+Lényege, hogy megnézzük az első lépésre teljesül-e a feltétel (az angol szakirodalomban ez a \emph{base-case}). Ha igen, akkor megnézzük ennek ismeretében azt, hogy az $n+1$. lépés következik-e az $n$. lépésből (indukciós lépés -- \emph{induction case}). Ha sikerül ezt belátnunk, akkor készen vagyunk, bebizonyítottuk az összes lépésre a feltételt.
 \newline
 \newline
 Ezt tovább gondolva megtehetjük azt, hogy az első két lépésre nézzük meg, hogy teljesítik-e a feltételt:
@@ -28,24 +30,24 @@ Ezt az elvet általánosíthatjuk \emph{k} lépésre, $k \geq 1$, melyet a iroda
 \section{A probléma formalizálása}
 \label{sec:problema_form}
 
-Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölések és fogalmak bevezetésére \cite{k_induction_article}. Adott egy tranzakciós relációkból felépülő gráf, melyben $T(x, y)$-al jelöljük azt, ha létezik egy, az $x \in S$ állapotból az $y \in S$ állapotba mutató tranzakciós reláció, ahol \emph{S} az állapotok halmazát jelöli. Így már tudjuk definiálni az útvonal fogalmát, mely állapotok sorozatát jelenti \emph{T}-n keresztül:
+Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölések és fogalmak bevezetésére \cite{k_induction_article}. Adott egy tranzakciós relációkból felépülő gráf, melyben $T(x, y)$-al jelöljük azt, ha létezik egy, az $x \in S$ állapotból az $y \in S$ állapotba mutató tranzakciós reláció, ahol \emph{S} az állapotok halmazát jelöli \textit{T} pedig a tranzakciós relációt. Így már tudjuk definiálni az útvonal fogalmát, mely állapotok sorozatát jelenti \emph{T}-n keresztül:
 \begin{align}
 	\label{eq:relacio_sor}
 	\mathit{utvonal}(s_{[0..n]})~\dot{=}~\bigwedge_{0 \leq i < n} T(s_{i}, s_{i+1}),
 \end{align}
-ahol $s_i \in S$ és a $s_{[0..n]}$ rövidítés az $(s_{0}, s_{1}, \dots, s_{n})$ állapotsorozatot jelöli. Az \emph{utvonal} $n$ hosszúságú, ha $n$ darab tranzakcióból áll. A nulla hosszúságú \emph{utvonal} egy darab állapotot tartalmaz és nem értelmezzük rajta a tranzakció műveletét. Azt a megállapítást, hogy egy \emph{Q} tulajdonság igaz egy útvonal összes állapotára, úgy fogjuk írni, hogy $\forall . Q(s_{[0..n]})$.
+ahol $s_i \in S$ és az $s_{[0..n]}$ rövidítés az $(s_{0}, s_{1}, \dots, s_{n})$ állapotsorozatot jelöli. Az útvonal $n$ hosszúságú, ha $n$ darab tranzakcióból áll. A nulla hosszúságú útvonal egy darab állapotot tartalmaz és nem értelmezzük rajta a tranzakció műveletét. Azt a megállapítást, hogy egy \emph{Q} tulajdonság igaz egy útvonal összes állapotára, úgy fogjuk írni, hogy $\forall . Q(s_{[0..n]})$.
 \newline
 \newline
 Definiáljuk emellett a ciklus mentes útvonalat is: olyan útvonal, melyben minden állapot maximum csak egyszer szerepelhet:
 \begin{align}
 	\mathit{cmUtvonal}(s_{[0..n]})~\dot{=}~\mathit{utvonal}(s_{[0..n]}) \wedge \bigwedge_{0 \leq i < j \leq n} s_{i} \neq s_{j}
 \end{align}
-A továbbiakban lesz olyan, mikor egy útvonal alatt nem csak azt értjük, hogy az tranzakciók sorozata, hanem annak létezését is jelöli. Így, $\mathit{utvonal}_{i}(s_{0}, s_{i})$ alatt azt jelöljük, hogy \emph{létezik} egy útvonal $s_{0}$-ból $s_{i}$-be, mely \emph{i} darab \emph{T}-ből áll.
+A továbbiakban lesz olyan, mikor egy útvonal alatt nem csak azt értjük, hogy az tranzakciók sorozata, hanem annak létezését is jelöli. Így, az $\mathit{utvonal}_{i}(s_{0}, s_{i})$ alatt azt jelöljük, hogy \emph{létezik} egy útvonal $s_{0}$-ból $s_{i}$-be, mely \emph{i} darab \emph{T}-ből áll.
 \newline
 \newline
-Legyen \emph{T} egy tranzakciós reláció \emph{S} állapothalmazán. Feltételezzük, hogy \emph{T} a teljes állapottérre értelmezve van, tehát minden állapotnak (a kezdőállapotokat leszámítva) van egy szülőállapota \emph{T}-n keresztül. Jelöljük \emph{I}-vel a kezdőállapotokat, és azt vizsgáljuk, hogy az állapotok teljesítik-e a \emph{P} tulajdonságot.
+Feltételezzük, hogy \emph{T} a teljes állapottérre értelmezve van, tehát minden állapotnak (a kezdőállapotokat leszámítva) van egy szülőállapota \emph{T}-n keresztül. Jelöljük \emph{I}-vel a kezdőállapotokat, és azt vizsgáljuk, hogy az állapotok teljesítik-e a \emph{P} tulajdonságot.
 
-A problémát informálisan a következőképp foglalhatjuk össze: beszeretnénk azt látni, hogy ha egy kezdőállapotból elindulunk, akkor a tranzakciós relációt ismétlődően alkalmazva csak olyan állapotba fogunk eljutni, mely kielégíti \emph{P}-t. Formálisan a következőt akarjuk belátni:
+A problémát informálisan a következőképp foglalhatjuk össze: beszeretnénk azt látni, hogy ha egy kezdőállapotból elindulunk, akkor a tranzakciós relációkon keresztül csak olyan állapotba fogunk eljutni, mely kielégíti \emph{P}-t. Formálisan a következőt akarjuk belátni:
 \begin{align}
 	\forall i:~\forall s_{0} \dots s_{i}:~(I(s_{0}) \wedge utvonal(s_{[0..i]}) \rightarrow P(s_{i}))
 \end{align}

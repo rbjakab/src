@@ -36,7 +36,7 @@ A Theta architektúrája négy rétegre osztható. Nevezetesen:
 A program bemenete egy CFA, mely számos hellyel rendelkezik, melyek közül kiemelkedik a kezdő-, a hiba- illetve a végső hely. Az utóbbit a k-indukciós algoritmus nem veszi figyelembe, mert az a teljes teret bejárja, viszont más algoritmusok működéséhez szükségesek lehetnek. Az ezután következő \ref{sec:kiertekeles}. fejezetben részletesen kitérek a programom tesztelésére, de elöljáróban azt érdemes tudni, hogy bizonyos CFA modellekre az algoritmus  lassan terminál. Ezért, ha a felhasználó igényeinek megfelel, bemenetnek megadhat egy maximális időkorlátot vagy egy maximális mélységet is, esetleg mindkettőt, melyek felső korlátot fognak megszabni a programnak.
 
 \subsection{Architektúra}
-
+\label{sec:architektura}
 Ebben az alfejezetben részletesen kitérek a programom felépítésére. A program állapotdiagramja a (\ref{fig:state_diagram}) ábrán látható.
 
 \paragraph{Osztályok.}
@@ -68,10 +68,13 @@ A \textbf{\texttt{PathState}} osztály az útvonal bejáráshoz kell, az útvona
 	\item \texttt{stmtList} -- \texttt{List<Stmt>} típusú változó, melyben a PathState azon stmt állítások listáját tartalmazza bejárási sorrendben, melyek azokon az éleken voltak amiken a bejárás során az útvonal végigment, a kezdőhelytől (vagy visszafele keresésnél a hibahelytől) egészen eddig a PathState állapotig.
 \end{itemize}
 A \textbf{\texttt{CfaTest}} osztály a tesztelésért felelős a JUnit egységteszt-keretrendszer segítségével.
+\\
+\\
+A \textbf{\texttt{KInductionCommandLine}} osztály a parancssorból történő tesztelésért illetve verifikációért felel. Lehet csak egy CFA-t tesztelni, de arra is van lehetőség, hogy egy .csv fájlba kigyűjtött teszteket verifikálja. Az utóbbinál a program a futás után létrehoz egy .csv fájlt, amibe beleírja a futtatott program adatait illetve a futás eredményét is.
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=150mm, keepaspectratio]{figures/bubanat.png}
+	\includegraphics[width=150mm, keepaspectratio]{figures/allapot_diagram.png}
 	\caption[Caption for LOF]{A programom UML állapotdiagramja.\textsuperscript{*}}
 	\small\textsuperscript{*} Automatikusan generálva az IntelliJ Idea fejlesztőkörnyezettel
 	\label{fig:state_diagram}
@@ -191,16 +194,103 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 			\item \textbf{Kimenet}: -
 		\end{itemize}
 	\end{itemize}
+
+	\item \textbf{\texttt{KInductionCommandLine}} osztály
+	\begin{itemize}
+		\item \textcolor{blue}{main(final String[] args)} -- Létrehoz egy \texttt{KInductionCommandLine} objektumot aminek átadja a parancssori argumentumokat és aminek meghívja utána a \texttt{run()} függvényét.
+		\begin{itemize}
+			\item \textbf{Bemenet}: - Parancssori argumentumok.
+			\item \textbf{Bemenet}: -
+		\end{itemize}
+		
+		\item \textcolor{blue}{KInductionCommandLine(final String[] args)} -- A kapott parancssori argumentumokat eltárolja.
+		\begin{itemize}
+			\item \textbf{Bemenet}: - Parancssori argumentumok.
+			\item \textbf{Bemenet}: -
+		\end{itemize}
+		
+		\item \textcolor{blue}{run()} -- A parancssorból beolvasott paramétereket feldolgozza.
+		\begin{itemize}
+			\item \textbf{Bemenet}: -
+			\item \textbf{Bemenet}: -
+		\end{itemize}
+	\end{itemize}
+
+	\item \textbf{\texttt{CfaTest}} osztály
+	\begin{itemize}
+		\item \textcolor{blue}{test()} -- @Test annotációval ellátott függvény, mely a JUnit tesztelésért felelős.
+		\begin{itemize}
+			\item \textbf{Bemenet}: -
+			\item \textbf{Bemenet}: -
+		\end{itemize}
+	\end{itemize}
 \end{itemize}
 
 \subsection{Működés}
+Ebben az alfejezetben részletesen kifejtem a programom működésének folyamatát, melyet vázlatosan összefoglal a (\ref{fig:state_diagram2}) diagram.
+
+\begin{enumerate}
+	\item lépés: A program bemenetként kap egy CFA modellt és opcionálisan korlátozó feltételeket.
+	\item lépés: A következő változókat inicializálja:
+	\begin{enumerate}
+		\item \texttt{depth} -- az aktuális, bejárásra váró mélységet tárolja, kezdetben nulla,
+		\item \texttt{queue} -- tárolja az aktuális bejárandó mélység állapotait, kezdetben csak a kezdőállapotot tárolja,
+		\item \texttt{queueTemp} -- az aktuális mélység bejárása közben talált elérhető állapotokat tárolja,
+		\item \texttt{availablePaths} -- a bejárás utáni queueTemp méretét tárolja, a programkód jobb olvashatóságának érdekében van külön is vezetve,
+		\item \texttt{queueBW} -- ugyanaz, mint a queue, csak a hátrafelé haladó kereséshez (\textit{BackWard}), kezdetben csak a hibaállapotot tárolja,
+		\item \texttt{queueTempBW} -- ugyanaz, mint a queueTemp, csak a hátrafelé haladó kereséshez (\textit{BackWard}),
+		\item \texttt{pathMap} -- egy HashMap mely PathState állapotokat tárol s azok egyedi kulcsait használja kulcsnak, kezdetben csak a kezdőállapotot tárolja, illetve
+		\item a program futási idejének a mérését segítő változókat.
+	\end{enumerate}
+	\item lépés: Elindít egy végtelen ciklust.
+	\item lépés: Növeli a \texttt{depth} változó értékét és beállítja a \texttt{availablePaths} értékét nullára.
+	\item lépés: Ellenőrzi, hogy vannak -e korlátozások, és ha igen, teljesülnek-e:
+	\begin{enumerate}
+		\item Ha teljesülnek, létrehoz egy KInductionResult objektumot és befejezi a program a futását \textit{ismeretlen} válasszal,
+		\item Ha nem teljesül egyik sem (vagy nincsenek), akkor megyünk tovább a következő lépésre.
+	\end{enumerate}
+	\item lépés: Végig iterál a \texttt{queue} vermen, és kiveszi belőle az éppen utolsó elemet (\texttt{item : PathState}).
+	\begin{enumerate}
+		\item Végig iterál az \texttt{item} állapot \texttt{loc} változójának a kimenő élein (\texttt{edge : CFA.Edge})
+		\begin{enumerate}
+			\item Eltárolja a \texttt{loc : CFA.Loc} helyet, ahova jutott az élen keresztül
+			\item Az \texttt{item stmtList} listájának a végére beszúrja az \texttt{edge stmt} utasításait.
+			\item Létrehoz egy új állapotot \texttt{nextPS : PathState} néven, melynek megad egy egyedi kulcsot, a szülő kulcsa az \texttt{item} egyedi kulcsa lesz, a helye a \texttt{loc} és az éle pedig az \texttt{edge}.
+			\item \texttt{pathMap} HashMap-hez hozzáadja a \texttt{nextPS} állapotot.
+			\item Ellenőrzi solver segítségével, hogy az \texttt{stmtList} kielégíthető-e.
+			\begin{enumerate}
+				\item Ha igen, \texttt{queueTemp} veremhez hozzáadja a \texttt{nextPS} változót, és megnöveli eggyel az \texttt{availablePaths} értékét.
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+	\item lépés: Beleteszi az üres \texttt{queue} verembe a \texttt{queueTemp} verem tartalmát. Utóbbit utána kiüríti.
+	\item Ellenőrzi, hogy az \texttt{availablePaths} értéke nulla -e:
+	\begin{enumerate}
+		\item Ha nulla, létrehoz egy KInductionResult objektumot és befejezi a program a futását \textit{helyes} válasszal.
+	\end{enumerate}
+	\item Ellenőrzi, hogy a hibahely elérhető-e hátra felől:
+	\begin{enumerate}
+		\item Ugyanaz, mint a 6. lépés, csak \texttt{queue} helyett \texttt{queueBW} veremmel, \texttt{queueTemp} helyett \texttt{queueTempBW} veremmel, illetve egy lokális \texttt{availablePaths} változóval, leszámítva a \texttt{(a) $ \rightarrow $ iv} lépést: \texttt{pathMap} HashMap-hez itt nem adjuk hozzá a \texttt{nextPV} állapotot, mert az csak az ellenpélda meghatározásához kell, amit meg úgy értelmeztünk, hogy csak a kezdőhelyből indulhat ki.
+		\item Ha \texttt{availablePaths} nem nulla, azaz van elérhető hely, akkor a modellről nem tudtunk meg új információt, csak továbbra is azt látjuk, hogy talán elérhető a hibahely. Ha viszont \texttt{availablePaths} nulla, azaz a hibahelytől bejárva a gráfot arra jutunk egy bizonyos szint után, hogy nincs több elérhető hely, azzal akkor beláttuk, hogy a hibahely nem érhető el.
+		\item Ha a hibahely nem érhető el, akkor létrehoz egy KInductionResult objektumot és befejezi a program a futását \textit{helyes} válasszal.
+	\end{enumerate}
+	\item Ellenőrzi, hogy azok a helyek között, melyeket a most bejárt mélység után kaptunk (tehát amiket \texttt{queue} tárol), ott van-e a hibahely:
+	\begin{enumerate}
+		\item Végig iterál a \texttt{queue} vermen, az aktuális elem az \texttt{item : PathState}.
+		\begin{enumerate}
+			\item Ha az \texttt{item loc} helye a hibahely és elérhető (az \texttt{item stmtList} listáját a solver ki tudja elégíteni), akkor létrehoz egy KInductionResult objektumot és befejezi a program a futását \textit{nem helyes} válasszal.
+		\end{enumerate}
+	\end{enumerate}
+	\item Ha ideáig eljutott a program, akkor a 4) lépésre ugrik, ezzel újra kezdve még egy szint bejárását.
+\end{enumerate}
+
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=150mm, keepaspectratio]{figures/eztutijo3.png}
-	\caption[Caption for LOF]{A programom UML állapotdiagramja.\textsuperscript{*}}
-	\small\textsuperscript{*} Automatikusan generálva az IntelliJ Idea fejlesztőkörnyezettel
+	\includegraphics[width=150mm, keepaspectratio]{figures/flow_chart_med_res.png}
+	\caption[Caption for LOF]{A programom folyamatábra diagramja.}
 	\label{fig:state_diagram2}
 \end{figure}
+\clearpage
 
 \subsection{Kimenet}
 A program kimenetele egy \verb+KInductionResult+ osztályú objektum, melynek a következő változói vannak:
@@ -218,11 +308,3 @@ A program kimenetele egy \verb+KInductionResult+ osztályú objektum, melynek a 
 \end{itemize}
 
 A \textit{biztonságosról} és a \textit{nem biztonságosról} az előző fejezetekben sok szó esett. Az \textit{ismeretlen} válasszal a programom akkor tér vissza, ha kifutott az időből illetve ha elérte a maximális mélységet (a két feltétel között diszjunkció van), és addigra nem sikerült belátnia sem a modell helyességét, sem annak ellentettjét.
-
-
-
-
-
-
-
-

@@ -5,7 +5,7 @@
 \select@language {magyar} \contentsline {section}{\numberline {2.1}Általános modellellenőrzés}{3}{section.2.1}%
 \select@language {magyar} \contentsline {section}{\numberline {2.2}Szoftververifikáció}{3}{section.2.2}%
 \select@language {magyar} \contentsline {section}{\numberline {2.3}K-indukció}{3}{section.2.3}%
-\select@language {magyar} \contentsline {section}{\numberline {2.4}A probléma formalizálása}{4}{section.2.4}%
+\select@language {magyar} \contentsline {section}{\numberline {2.4}A probléma formalizálása}{3}{section.2.4}%
 \select@language {magyar} \contentsline {chapter}{\numberline {3}K-indukciós algoritmus szoftverellenőrzésre}{5}{chapter.3}%
 \select@language {magyar} \contentsline {section}{\numberline {3.1}Control Flow Automata}{5}{section.3.1}%
 \select@language {magyar} \contentsline {paragraph}{Szintaxis.}{5}{section*.4}%
@@ -13,22 +13,25 @@
 \select@language {magyar} \contentsline {paragraph}{Grafikai megjelenítés.}{6}{section*.6}%
 \select@language {magyar} \contentsline {paragraph}{Programábrázolás.}{6}{section*.8}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.1.1}Assert}{7}{subsection.3.1.1}%
+\select@language {magyar} \contentsline {paragraph}{Állapottér.}{8}{section*.11}%
 \select@language {magyar} \contentsline {section}{\numberline {3.2}Az algoritmus formalizálása}{8}{section.3.2}%
 \select@language {magyar} \contentsline {subsection}{\numberline {3.2.1}Elérhetőség vizsgálata}{9}{subsection.3.2.1}%
-\select@language {magyar} \contentsline {paragraph}{Definíció.}{9}{section*.11}%
-\select@language {magyar} \contentsline {subsection}{\numberline {3.2.2}Algoritmus}{9}{subsection.3.2.2}%
-\select@language {magyar} \contentsline {paragraph}{Algoritmus.}{9}{section*.12}%
-\select@language {magyar} \contentsline {paragraph}{Állítás.}{10}{section*.13}%
+\select@language {magyar} \contentsline {paragraph}{Definíció.}{9}{section*.12}%
+\select@language {magyar} \contentsline {subsection}{\numberline {3.2.2}Algoritmus}{10}{subsection.3.2.2}%
+\select@language {magyar} \contentsline {paragraph}{Algoritmus.}{10}{section*.13}%
+\select@language {magyar} \contentsline {paragraph}{Állítás.}{10}{section*.14}%
 \select@language {magyar} \contentsline {chapter}{\numberline {4}Implementáció}{11}{chapter.4}%
 \select@language {magyar} \contentsline {section}{\numberline {4.1}Theta keretrendszer}{11}{section.4.1}%
 \select@language {magyar} \contentsline {section}{\numberline {4.2}A program implementálása}{12}{section.4.2}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.2.1}Bemenet}{12}{subsection.4.2.1}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.2.2}Architektúra}{12}{subsection.4.2.2}%
-\select@language {magyar} \contentsline {paragraph}{Osztályok.}{12}{section*.14}%
-\select@language {magyar} \contentsline {paragraph}{Függvények.}{15}{section*.16}%
+\select@language {magyar} \contentsline {paragraph}{Osztályok.}{12}{section*.15}%
+\select@language {magyar} \contentsline {paragraph}{Függvények.}{15}{section*.17}%
 \select@language {magyar} \contentsline {subsection}{\numberline {4.2.3}Működés}{17}{subsection.4.2.3}%
-\select@language {magyar} \contentsline {subsection}{\numberline {4.2.4}Kimenet}{17}{subsection.4.2.4}%
-\select@language {magyar} \contentsline {chapter}{\numberline {5}Kiértékelés}{19}{chapter.5}%
-\select@language {magyar} \contentsline {chapter}{\numberline {6}Összefoglaló}{20}{chapter.6}%
-\select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{21}{chapter*.18}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{22}{chapter*.18}%
+\select@language {magyar} \contentsline {subsection}{\numberline {4.2.4}Kimenet}{21}{subsection.4.2.4}%
+\select@language {magyar} \contentsline {chapter}{\numberline {5}Kiértékelés}{22}{chapter.5}%
+\select@language {magyar} \contentsline {section}{\numberline {5.1}Tesztelés}{22}{section.5.1}%
+\select@language {magyar} \contentsline {section}{\numberline {5.2}Eredmények}{23}{section.5.2}%
+\select@language {magyar} \contentsline {chapter}{\numberline {6}Összefoglaló}{25}{chapter.6}%
+\select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{26}{chapter*.20}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{27}{chapter*.20}%

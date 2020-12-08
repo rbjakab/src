@@ -26,7 +26,7 @@
   \bibEarlyBegin
 \else \let\bibEarlyEnd\relax \fi
 
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \frenchspacing
 \makeatletter
 \global\def\bibIE@lowc{%
@@ -101,6 +101,15 @@ Dirk Beyer\bibAnd 1Stefan L\"owe:
 \bibNewBlock Lecture Notes in Computer Science sorozat, \bibVolume {7793.}.
 \bibNewBlock 2013, Springer, 146--162.~p.
 
+\bibitem{darvas2019plcverif}
+D\'aniel Darvas\bibAnd 0Enrique Blanco~Vi\~nuela\bibAnd 2Vince Moln\'ar:
+\bibNewBlock {PLCverif} re-engineered: {A}n open platform for the formal
+  analysis of {PLC} programs.
+\bibNewBlock In {\em Proceedings of the 17th International Conference on
+  Accelerator and Large Experimental Physics Control Systems}
+  (kon\-fe\-ren\-cia\-anyag).
+\bibNewBlock 2019, JACoW.
+
 \bibitem{donaldson_cikk}
 Alastair~F. Donaldson\bibAnd 0Leopold Haller\bibAnd 0Daniel Kroening\bibAnd
   2Philipp R\"ummer:
@@ -110,13 +119,6 @@ Alastair~F. Donaldson\bibAnd 0Leopold Haller\bibAnd 0Daniel Kroening\bibAnd
 \bibNewBlock Berlin, Heidelberg, 2011, Springer Berlin Heidelberg, 351--368.~p.
 \bibNewBlock ISBN 978-3-642-23702-7.
 
-\bibitem{soft_ver_akos}
-{Dr. Hajdu Ákos}:
-\bibNewBlock Formal software verification.
-\bibNewBlock
-  \textsc{url:}~\url{https://ftsrg.mit.bme.hu/software-verification-notes/software-verification.pdf},
-  2020.\ 11.
-
 \bibitem{alapfogalmak}
 {Dr. Majzik István}:
 \bibNewBlock Rendszertervezés és -integráció.
@@ -124,11 +126,39 @@ Alastair~F. Donaldson\bibAnd 0Leopold Haller\bibAnd 0Daniel Kroening\bibAnd
   \textsc{url:}~\url{https://www.mit.bme.hu/system/files/oktatas/targyak/10019/VIMIMA11_RTI_08_Biztonsagi_alapfogalmak_1.pdf},
   2018.\ 12.
 
+\bibitem{soft_ver_akos}
+{Dr. Ákos Hajdu}:
+\bibNewBlock Formal software verification.
+\bibNewBlock
+  \textsc{url:}~\url{https://ftsrg.mit.bme.hu/software-verification-notes/software-verification.pdf},
+  2020.\ 11.
+
+\bibitem{akos-phd}
+\'Akos Hajdu:
+\bibNewBlock {\em Effective Domain-Specific Formal Verification Techniques}.
+\bibNewBlock {PhD} \'ertekez\'es  (Budapest University of Technology and
+  Economics).
+\bibNewBlock 2020.
+\bibNewBlock
+\bibUrll{URL} >https://repozitorium.omikk.bme.hu/bitstream/handle/10890/13523/
+  ertekezes.pdf>.
+
 \bibitem{design_pattern_lazy_holder}
 Jeremy Manson\bibAnd 1Brian Goetz:
 \bibNewBlock Jsr 133 (java memory model) faq, 2004.\ 2.
 \bibNewBlock
 \bibUrll{URL} >http://www.cs.umd.edu/~pugh/java/memoryModel/jsr-133-faq.html>.
+
+\bibitem{vpt2017}
+Gyula Sallai\bibAnd 0\'Akos Hajdu\bibAnd 0Tam\'as T\'oth\bibAnd 2Zolt\'an
+  Micskei:
+\bibNewBlock Towards evaluating size reduction techniques for software model
+  checking.
+\bibNewBlock In {\em Proceedings of the Fifth International Workshop on
+  Verification and Program Transformation}.
+\bibNewBlock Electronic Proceedings in Theoretical Computer Science sorozat,
+  \bibVolume {253.}.
+\bibNewBlock 2017, Open Publishing Association, 75--91.~p.
 
 \bibitem{k_induction_article}
 Mary Sheeran\bibAnd 0Satnam Singh\bibAnd 2Gunnar St\aa lmarck:
@@ -137,6 +167,13 @@ Mary Sheeran\bibAnd 0Satnam Singh\bibAnd 2Gunnar St\aa lmarck:
   Methods in Computer-Aided Design} (kon\-fe\-ren\-cia\-anyag).
 \bibNewBlock Berlin, Heidelberg, 2000, Springer Berlin Heidelberg, 127--144.~p.
 \bibNewBlock ISBN 978-3-540-40922-9.
+
+\bibitem{ca-lab-tests}
+Tamás Tóth.
+\bibNewBlock
+\bibUrll{URL}
+  >https://github.com/ftsrg-ca/ca/tree/master/program-verification-1/src/
+  test/resources>.
 
 \bibitem{k_induction_principle}
 Thomas Wahl:

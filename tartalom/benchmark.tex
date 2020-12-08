@@ -1,2 +1,92 @@
 \chapter{Kiértékelés}
 \label{sec:kiertekeles}
+
+Ebben a fejezetben a programom tesztelését mutatom be. Az első alfejezetben (\ref{sec:kiertekeles_teszt}) a tesztelés részleteiről írok, a második alfejezetben (\ref{sec:kiertekeles_ered}) az elért eredményeket összesítem és értékelem ki.
+
+\section{Tesztelés}
+\label{sec:kiertekeles_teszt}
+A programom készítése közben folyamatosan teszteltem azt JUnit tesztek segítségével az Architektúra (\ref{sec:architektura}) alfejezetben bemutatott \texttt{CfaTest} osztállyal. A tesztekhez a CFA modelleket egyrészt az \texttt{ftsrg} kutatócsoport \texttt{ca} github repository-jából nyertem \cite{ca-lab-tests}, illetve készítettem sajátokat is de a tesztek túlnyomó többsége a Thetához kapcsolódó, privát GitHub repository-ból való, amelyek különböző frontendekkel lettek generálva. Az utóbbiban többek között 479 darab CFA teszt található, melyekhez tartozik előre ismert eredmény is. A tesztek egyik fele az SV-Comp-ról\footnote{\url{https://sv-comp.sosy-lab.org/2018/}} származik ahol eredetileg C kódok voltak amik aztán át lettek CFA-ba alakítva \cite{vpt2017}. Ezek különböző csoportba sorolhatóak \cite{akos-phd}:
+
+\begin{itemize}
+	\label{felsorolas}
+	
+	\item \texttt{locks} kicsi (94-234 LoC\footnote{Source lines of code - Hány sorból áll a CFA modellt leíró szöveges fájl.}) kizárási feladatokat ír le.
+	
+	\item \texttt{ECA} (event-condition-action) feladathalmaz nagy (591-1669 LoC) eseményvezérelt rendszereket tartalmaz.
+	
+	\item \texttt{ssh} nagy (557-716 LoC) kliens-szerver rendszereket ír le.
+	
+	\item \texttt{simple} kicsi (14-40) feladatok gyors teszteléshez.
+\end{itemize}
+
+Továbbá volt alkalmam tesztelni olyan CFA modelleket, melyek eredetileg ipari PLC szoftverkódok voltak a CERN-nél. \cite{darvas2019plcverif} Ezek mérete roppant változatos -- a pár tucattól a több ezerig is terjedhet. Mindegyik tesztről tudjuk, hogy abban mennyi változó van (azok között mennyi int és mennyi boolean típusú), mennyi hely, mennyi él, az egyes taszkok ciklikus komplexitása, az éleken mennyi hozzárendelés, mennyi őrfeltétel illetve hogy mennyi havoc van. Ezeket vázlatosan bemutatja a (\ref{table:tasksStat}) táblázat \cite{akos-phd}:
+
+\begin{table}[h] 
+	\centering
+	\begin{tabular}{lllllll}
+		\toprule
+		Category & Tasks & Vars & Locs & Edges & CC\\
+		\midrule
+		simple & 10 & 1--2 & 4--12 & 3--13 & 3--9\\
+		Locks & 143 & 4--32 & 9--40 & 10--57 & 3--23\\
+		ssh & 17 & 64--81 & 187--267 & 262--375 & 87--121\\
+		PLC & 129 & 1--596 & 8--4614 & 7-4782 & 4-188\\
+		ECA & 180 & 9--30 & 302--1301 & 375--1516 & 73--231\\
+		
+		\bottomrule
+		\textit{Total} & \textit{479}\\
+	\end{tabular}
+	\caption{Az egyes taszkok tulajdonságainak statisztikai jellemzői. A CC rövidítés a Cyclomatic Complexity azaz a ciklikus komplexitást jelöli.}
+	\label{table:tasksStat}
+\end{table}
+
+Míg a program fejlesztése közben azt 28 darab, véletlenszerűen kiválasztott teszttel ellenőriztem, a végén teszteltem mind a 479 tesztre is. A széleskörű teszteléshez \texttt{KInductionCommandLine} osztályt használtam, mely egy interfészt biztosít a programom parancssori futtatásához, és amelyet a következő paraméterekkel lehet meghívni:
+
+\begin{itemize}
+	\item \texttt{-{}-model} -- A CFA teszt elérési útvonala, ha csak egy darab tesztre szeretnénk lefuttatni. Nem kötelező.
+	\item \texttt{-{}-input} -- A CFA teszteket, az elvárt eredményeiket és egyéb, a tesztek tulajdonságait leíró információkat tartalmazó .csv fájl elérési útvonala. Nem kötelező.
+	\item \texttt{-{}-time} -- A futási időt tudjuk vele korlátozni, másodpercben. Nem kötelező, alapértelmezetten -1.
+	\item \texttt{-{}-bound} -- Az algoritmus bejárási mélységét tudjuk vele korlátozni. Nem kötelező, alapértelmezetten -1.
+	\item \texttt{-{}-output} -- A kimenetel fájl neve (input paraméter esetén). Nem kötelező, alapértelmezetten ``output.csv''.
+\end{itemize}
+Bár se a \texttt{-{}-model} sem az \texttt{-{}-input} paraméter nem kötelező, a program \texttt{assert}-tel ellenőrzi, hogy legalább egy meg legyen adva. Viszont ugyanúgy hiba, ha mindkettő meg van adva. Ezt az alábbi kóddal ellenőrzöm:
+\ \\
+\begin{lstlisting}
+if (!input.equals("") && !model.equals("")) {
+		Assert.fail("Only one input source is allowed.");
+}
+if (input.equals("") && model.equals("")) {
+		Assert.fail("One input source is required.");
+}
+\end{lstlisting}
+
+\section{Eredmények}
+\label{sec:kiertekeles_ered}
+
+A 479 tesztet az előző oldalon található felsorolás szerint külön .csv fájlokba szerveztem. Ezután a 
+\ \\
+\begin{lstlisting}
+	java -jar theta-k-induction.jar --input input_svcomp_xx.csv --output output_svcomp_xx_yy.csv --time yy
+\end{lstlisting}
+\ \\
+parancssori utasítást adtam ki, ahol xx = \{locks, eca, ssh, simple, plc\}, illetve yy = \{60, 120, 180, 300, 600\}, azaz szavakkal elmondva külön-külön mindegyik tesztkategóriát futtattam 1 perc, 2 perc, 3 perc, 5 perc illetve 10 perc időkorláttal. Azért döntöttem időkorlát használata mellett, mert tapasztalataim szerint egyes tesztek 8, 10 vagy annál több órás futási időt igényelnek, ami a nagy darabszámot is figyelembe véve korlátozásra ad okot. 
+\\
+\\
+A kapott eredményfájlokat a Pandas\footnote{\url{https://pandas.pydata.org/}} Python programkönyvtárral dolgoztam fel.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%
+%Néhány nagyobb, bonyolultabb tesztnél engedtem végig futni, és mindre helyes eredményt kaptam, így arra jutottam, hogy a korlátozás nem befolyásolja a programom működ
+%%%%
