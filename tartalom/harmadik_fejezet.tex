@@ -299,12 +299,12 @@ Tekintsük az (\ref{alg:1}) algoritmust, mely a kezdőállapotból indulva inkre
 \begin{itemize}
 	\item Az első feltétel megfelel a fentebb említett \emph{első eset}nek: azt nézi, hogy az aktuális bejárási mélységben van-e olyan állapot, melyet nem látogattunk meg még a kezdőállapotból indulva \emph{és} elérhető. Ha van, akkor akkor a \emph{Sat($\ldots$)} visszatérési értéke ``igaz'' lesz, mely a negált hatására ``hamis''ra fordul és folytatjuk tovább az ellenőrzést.
 	
-	\item A második feltétel megfelel a fentebb említett \emph{második eset}nek: elindulunk egy  $s_e \in S : \neg P(s_e)$ hibaállapotból visszafele, amíg van olyan elérhető állapot, melyben még nem jártunk.
+	\item A második feltétel megfelel a fentebb említett \emph{második eset}nek. Azt vizsgálja, hogy ha az $s_e \in S$ hibaállapotból indulva eljutunk egy $s_{e+i} \in S$ állapotba, akkor az utóbbiból a hibaállapot felé visszaindulva kialakuló ciklusmentes útvonal kielégíthető-e. Ha igen, akkor folytatjuk tovább az ellenőrzést.
 \end{itemize}
 A második \emph{if} a \verb+6.+ sorban azt vizsgálja, hogy az állapot, melyben éppen vagyunk ($s_i$) az:
 \begin{itemize}
-	\item Hibaállapot-e, illetve,
-	\item A kezdőállapotból elindulva elérhető-e.
+	\item hibaállapot-e, illetve,
+	\item a kezdőállapotból elindulva elérhető-e.
 \end{itemize}
 Ha elérhető és hibaállapot, a modellellenőrzés véget ért mert egy ellenpéldát találtunk, mellyel vissza is tér az algoritmus, ha nem, akkor az ellenőrzés folytatódik tovább és növeljük eggyel a bejárási mélységet.
 \ \\
@@ -318,7 +318,7 @@ Ha elérhető és hibaállapot, a modellellenőrzés véget ért mert egy ellenp
 i = 0 \\
 \While{True}{
 	\If{
-		$\neg \mathit{Sat}(I(s_0) \wedge \mathit{cmUtvonal}(s_{[0..i]})) \vee \neg  \mathit{Sat}(\mathit{cmUtvonal}(s_{[e..e+i]}) \wedge \neg P(s_e))$
+		$\neg \mathit{Sat}(I(s_0) \wedge \mathit{cmUtvonal}(s_{[0..i]})) \vee \neg  \mathit{Sat}(\mathit{cmUtvonal}(s_{[e+i..e]}) \wedge \neg P(s_e))$
 	}{
 		return True
 	}
@@ -332,27 +332,7 @@ i = 0 \\
 \caption{Checking if system is \emph{P}-safe}
 \end{algorithm}
 
-\paragraph{Állítás.} Tegyük fel, hogy az \ref{alg:1}-es algoritmus ``True'' válasszal tért vissza. Ekkor a modell \emph{P}-biztonságos.
+\paragraph{Állítás.} Tegyük fel, hogy az (\ref{alg:1})-es algoritmus ``True'' válasszal tért vissza. Ekkor a modell \emph{P}-biztonságos.
 \newline
 \newline
 \emph{Bizonyítás:} $\ldots$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

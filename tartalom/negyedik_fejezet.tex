@@ -1,5 +1,7 @@
 \chapter{Implementáció}
 
+Ebben a fejezetben bemutatom a TODO.
+
 \section{Theta keretrendszer}
 \label{sec:theta_keretrendszer}
 
@@ -8,13 +10,13 @@ A \emph{Theta}\footnote{\url{https://github.com/FTSRG/theta}} egy nyílt forrás
 A keretrendszer a már évek óta tartó fejlesztéseknek köszönhetően számos eszközt tud nyújtani modellellenőrzéshez:\footnote{2020 decemberének elején.}
 
 \begin{itemize}
-	\item \verb+theta-cfa-cli+ -- Control Flow Automata hibahelyeinek\footnote{Az angol irodalom a \emph{location} kifejezést használja. Én a dolgozatomban a magyar megfelelőjét használom. TODO: nincs ez előbb definiálva már?} elérhetőségét vizsgálja CEGAR alapú algoritmusokkal
+	\item \verb+theta-cfa-cli+ -- Control Flow Automata hibahelyeinek\footnote{Az angol irodalom a \emph{location} kifejezést használja. Én a dolgozatomban a magyar megfelelőjét használom. TODO: nincs ez előbb definiálva már?} elérhetőségét vizsgálja CEGAR alapú algoritmusokkal.
 	
-	\item \verb+theta-sts-cli+ -- \emph{Symbolic Transition Systems} biztonsági tulajdonságainak verifikációját végzi CEGAR alapú algoritmusokkal
+	\item \verb+theta-sts-cli+ -- \emph{Symbolic Transition Systems} biztonsági tulajdonságainak verifikációját végzi CEGAR alapú algoritmusokkal.
 	
-	\item \verb+theta-xta-cli+ -- Uppaal időzített automaták verifikációját lehet vele elvégezni
+	\item \verb+theta-xta-cli+ -- Uppaal időzített automaták verifikációját lehet vele elvégezni.
 	
-	\item \verb+theta-xsts-cli+ -- \emph{eXtended Symbolic Transition Systems} biztonsági tulajdonságainak verifikációját végzi CEGAR alapú algoritmusokkal
+	\item \verb+theta-xsts-cli+ -- \emph{eXtended Symbolic Transition Systems} biztonsági tulajdonságainak verifikációját végzi CEGAR alapú algoritmusokkal.
 \end{itemize}
 \ \\
 A Theta architektúrája négy rétegre osztható. Nevezetesen:
@@ -22,18 +24,19 @@ A Theta architektúrája négy rétegre osztható. Nevezetesen:
 \begin{itemize}
 	\item \textbf{Formalizmusok} -- A Theta legalapvetőbb elemei, melyek való-életbeli problémákat modelleznek le (pl. szoftvereket, hardvereket, protokollokat). A formalizmusok általában alacsony szintű, matematikai ábrázolások melyek elsőrendű logikai kifejezéseken és gráfszerű struktúrákon alapulnak. Ilyen például a \emph{Control Flow Automata}.
 	
-	\item \textbf{Háttéranalízis} -- Itt történik a formalizmus feldolgozása és ellenőrzése. Ide sorolható a program melyet fejlesztettem.
+	\item \textbf{Háttéranalízis} -- Itt történik a formalizmus feldolgozása és ellenőrzése. Ide sorolható a programom belseje.
 	
 	\item \textbf{Sat-megoldó interfész} -- Ennek segítségével történik a verifikáció. A Theta a Z3 Sat-megoldót használja jelenleg.
 	
-	\item \textbf{Eszközök} -- Parancssori alkalmazások melyek futtatható \verb+jar+ fájlba fordíthatóak le. Jellemzően csak beolvassák az inputot és meghívják az alsóbb szinten lévő algoritmusokat. TODO: tud az enyém parancssorból futni?
+	\item \textbf{Eszközök} -- Parancssori alkalmazások melyek futtatható \verb+jar+ fájlba fordíthatóak le. Jellemzően csak beolvassák az inputot és meghívják az alsóbb szinten lévő algoritmusokat. A programom is ilyen.
 	
 \end{itemize}
 
 \section{A program implementálása}
+\label{sec:prog_imp}
 
 \subsection{Bemenet}
-A program bemenete egy CFA, mely számos hellyel rendelkezik, melyek közül kiemelkedik a kezdő-, a hiba- illetve a végső hely. Az utóbbit a k-indukciós algoritmus nem veszi figyelembe, mert az a teljes teret bejárja, viszont más algoritmusok működéséhez szükségesek lehetnek. Az ezután következő \ref{sec:kiertekeles}. fejezetben részletesen kitérek a programom tesztelésére, de elöljáróban azt érdemes tudni, hogy bizonyos CFA modellekre az algoritmus  lassan terminál. Ezért, ha a felhasználó igényeinek megfelel, bemenetnek megadhat egy maximális időkorlátot vagy egy maximális mélységet is, esetleg mindkettőt, melyek felső korlátot fognak megszabni a programnak.
+A program bemenete egy CFA, mely számos hellyel rendelkezik, melyek közül kiemelkedik a kezdő-, a hiba- illetve a végső hely. Az utóbbit a k-indukciós algoritmus nem veszi figyelembe, mert az a teljes teret bejárja, viszont más algoritmusok működéséhez szükségesek lehetnek. Az ezután következő (\ref{sec:kiertekeles}.) fejezetben részletesen kitérek a programom tesztelésére, de elöljáróban azt érdemes tudni, hogy bizonyos CFA modellekre az algoritmus  lassan fut le. Ezért, ha a felhasználó igényeinek megfelel, bemenetnek megadhat egy maximális időkorlátot vagy egy maximális mélységet is a bejárandó állapottérnek, esetleg mindkettőt, melyek felső korlátot fognak szabni a programnak.
 
 \subsection{Architektúra}
 \label{sec:architektura}
@@ -48,6 +51,7 @@ A következő osztályokat definiáltam:
 	\item \textbf{\texttt{PathOperator}}
 	\item \textbf{\texttt{PathVertex}}
 	\item \textbf{\texttt{CfaTest}}
+	\item \textbf{\texttt{KInductionCLI}}
 \end{itemize}
 \ \\
 A \textbf{\texttt{KInduction}} a főosztályom, ő teszi kontextusba és adja meg az ellenőrzés ívét. Benne található a \texttt{check($ \ldots $)} függvény, melyet a tesztelő osztály \texttt{CfaTest} hív és amely végzi az ellenőrzést.
@@ -62,7 +66,7 @@ A \textbf{\texttt{PathOperator}} egy osztály mely megvalósítja a Szoftvertech
 A \textbf{\texttt{PathState}} osztály az útvonal bejáráshoz kell, az útvonalaim ezekből az állapotokból épülnek fel. A PathState a következő ötöst tárolja public változókban:
 \begin{itemize}
 	\item \texttt{key} -- int típusú egyedi kulcs (azonosító), hogy minden PathState egyedi legyen.
-	\item \texttt{parentKey} -- int típusú egyedi azonosító ahhoz a szülő PathState állapothoz, mely az útvonalban eggyel megelőzi őt (tehát a szülő PathState az az állapot, melyből a bejárás során eljutottunk ehhez a PathState állapothoz). % TODO: parent <--> previous??
+	\item \texttt{parentKey} -- int típusú egyedi azonosító ahhoz a szülő PathState állapothoz, mely az útvonalban eggyel megelőzi őt (tehát a szülő PathState az az állapot, melyből a bejárás során eljutottunk ehhez a PathState állapothoz).
 	\item \texttt{loc} -- \texttt{CFA.Loc} típusú változó, melyben a PathState egy helyet tárol.
 	\item \texttt{edge} -- \texttt{CFA.Edge} típusú változó, melyben a PathState azt az élet tartalmazza amelyen keresztül a szülő PathState állapotból eljutottunk ebbe a PathState állapotba.
 	\item \texttt{stmtList} -- \texttt{List<Stmt>} típusú változó, melyben a PathState azon stmt állítások listáját tartalmazza bejárási sorrendben, melyek azokon az éleken voltak amiken a bejárás során az útvonal végigment, a kezdőhelytől (vagy visszafele keresésnél a hibahelytől) egészen eddig a PathState állapotig.
@@ -70,16 +74,16 @@ A \textbf{\texttt{PathState}} osztály az útvonal bejáráshoz kell, az útvona
 A \textbf{\texttt{CfaTest}} osztály a tesztelésért felelős a JUnit egységteszt-keretrendszer segítségével.
 \\
 \\
-A \textbf{\texttt{KInductionCommandLine}} osztály a parancssorból történő tesztelésért illetve verifikációért felel. Lehet csak egy CFA-t tesztelni, de arra is van lehetőség, hogy egy .csv fájlba kigyűjtött teszteket verifikálja. Az utóbbinál a program a futás után létrehoz egy .csv fájlt, amibe beleírja a futtatott program adatait illetve a futás eredményét is.
+A \textbf{\texttt{KInductionCLI}} osztály a parancssorból történő tesztelésért (\texttt{Command Line Interface}) illetve verifikációért felel. Lehet csak egy CFA-t tesztelni, de arra is van lehetőség, hogy egy .csv fájlba kigyűjtött teszteket verifikálja. Az utóbbinál a program a futás után létrehoz egy .csv fájlt, amibe beleírja a futtatott program adatait illetve a futás eredményét is.
 
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=150mm, keepaspectratio]{figures/allapot_diagram.png}
 	\caption[Caption for LOF]{A programom UML állapotdiagramja.\textsuperscript{*}}
-	\small\textsuperscript{*} Automatikusan generálva az IntelliJ Idea fejlesztőkörnyezettel
+	\small\textsuperscript{*} Automatikusan generálva az IntelliJ IDEA fejlesztőkörnyezettel
 	\label{fig:state_diagram}
 \end{figure}
-\clearpage % TODO
+\clearpage
 
 \paragraph{Függvények.}
 Miután van egy széles, de nem túl mély rálátásunk a programra, most elmerülnék benne és bemutatnám részletesebben, függvényekre bontva az osztályokat.
@@ -88,7 +92,7 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 	\begin{itemize}
 		\item \textcolor{blue}{KInduction(CFA cfa)} -- Az osztály egy paraméterű konstruktora.
 		\begin{itemize}
-			\item \textbf{Bemenet}: CFA modell
+			\item \textbf{Bemenet}: CFA modell.
 			\item \textbf{Kimenet}: -
 		\end{itemize}
 	
@@ -195,7 +199,7 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 		\end{itemize}
 	\end{itemize}
 
-	\item \textbf{\texttt{KInductionCommandLine}} osztály
+	\item \textbf{\texttt{KInductionCLI}} osztály
 	\begin{itemize}
 		\item \textcolor{blue}{main(final String[] args)} -- Létrehoz egy \texttt{KInductionCommandLine} objektumot aminek átadja a parancssori argumentumokat és aminek meghívja utána a \texttt{run()} függvényét.
 		\begin{itemize}

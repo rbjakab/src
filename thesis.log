@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  8 DEC 2020 20:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  9 DEC 2020 02:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1251,12 +1251,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 309--333
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--339
+)
+Underfull \hbox (badness 10000) in paragraph at lines 335--54
 
  []
 
-) [10]
+[10]
 \openout2 = `tartalom/negyedik_fejezet.aux'.
 
  (./tartalom/negyedik_fejezet.tex
@@ -1268,47 +1268,59 @@ Underfull \hbox (badness 10000) in paragraph at lines 335--339
 
 ]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 46.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 49.
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--63
+Underfull \hbox (badness 10000) in paragraph at lines 56--67
 
  []
 
 
-Underfull \hbox (badness 1460) in paragraph at lines 52--63
+Underfull \hbox (badness 1460) in paragraph at lines 56--67
 \T1/lmr/m/n/10.95 A \T1/lmtt/b/n/10.95 KInductionResult \T1/lmr/m/n/10.95 osz-t
 á-lyú ob-jek-tum-mal tér vissza a \T1/lmtt/m/n/10.95 check($[]$) \T1/lmr/m/n/10
 .95 függ-vény és
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--63
+Underfull \hbox (badness 10000) in paragraph at lines 56--67
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 52--63
+Underfull \hbox (badness 10000) in paragraph at lines 56--67
 
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 70--74
+Underfull \hbox (badness 10000) in paragraph at lines 74--78
 
+ []
+
+
+Underfull \hbox (badness 7133) in paragraph at lines 74--78
+\T1/lmr/m/n/10.95 A \T1/lmtt/b/n/10.95 KInductionCLI \T1/lmr/m/n/10.95 osz-tály
+ a pa-rancs-sor-ból tör-té-n® tesz-te-lé-sért (\T1/lmtt/m/n/10.95 Command Line
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 74--78
+\T1/lmtt/m/n/10.95 Interface\T1/lmr/m/n/10.95 ) il-let-ve ve-ri-fi-ká-ci-ó-ért 
+fe-lel. Le-het csak egy CFA-t tesz-tel-ni, de ar-ra is
  []
 
 <figures/allapot_diagram.png, id=362, 1004.75375pt x 1280.785pt>
 File: figures/allapot_diagram.png Graphic file (type png)
 <use figures/allapot_diagram.png>
-Package pdftex.def Info: figures/allapot_diagram.png  used on input line 77.
+Package pdftex.def Info: figures/allapot_diagram.png  used on input line 81.
 (pdftex.def)             Requested size: 426.79134pt x 544.02351pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 79.
+(Font)              <10> on input line 83.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 79.
+(Font)              <7> on input line 83.
 [13] [14 <./figures/allapot_diagram.png (PNG copy)>] [15
 
 ] [16] [17]
-Underfull \hbox (badness 1297) in paragraph at lines 254--255
+Underfull \hbox (badness 1297) in paragraph at lines 258--259
 []\T1/lmr/m/n/10.95 Végig ite-rál az \T1/lmtt/m/n/10.95 item \T1/lmr/m/n/10.95 
 ál-la-pot \T1/lmtt/m/n/10.95 loc \T1/lmr/m/n/10.95 vál-to-zó-já-nak a ki-me-n® 
 éle-in (\T1/lmtt/m/n/10.95 edge :
@@ -1318,7 +1330,7 @@ Underfull \hbox (badness 1297) in paragraph at lines 254--255
 <figures/flow_chart_med_res.png, id=417, 840.13875pt x 1183.42125pt>
 File: figures/flow_chart_med_res.png Graphic file (type png)
 <use figures/flow_chart_med_res.png>
-Package pdftex.def Info: figures/flow_chart_med_res.png  used on input line 289
+Package pdftex.def Info: figures/flow_chart_med_res.png  used on input line 293
 .
 (pdftex.def)             Requested size: 426.79134pt x 601.17133pt.
  [19] [20 <./figures/flow_chart_med_res.png>]) [21
@@ -1405,10 +1417,10 @@ Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: FB06B1F25ABC97C047FA1D86CC859A70;3649.
  ) 
 Here is how much of TeX's memory you used:
- 30350 strings out of 480804
- 566125 string characters out of 5903687
- 1133728 words of memory out of 5000000
- 46338 multiletter control sequences out of 15000+600000
+ 30351 strings out of 480804
+ 566111 string characters out of 5903687
+ 1133727 words of memory out of 5000000
+ 46339 multiletter control sequences out of 15000+600000
  673503 words of font info for 103 fonts, out of 8000000 for 9000
  376 hyphenation exceptions out of 8191
  112i,15n,113p,985b,1505s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1432,7 +1444,7 @@ texlive/2020/texmf-dist/fonts/type1/public/lm/lmri9.pfb><c:/texlive/2020/texmf-
 dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/p
 ublic/lm/lmsy8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
 ><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtl10.pfb>
-Output written on thesis.pdf (32 pages, 598854 bytes).
+Output written on thesis.pdf (32 pages, 598620 bytes).
 PDF statistics:
  610 PDF objects out of 1000 (max. 8388607)
  546 compressed objects within 6 object streams
