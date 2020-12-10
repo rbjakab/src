@@ -93,6 +93,12 @@
 \def\bibInSelf#1{In u\H{o}: }
 \csname bibOverride\endcsname
 
+\bibitem{DenkeAkos14}
+Denke \'Akos:
+\bibNewBlock Beágyazott szoftver verifikáció virtuális környezetben.
+\bibNewBlock Szakdolgozat (Budapest University of Technology and Economics).
+\bibNewBlock 2014.\ 12.
+
 \bibitem{beyer13}
 Dirk Beyer\bibAnd 1Stefan L\"owe:
 \bibNewBlock Explicit-state software model checking based on {CEGAR} and
@@ -119,19 +125,26 @@ Alastair~F. Donaldson\bibAnd 0Leopold Haller\bibAnd 0Daniel Kroening\bibAnd
 \bibNewBlock Berlin, Heidelberg, 2011, Springer Berlin Heidelberg, 351--368.~p.
 \bibNewBlock ISBN 978-3-642-23702-7.
 
-\bibitem{alapfogalmak}
-{Dr. Majzik István}:
-\bibNewBlock Rendszertervezés és -integráció.
-\bibNewBlock
-  \textsc{url:}~\url{https://www.mit.bme.hu/system/files/oktatas/targyak/10019/VIMIMA11_RTI_08_Biztonsagi_alapfogalmak_1.pdf},
-  2018.\ 12.
-
 \bibitem{soft_ver_akos}
-{Dr. Ákos Hajdu}:
+{Dr. \'Akos Hajdu}:
 \bibNewBlock Formal software verification.
 \bibNewBlock
   \textsc{url:}~\url{https://ftsrg.mit.bme.hu/software-verification-notes/software-verification.pdf},
   2020.\ 11.
+
+\bibitem{majzik_szoftver}
+{Dr. Majzik Istv\'an}:
+\bibNewBlock Szoftver verifikáció és validáció.
+\bibNewBlock
+  \textsc{url:}~\url{https://inf.mit.bme.hu/sites/default/files/materials/category/kategória/oktatás/doktorandusz-tárgyak/szoftver-verifikáció-és-validáció/11/SZVV_EA01_intro.pdf},
+  2011.\ 9.
+
+\bibitem{alapfogalmak}
+{Dr. Majzik Istv\'an}:
+\bibNewBlock Rendszertervezés és -integráció.
+\bibNewBlock
+  \textsc{url:}~\url{https://www.mit.bme.hu/system/files/oktatas/targyak/10019/VIMIMA11_RTI_08_Biztonsagi_alapfogalmak_1.pdf},
+  2018.\ 12.
 
 \bibitem{akos-phd}
 \'Akos Hajdu:
@@ -142,6 +155,14 @@ Alastair~F. Donaldson\bibAnd 0Leopold Haller\bibAnd 0Daniel Kroening\bibAnd
 \bibNewBlock
 \bibUrll{URL} >https://repozitorium.omikk.bme.hu/bitstream/handle/10890/13523/
   ertekezes.pdf>.
+
+\bibitem{iso}
+{ISO Central Secretary}:
+\bibNewBlock Quality management systems — fundamentals and vocabulary.
+\bibNewBlock ISO/TC 176 9000:2015. Standard, 2015, International Organization
+  for Standardization.
+\bibNewBlock
+\bibUrll{URL} >https://www.iso.org/obp/ui/#iso:std:iso:9000:ed-4:v1:en>.
 
 \bibitem{design_pattern_lazy_holder}
 Jeremy Manson\bibAnd 1Brian Goetz:
@@ -169,7 +190,7 @@ Mary Sheeran\bibAnd 0Satnam Singh\bibAnd 2Gunnar St\aa lmarck:
 \bibNewBlock ISBN 978-3-540-40922-9.
 
 \bibitem{ca-lab-tests}
-Tamás Tóth.
+Tamás T\'oth.
 \bibNewBlock
 \bibUrll{URL}
   >https://github.com/ftsrg-ca/ca/tree/master/program-verification-1/src/

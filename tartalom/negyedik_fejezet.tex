@@ -1,6 +1,6 @@
 \chapter{Implementáció}
 
-Ebben a fejezetben bemutatom a TODO.
+Ebben a fejezetben bemutatom a programom technikai oldalát. Az első (\ref{sec:theta_keretrendszer}) alfejezetben bemutatom a keretrendszert, amiben a programomat implementáltam. A második (\ref{sec:prog_imp}) alfejezetben ismertetem részletesen a programomat és annak felépítését.
 
 \section{Theta keretrendszer}
 \label{sec:theta_keretrendszer}
@@ -54,13 +54,13 @@ A következő osztályokat definiáltam:
 	\item \textbf{\texttt{KInductionCLI}}
 \end{itemize}
 \ \\
-A \textbf{\texttt{KInduction}} a főosztályom, ő teszi kontextusba és adja meg az ellenőrzés ívét. Benne található a \texttt{check($ \ldots $)} függvény, melyet a tesztelő osztály \texttt{CfaTest} hív és amely végzi az ellenőrzést.
+A \textbf{\texttt{KInduction}} a főosztályom, ő teszi kontextusba és adja meg az ellenőrzés ívét. Benne található a \texttt{check($ \ldots $)} függvény, melyet a tesztelő \texttt{CfaTest} osztály hív és amely végzi az ellenőrzést.
 \newline
 \newline
 A \textbf{\texttt{KInductionResult}} osztályú objektummal tér vissza a \texttt{check($ \ldots $)} függvény és így a programom. Magába foglal minden olyan információt, mely az eredményhez kötődik: az ellenőrzés tényleges eredményét, ha nem volt biztonságos a modell akkor egy ellenpéldát, illetve hány másodpercig futott és hogy milyen mélységig jutott a program.
 \newline
 \newline
-A \textbf{\texttt{PathOperator}} egy osztály mely megvalósítja a Szoftvertechnikából\footnote{\url{https://www.aut.bme.hu/Course/VIAUAB00}} ismert Singleton tervezési mintát, illetve az Initialization-on-demand holder \cite{design_pattern_lazy_holder} tervezési mintát is. Minden, az útvonal alakításához, feldolgozásához szükséges műveletet ebbe az osztályba szervezem ki függvények formájában. 
+A \textbf{\texttt{PathOperator}} egy osztály mely megvalósítja a Szoftvertechnikából\footnote{\url{https://www.aut.bme.hu/Course/VIAUAB00}} ismert Singleton tervezési mintát, illetve az Initialization-on-demand holder \cite{design_pattern_lazy_holder} tervezési mintát is. Minden, az útvonal átalakításához, feldolgozásához szükséges műveletet ebbe az osztályba szervezem ki függvények formájában. 
 \newline
 \newline
 A \textbf{\texttt{PathState}} osztály az útvonal bejáráshoz kell, az útvonalaim ezekből az állapotokból épülnek fel. A PathState a következő ötöst tárolja public változókban:
@@ -121,10 +121,10 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 			\item \textbf{Kimenet}: Boolean.
 		\end{itemize}
 	
-		\item \textcolor{blue}{queueTransfer(Queue<PathState> copyFrom, Queue<PathState> pasteTo)} -- A korlátos szélességi kereséshez két sort használok, az egyik a még bejárandó helyeket tartalmazza, a másik az ebben a mélységben már bejárt helyeket tárolja. A mélység bejárása után az utóbbit (copyFrom) beleteszem a másikba (pasteTo), így haladva egyre beljebb a térben.
+		\item \textcolor{blue}{queueTransfer(Queue<PathState> copyFrom, Queue<PathState> pasteTo)} -- A korlátos szélességi kereséshez két vermet használok, az egyik a még bejárandó helyeket tartalmazza, a másik az ebben a mélységben már bejárt helyeket tárolja. A mélység bejárása után az utóbbit (copyFrom) beleteszem a másikba (pasteTo), így haladva egyre beljebb a térben.
 		\begin{itemize}
-			\item \textbf{Bemenet}: Két, PathState állapotokat tartalmazó sor.
-			\item \textbf{Kimenet}: A pasteTo sor tartalmazni fogja a copyFrom sor tartalmát (mást nem, mert előtte kiürítjük), a copyFrom sor pedig üres lesz.
+			\item \textbf{Bemenet}: Két, PathState állapotokat tartalmazó verem.
+			\item \textbf{Kimenet}: A pasteTo verem tartalmazni fogja a copyFrom verem tartalmát (mást nem, mert előtte kiürítjük), a copyFrom verem pedig üres lesz.
 		\end{itemize}
 	
 		\item \textcolor{blue}{isSat(Solver solver, List<Stmt> stmtList)} -- Megnézi a solver megoldó segítségével, hogy az utasításlistát tartalmazó stmtList kielégíthető-e.
@@ -201,13 +201,13 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 
 	\item \textbf{\texttt{KInductionCLI}} osztály
 	\begin{itemize}
-		\item \textcolor{blue}{main(final String[] args)} -- Létrehoz egy \texttt{KInductionCommandLine} objektumot aminek átadja a parancssori argumentumokat és aminek meghívja utána a \texttt{run()} függvényét.
+		\item \textcolor{blue}{main(final String[] args)} -- Létrehoz egy \texttt{KInductionCLI} objektumot aminek átadja a parancssori argumentumokat és aminek meghívja utána a \texttt{run()} függvényét.
 		\begin{itemize}
 			\item \textbf{Bemenet}: - Parancssori argumentumok.
 			\item \textbf{Bemenet}: -
 		\end{itemize}
 		
-		\item \textcolor{blue}{KInductionCommandLine(final String[] args)} -- A kapott parancssori argumentumokat eltárolja.
+		\item \textcolor{blue}{KInductionCLI(final String[] args)} -- A kapott parancssori argumentumokat eltárolja.
 		\begin{itemize}
 			\item \textbf{Bemenet}: - Parancssori argumentumok.
 			\item \textbf{Bemenet}: -
@@ -247,7 +247,7 @@ Ebben az alfejezetben részletesen kifejtem a programom működésének folyamat
 		\item a program futási idejének a mérését segítő változókat.
 	\end{enumerate}
 	\item lépés: Elindít egy végtelen ciklust.
-	\item lépés: Növeli a \texttt{depth} változó értékét és beállítja a \texttt{availablePaths} értékét nullára.
+	\item lépés: Növeli a \texttt{depth} változó értékét és beállítja az \texttt{availablePaths} értékét nullára.
 	\item lépés: Ellenőrzi, hogy vannak -e korlátozások, és ha igen, teljesülnek-e:
 	\begin{enumerate}
 		\item Ha teljesülnek, létrehoz egy KInductionResult objektumot és befejezi a program a futását \textit{ismeretlen} válasszal,
@@ -291,7 +291,7 @@ Ebben az alfejezetben részletesen kifejtem a programom működésének folyamat
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=150mm, keepaspectratio]{figures/flow_chart_med_res.png}
-	\caption[Caption for LOF]{A programom folyamatábra diagramja.}
+	\caption[Caption for LOF]{A programom folyamatábra diagramja. A kék színnel jelölt elágazás magába foglal még egy ekkora folyamatábrát, csak az hátulról ellenőriz a hibahelytől.}
 	\label{fig:state_diagram2}
 \end{figure}
 \clearpage

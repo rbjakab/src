@@ -1,26 +1,23 @@
 \chapter{\bevezetes}
 
-A körülöttünk lévő világban számos helyen találunk olyan informatikai rendszereket, melyeknél a meghibásodás (hibás működés) következménye elfogadhatatlan. Hagyományosan ilyen területek az egészségügyi alkalmazások, légi közlekedés, atomenergia ipar, fegyverrendszerek stb., vagy például a szoftverrendszerek egy részcsoportja, így az autonóm járművezetés. Ezeket a rendszereket biztonságkritikus rendszereknek nevezzük, és létfontosságú a specifikációnak megfelelő működésük ellenőrzése.
+\section{Feladatleírás}
 
-Elmondható, hogy a legtöbb biztonságkritikus rendszer rendelkezik komplex szoftverrendszerrel, melyek ugyanúgy biztonságkritikusak önmagukban is. Ezek ellenőrzésével a szoftververifikáció foglalkozik, mely azt vizsgálja, hogy egy szoftverrendszer megfelel-e a feléje támasztott követelményeknek. Ilyen követelmények lehetnek például a következők \cite{alapfogalmak}:
-\begin{itemize}
-	\item Rendelkezésre állás (\emph{availability}) -- Helyes szolgáltatás valószínűsége
-	\item Megbízhatóság (\emph{reliability}) -- Folyamatos helyes szolgáltatás valószínűsége
-	\item Biztonság (\emph{safety}) -- Elfogadhatatlan kockázattól való mentesség
-	\item Integritás (\emph{integrity}) -- Hibás változás, változtatás elkerülésének lehetősége
-	\item Karbantarthatóság (\emph{maintainability}) -- Javítás és fejlesztés lehetősége
-	\item $\dots$
-\end{itemize}
-\ \\
+A körülöttünk lévő világban számos helyen találunk olyan informatikai rendszereket, melyeknél a meghibásodás (hibás működés) következménye elfogadhatatlan. Hagyományosan ilyen területek az egészségügyi alkalmazások, légi közlekedés, atomenergia ipar, fegyverrendszerek stb., vagy például a szoftverrendszerek egy részcsoportja, így az autonóm járművezetés. Ezeket a rendszereket biztonságkritikus rendszereknek nevezzük, és létfontosságú a specifikációnak megfelelő működésük ellenőrzése.
+\newline
+\newline
+Elmondható, hogy a legtöbb biztonságkritikus rendszer rendelkezik komplex szoftverrendszerrel, melyek ugyanúgy biztonságkritikusak önmagukban is. Ezek ellenőrzésével a szoftververifikáció foglalkozik, mely azt vizsgálja, hogy egy szoftverrendszer megfelel-e a feléje támasztott követelményeknek. 
+\newline
+\newline
 Ennek ellenőrzésére különböző verifikációs technikák szolgálnak. Ezek egyike a modellellenőrzés, mely során a rendszer egy matematikai modelljét vizsgálva lehet azon különböző formalizált követelmények teljesülését ellenőrizni.
 \newline
 \newline
-A munkám célja egy program leimplementálása mely a fentebb vázolt követelmények közül a biztonságosság követelmény teljesülését ellenőrzi. Ezt a programot a BME VIK \bmemit\footnote{\url{https://www.mit.bme.hu/}} Hibatűrő Rendszerek Kutatócsoportja\footnote{\url{https://www.mit.bme.hu/research/ftsrg}} által fejlesztett \emph{Theta}\footnote{\url{https://github.com/FTSRG/theta}} verifikációs keretrendszerben fejlesztettem, majd azt széleskörűen teszteltem.
+A munkám célja egy program leimplementálása mely a követelmények közül a biztonságosság követelmény teljesülését ellenőrzi. Ezt a programot a BME VIK \bmemit\footnote{\url{https://www.mit.bme.hu/}} Hibatűrő Rendszerek Kutatócsoportja\footnote{\url{https://www.mit.bme.hu/research/ftsrg}} által fejlesztett \emph{Theta}\footnote{\url{https://github.com/FTSRG/theta}} verifikációs keretrendszerben fejlesztettem, majd azt széleskörűen teszteltem.
 \newline
 \newline
 A munkámat három részre tagolhatjuk, melyet a szakdolgozatom felépítése is követ: először elmerültem a szoftververifikáció és modellezés tématerületében, kiemelten foglalkozva a \emph{k}-indukció alapú szoftververifikációval, aztán a szakirodalom által bemutatott algoritmust leimplementáltam a \emph{Theta} keretrendszerben, majd végezetül széleskörű tesztelés alá vetettem.
-\newline
-\newline
+
+\section{Dolgozat felépítése}
+
 A dolgozat az alábbi részletesebb tartalmi felosztásban tárgyalja a fentebb felvázolt folyamatot:
 \begin{itemize}
 	\item A második fejezetben a dolgozatomhoz szükséges háttérismereteket mutatom be.

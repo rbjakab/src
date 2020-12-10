@@ -28,7 +28,7 @@ Háromféle utasítást különböztettem meg a dolgozatomban:
 	\item A \emph{havoc} operátor a $\mathit{havoc}~v_i$ formában írható le, ahol $v_i \in V$ egy változó. A \emph{havoc} hozzárendel a $v_i$ változóhoz egy nem-determinisztikus értéket, a többi változót érintetlenül hagyja. Például arra lehet használni, mikor szimulálni szeretnénk a felhasználói bemenetet.
 \end{itemize}
 \ \\
-Ha szeretnék egy utasítás nélküli élet húzni két hely között, mely minden körülmények között elsül, azt egy $[\mathit{igaz]}$ feltétellel tehetjük meg. TODO.
+Ha szeretnék egy olyan élet húzni két hely között, mely minden körülmények között elsül, akkor azt könnyen megtehetjük úgy, hogy nem adunk neki utasítást, vagy úgy is ha egy \texttt{[true]} feltételt adunk neki.
 
 \paragraph{Grafikai megjelenítés.}
 A helyeket körök, az éleket nyilak jelölik. Az egyes élek felett illetve mellett láthatóak az utasítások, amely jelen esetben hozzárendelés vagy feltevés. A kezdőállapotot egy bejövő nyíllal jelöljük. \cite{soft_ver_akos}.
@@ -260,15 +260,15 @@ A dolgozatomban arra a kérdésre keresem a választ, hogy a (\ref{sec:problema_
 Ezt például úgy tehetjük, hogy megnézzük tetszőleges nemnegatív \emph{i} egész esetén teljesül-e a
 \begin{align}
 	\label{eq:szimmetrikus}
-	\forall s_{0} \dots s_{i}:~\neg(I(s_{0}) \wedge \mathit{utvonal}(s_{[0..i]}) \wedge \neg P(s_{i}))
+	\forall s_{0} \dots s_{i}:~\neg(I(s_{0}) \wedge \mathit{utvonal}(s_{[0..i]}) \wedge \neg P(s_{i})),
 \end{align}
 feltétel. Ha megsérül valamelyik állapotban, akkor ezzel a módszerrel meg fogjuk találni és az oda vezető útvonal ellenpélda lesz a modell \emph{P}-biztonságosságára. Ez egy kívánatos eredmény: az algoritmusnak két féle kimenetele kell, hogy legyen: vagy az, hogy a modell \emph{P}-tulajdonságra nézve biztonságos (minden állapot teljesíti), vagy az, hogy a modell nem \emph{P}-biztonságos, ekkor egy ellenpéldát kell adnia, mely bizonyítja, hogy a  kezdőállapotból elindulva, azon végighaladva valóban egy hibaállapotba kerülünk.
 \newline
 \newline
-Ha a rendszer \emph{P}-biztonságos, akkor (\ref{eq:szimmetrikus}) minden \emph{i}-re igaz lesz, hiszen nem fogunk tudni találni olyan \emph{i} értéket, melyre ne teljesülne. Felvetődhet a kérdés, hogy mikortól lehet azt mondani, hogy \emph{i} további növelése céltalan, mert már teljes bizonyossággal kijelenthetjük, hogy a modell \emph{P}-biztonságos? Az $I(s_{0}) \wedge \mathit{utvonal}(s_{[0..i]})$ feltétel önmagában nem fog gyorsítást eredményezni: vagy végig megy az állapottéren amilyen hosszan csak lehetséges (ezt szeretnénk lerövidíteni), tekintve, hogy minden állapotnak van egy szülőállapota a \emph{T} tranzakciós reláción keresztül, vagy végtelen ciklusba kerül.
+Ha a rendszer \emph{P}-biztonságos, akkor (\ref{eq:szimmetrikus}) minden \emph{i}-re igaz lesz, hiszen nem fogunk tudni találni olyan \emph{i} értéket, melyre ne teljesülne. Felvetődhet a kérdés, hogy mikortól lehet azt mondani, hogy \emph{i} további növelése céltalan, mert már teljes bizonyossággal kijelenthetjük, hogy a modell \emph{P}-biztonságos? Az $I(s_{0}) \wedge \mathit{utvonal}(s_{[0..i]})$ feltétel önmagában nem fog gyorsítást eredményezni: végig megy az állapottéren amilyen hosszan csak lehetséges (ezt szeretnénk lerövidíteni), tekintve, hogy minden állapotnak van egy szülőállapota a \emph{T} tranzakciós reláción keresztül.
 \newline
 \newline
-Ennél jobb stratégia, ha akkor állunk meg, mikor $I(s_{0}) \wedge  \mathit{cmUtvonal}(s_{[0..i]})$ ellentmondásos lesz. Ezt használva addig folytatjuk a keresést, míg az összes, ciklusmentes útvonalat be nem jártuk. Legrosszabb esetben ekkor is végigmegy a program a teljes állapottéren, viszont ha az állapottérben ciklikusság figyelhető meg, akkor azt a stratégia maximálisan kihasználja: nem fog végtelen ciklusba kerülni, illetve átlagosan rövidebb (de bizonyosan nem hosszabb) útvonalakat fog bejárni, mint az $I(s_{0}) \wedge \mathit{utvonal}(s_{[0..i]})$.
+Ennél jobb stratégia, ha akkor állunk meg, mikor $I(s_{0}) \wedge  \mathit{cmUtvonal}(s_{[0..i]})$ ellentmondásos lesz. Ezt használva addig folytatjuk a keresést, míg az összes, ciklusmentes útvonalat be nem jártuk. Legrosszabb esetben ekkor is végigmegy a program a teljes állapottéren, viszont ha az állapottérben ciklikusság figyelhető meg, akkor azt a stratégia maximálisan kihasználja: átlagosan rövidebb (de bizonyosan nem hosszabb) útvonalakat fog bejárni, mint az $I(s_{0}) \wedge \mathit{utvonal}(s_{[0..i]})$.
 \newline
 \newline
 Ehhez hasonlóan tehetjük azt is, hogy addig ellenőrzünk, amíg a $\mathit{cmUtvonal}(s_{[0..i]})~\wedge~\neg P(s_{i})$ nem lesz ellentmondásos: egy, a \emph{P} tulajdonságot sértő állapotból (hibaállapotból) kiindulva addig megyünk ciklusmentes útvonalakon visszafelé, míg be nem járjuk a teljes állapotteret (ez esetben kijelenthetjük, hogy a rendszer nem-\emph{P}-biztonságos), ellenben ha nem járunk be minden állapotot, akkor a rendszer \emph{P}-biztonságos. Ez azzal magyarázható, hogy ha a kezdőállapot nem elérhető a hibaállapotból (mert visszafele haladva útközben elakadunk), akkor kijelenthetjük, hogy a modell biztonságos.
@@ -294,7 +294,7 @@ Feltételezzük, hogy a Sat-megoldó a tranzakciós reláció szekvencián kív�
 
 \subsection{Algoritmus}
 
-\paragraph{Algoritmus.}
+%\paragraph{Algoritmus.}
 Tekintsük az (\ref{alg:1}) algoritmust, mely a kezdőállapotból indulva inkrementálisan járja be az állapotteret. Az első \emph{if} a \verb+3.+ sorban két feltételt ellenőriz, melyek egy diszjunkcióval vannak összekapcsolva:
 \begin{itemize}
 	\item Az első feltétel megfelel a fentebb említett \emph{első eset}nek: azt nézi, hogy az aktuális bejárási mélységben van-e olyan állapot, melyet nem látogattunk meg még a kezdőállapotból indulva \emph{és} elérhető. Ha van, akkor akkor a \emph{Sat($\ldots$)} visszatérési értéke ``igaz'' lesz, mely a negált hatására ``hamis''ra fordul és folytatjuk tovább az ellenőrzést.
@@ -332,7 +332,49 @@ i = 0 \\
 \caption{Checking if system is \emph{P}-safe}
 \end{algorithm}
 
+\begin{comment}
 \paragraph{Állítás.} Tegyük fel, hogy az (\ref{alg:1})-es algoritmus ``True'' válasszal tért vissza. Ekkor a modell \emph{P}-biztonságos.
-\newline
-\newline
-\emph{Bizonyítás:} $\ldots$
+\\
+\\
+\textit{Bizonyítás:} Ha az algoritmus ``True'' válasszal tért vissza, akkor a \texttt{3.} sorban található feltételekből tudjuk, hogy a lehető legalacsonyabb értékű \textit{k}-ra igaz az, hogy a $\mathit{Sat}(I(s_0) \wedge \mathit{cmUtvonal}(s_{[0..k]}))$ és a $\mathit{Sat}(\mathit{cmUtvonal}(s_{[e+k..e]}) \wedge \neg P(s_e))$ közül legalább az egyiknek hamisnak kell lennie. A \texttt{6.} sor alapján tudjuk \cite{k_induction_article}, hogy $i < k$ esetén:
+\begin{align}
+	I(s_0) \wedge \mathit{utvonal}(s_{[0..i]}) \wedge \neg P(s_i)
+\end{align}
+ellentmondásos, hiszen ellenkező esetben igazra értékelődött volna ki és ellenpéldával tért volna vissza a program. Nyilvánvalóan következik ebből, hogy ciklusmentes útvonalra is ugyanúgy igaz ez:
+\begin{align}
+	\label{igeqkegy}
+	I(s_0) \wedge \mathit{cmUtvonal}(s_{[0..i]}) \wedge \neg P(s_i))
+\end{align}
+hiszen ha nincs olyan útvonal, mely egy kezdőállapotot összekötne egy hibaállapottal, akkor ciklusmentes útvonal sem lesz.
+\\
+\\
+Innentől azt kell már csak belátnunk, hogy $i \geq k$-re a (\ref{igeqkegy})-as egyenlet igaz. Tudjuk, hogy:
+\begin{align}
+	\begin{split}
+		I(s_0) \wedge \mathit{cmUtvonal}(s_{[0..i]}) \wedge \neg P(s_i) \rightarrow \\
+		I(s_0) \wedge \mathit{cmUtvonal}(s_{[0..k]}) \wedge \mathit{cmUtvonal}(s_{[k..i]}) \wedge \neg P(s_i)
+	\end{split}
+\end{align}
+illetve
+\begin{align}
+	\begin{split}
+		\mathit{cmUtvonal}(s_{[e+i..e]}) \wedge \neg P(s_e) \rightarrow \\
+		I(s_0) \wedge \mathit{cmUtvonal}(s_{[e+i..e+k]}) \wedge \mathit{cmUtvonal}(s_{[e+k..e]}) \wedge \neg P(s_i)
+	\end{split}
+\end{align}
+\end{comment}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

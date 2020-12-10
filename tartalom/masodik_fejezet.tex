@@ -1,12 +1,48 @@
 \chapter{Háttérismeretek}
 
-Ebben a fejezetben a dolgozat további részeinek megértéséhez szükséges elméleti előismereteket mutatom be. Először $ \ldots $, majd a \emph{k}-indukció nevű matematikai módszert \cite{k_induction_principle} ismertetem a (\ref{sec:k_induction}) alfejezetben, majd végül formalizálom a problémát a (\ref{sec:problema_form}) alfejezetben.
-
-\section{Általános modellellenőrzés}
-\label{sec:alt_mod}
+Ebben a fejezetben a dolgozat további részeinek megértéséhez szükséges elméleti előismereteket mutatom be. Először kitérek a szoftververifikációra a (\ref{sec:szoftverver}) alfejezetben, majd a \emph{k}-indukció nevű matematikai módszert \cite{k_induction_principle} ismertetem a (\ref{sec:k_induction}) alfejezetben, majd végül formalizálom a problémát a (\ref{sec:problema_form}) alfejezetben.
 
 \section{Szoftververifikáció}
 \label{sec:szoftverver}
+
+Elemzések azt mutatják \cite{majzik_szoftver}, hogy kliens-szerver illetve beágyazott rendszerek esetén a hiba oka nagy eséllyel visszavezethető szoftverhibára. Ezt mutatja a (\ref{kli-szer}) ábra, melyről látszik, hogy nagy igény van a minél pontosabb szoftververifikációs megoldásokra.
+
+%\begin{comment}
+\begin{figure}[!htb]
+	\begin{tikzpicture}
+		\pie [rotate = 20, color = {green!50!blue, cyan!80, blue!30!yellow, blue!10!yellow, blue!50}, radius = 2] {10/Hardverhiba, 40/Szoftverhiba, 15/Emberi hiba, 5/Környezeti hatás, 30/Tervezett leállás}
+		\pie [pos = {7.2, 0}, rotate = 30, color = {green!25, green!50!blue, cyan!80, pink!50}, radius = 2] {20/Operációs rendszer, 45/Hardverhiba, 25/Szoftverhiba, 10/Egyéb}
+	\end{tikzpicture}
+	\caption{A leállások illetve hibák okainak százalékos eloszlása. Baloldalt a kliens-szervereken, jobb oldalt a beágyazott rendszereken mért adatok.}
+	\label{kli-szer}
+\end{figure}
+%\end{comment}
+\begin{comment}
+\begin{figure}[!htb]
+	\begin{tikzpicture}
+		\pie [rotate = 20, color = {gray!20, gray!20, gray!20, gray!20, gray!20}, radius = 2] {10/Hardverhiba, 40/Szoftverhiba, 15/Emberi hiba, 5/Környezeti hatás, 30/Tervezett leállás}
+		\pie [pos = {7.2, 0}, rotate = 30, color = {gray!20, gray!20, gray!20, gray!20}, radius = 2] {20/Operációs rendszer, 45/Hardverhiba, 25/Szoftverhiba, 10/Egyéb}
+	\end{tikzpicture}
+	\caption{A leállások illetve hibák okainak százalékos eloszlása. Baloldalt a kliens-szervereken, jobb oldalt a beágyazott rendszereken mért adatok.}
+	\label{kli-szer}
+\end{figure}
+\end{comment}
+\ \\
+A verifikáció az ISO-9000 szabvány \cite{iso} szerint nem más, mint egy megerősítés olyan objektív bizonyítékok megvizsgálása által, amelyek a specifikált követelmények beteljesülésére irányulnak. Ebből adódóan a tesztelés, a tesztek futtatása alapvető igény, hogy a szoftvert verifikáltnak mondhassuk.
+
+A verifikáció egyik legfőbb funkciója, hogy követni tudjuk, hogy a tervezett végtermékből mennyit implementáltunk, illetve mennyit teszteltünk már le \cite{DenkeAkos14}. Ezt gyakran használják a szoftverfejlesztésben közismert V-modell alakú fejlesztési folyamatban. A verifikáció során a helyes működést követelmények formájában tudjuk megfogalmazni. Pár példa: \cite{alapfogalmak}:
+\begin{itemize}
+	\item Rendelkezésre állás (\emph{availability}) -- Helyes szolgáltatás valószínűsége
+	\item Megbízhatóság (\emph{reliability}) -- Folyamatos helyes szolgáltatás valószínűsége
+	\item Biztonság (\emph{safety}) -- Elfogadhatatlan kockázattól való mentesség
+	\item Integritás (\emph{integrity}) -- Hibás változás, változtatás elkerülésének lehetősége
+	\item Karbantarthatóság (\emph{maintainability}) -- Javítás és fejlesztés lehetősége
+\end{itemize}
+\ \\
+Modellellenőrzés során a tesztelni kívánt rendszert modellezzük, és azon hajtjuk végre a fentebb említett követelmények ellenőrzését. A dolgozatomban Control Flow Automata modelleket tesztelek biztonságosság tulajdonságra. A modellek eredetileg C illetve PLC programozási nyelveken írt programok voltak.
+\\
+\\
+A fejezet további részében az általam használt algoritmus elméleti oldalát ismertetem.
 
 \section{K-indukció}
 \label{sec:k_induction}
@@ -22,7 +58,7 @@ Ezt tovább gondolva megtehetjük azt, hogy az első két lépésre nézzük meg
 \begin{align}
 	P(0) \wedge P(1) \wedge \forall n ((P(n) \wedge P(n+1)) \Rightarrow P(n+2) ) \Rightarrow \forall n P(n).
 \end{align}
-Ezt az elvet általánosíthatjuk \emph{k} lépésre, $k \geq 1$, melyet a irodalom \cite{k_induction_principle} k-indukciónak nevez, formálisan:\footnote{A k-indukció helyességének a bizonyítására a dolgozatomban nem térek ki.}
+Ezt az elvet általánosíthatjuk \emph{k} lépésre, $k \in \mathbb{N} : k \geq 1$, melyet a irodalom \cite{k_induction_principle} k-indukciónak nevez, formálisan:\footnote{A k-indukció helyességének a bizonyítására a dolgozatomban nem térek ki.}
 \begin{align}
 	\left( \bigwedge_{i=0}^{k-1} P(i) \right) \wedge \forall n \left( \left( \bigwedge_{i=0}^{k-1} P(n+i) \right) \Rightarrow P(n+k) \right) \Rightarrow \forall n P(n).
 \end{align}
@@ -35,12 +71,12 @@ Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölé
 	\label{eq:relacio_sor}
 	\mathit{utvonal}(s_{[0..n]})~\dot{=}~\bigwedge_{0 \leq i < n} T(s_{i}, s_{i+1}),
 \end{align}
-ahol $s_i \in S$ és az $s_{[0..n]}$ rövidítés az $(s_{0}, s_{1}, \dots, s_{n})$ állapotsorozatot jelöli. Az útvonal $n$ hosszúságú, ha $n$ darab tranzakcióból áll. A nulla hosszúságú útvonal egy darab állapotot tartalmaz és nem értelmezzük rajta a tranzakció műveletét. Azt a megállapítást, hogy egy \emph{Q} tulajdonság igaz egy útvonal összes állapotára, úgy fogjuk írni, hogy $\forall . Q(s_{[0..n]})$.
+ahol $s_i \in S$ és az $s_{[0..n]}$ rövidítés az $(s_{0}, s_{1}, \dots, s_{n})$ állapotsorozatot jelöli. Az útvonal $n$ hosszúságú, ha $n$ darab tranzakcióból áll. A nulla hosszúságú útvonal egy darab állapotot tartalmaz és nem értelmezzük rajta a tranzakció műveletét.
 \newline
 \newline
-Definiáljuk emellett a ciklus mentes útvonalat is: olyan útvonal, melyben minden állapot maximum csak egyszer szerepelhet:
+Definiáljuk emellett a ciklusmentes útvonalat is: olyan útvonal, melyben minden állapot maximum csak egyszer szerepelhet:
 \begin{align}
-	\mathit{cmUtvonal}(s_{[0..n]})~\dot{=}~\mathit{utvonal}(s_{[0..n]}) \wedge \bigwedge_{0 \leq i < j \leq n} s_{i} \neq s_{j}
+	\mathit{cmUtvonal}(s_{[0..n]})~\dot{=}~\mathit{utvonal}(s_{[0..n]}) \wedge \bigwedge_{0 \leq i < j \leq n} s_{i} \neq s_{j}.
 \end{align}
 A továbbiakban lesz olyan, mikor egy útvonal alatt nem csak azt értjük, hogy az tranzakciók sorozata, hanem annak létezését is jelöli. Így, az $\mathit{utvonal}_{i}(s_{0}, s_{i})$ alatt azt jelöljük, hogy \emph{létezik} egy útvonal $s_{0}$-ból $s_{i}$-be, mely \emph{i} darab \emph{T}-ből áll.
 \newline
@@ -49,14 +85,14 @@ Feltételezzük, hogy \emph{T} a teljes állapottérre értelmezve van, tehát m
 
 A problémát informálisan a következőképp foglalhatjuk össze: beszeretnénk azt látni, hogy ha egy kezdőállapotból elindulunk, akkor a tranzakciós relációkon keresztül csak olyan állapotba fogunk eljutni, mely kielégíti \emph{P}-t. Formálisan a következőt akarjuk belátni:
 \begin{align}
-	\forall i:~\forall s_{0} \dots s_{i}:~(I(s_{0}) \wedge utvonal(s_{[0..i]}) \rightarrow P(s_{i}))
+	\forall i:~\forall s_{0} \dots s_{i}:~(I(s_{0}) \wedge \mathit{utvonal}(s_{[0..i]}) \rightarrow P(s_{i})),
 \end{align}
-Ahol $i \geq 0$. Később látni fogjuk, hogy az algoritmus felhasználja ennek a megfordítottját is: a ,,rossz'' állapotokból (hibaállapotokból) elindulunk visszafelé, és azt vizsgáljuk, hogy elérjük-e valamelyik kezdőállapotot:
+ahol $i \geq 0$. Később látni fogjuk, hogy az algoritmus felhasználja ennek a megfordítottját is: a ,,rossz'' állapotokból (hibaállapotokból) elindulunk visszafelé, és azt vizsgáljuk, hogy elérjük-e valamelyik kezdőállapotot:
 \begin{align}
-	\forall i:~\forall s_{0} \dots s_{i}:~(\neg I(s_{0}) \leftarrow utvonal(s_{[0..i]}) \wedge \neg P(s_{i}))
+	\forall i:~\forall s_{0} \dots s_{i}:~(\neg I(s_{0}) \leftarrow \mathit{utvonal}(s_{[0..i]}) \wedge \neg P(s_{i})),
 \end{align}
 ahol $\neg I(s_{0})$ azt jelenti, hogy $s_{0}$ nem kezdőállapot (nem teljesíti a ,,kezdőállapot tulajdonságot''), illetve $\neg P(s_{i})$ azt, hogy $s_{i}$ nem elégíti ki a \emph{P} tulajdonságot. A két egyenlet ekvivalens és összetehetőek úgy, hogy azon a probléma szemléletesebb és szimmetrikusabb legyen:
 \begin{align}
-	\forall i:~\forall s_{0} \dots s_{i}:~\neg(I(s_{0}) \wedge utvonal(s_{[0..i]}) \wedge \neg P(s_{i}))
+	\forall i:~\forall s_{0} \dots s_{i}:~\neg(I(s_{0}) \wedge \mathit{utvonal}(s_{[0..i]}) \wedge \neg P(s_{i})).
 \end{align}
 Azaz szavakkal elmondva -- azt akarjuk megmutatni, hogy \emph{nem létezik} olyan útvonal, mely kezdőállapotból indul és egy \emph{nem-P} állapotba jut.

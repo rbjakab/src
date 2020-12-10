@@ -5,7 +5,7 @@ Ebben a fejezetben a programom tesztelését mutatom be. Az első alfejezetben (
 
 \section{Tesztelés}
 \label{sec:kiertekeles_teszt}
-A programom készítése közben folyamatosan teszteltem azt JUnit tesztek segítségével az Architektúra (\ref{sec:architektura}) alfejezetben bemutatott \texttt{CfaTest} osztállyal. A tesztekhez a CFA modelleket egyrészt az \texttt{ftsrg} kutatócsoport \texttt{ca} github repository-jából nyertem \cite{ca-lab-tests}, illetve készítettem sajátokat is de a tesztek túlnyomó többsége a Thetához kapcsolódó, privát GitHub repository-ból való, amelyek különböző frontendekkel lettek generálva. Az utóbbiban többek között 479 darab CFA teszt található, melyekhez tartozik előre ismert eredmény is. A tesztek egyik fele az SV-Comp-ról\footnote{\url{https://sv-comp.sosy-lab.org/2018/}} származik ahol eredetileg C kódok voltak amik aztán át lettek CFA-ba alakítva \cite{vpt2017}. Ezek különböző csoportba sorolhatóak \cite{akos-phd}:
+A programom készítése közben folyamatosan teszteltem azt JUnit tesztek segítségével az Architektúra (\ref{sec:architektura}) alfejezetben bemutatott \texttt{CfaTest} osztállyal. A tesztekhez a CFA modelleket egyrészt az \texttt{ftsrg} kutatócsoport \texttt{ca} github repository-jából nyertem \cite{ca-lab-tests}, illetve készítettem sajátokat is, de a tesztek túlnyomó többsége a Thetához kapcsolódó, privát GitHub repository-ból való, amelyek különböző frontendekkel lettek generálva. Az utóbbiban többek között 479 darab CFA teszt található, melyekhez tartozik előre ismert eredmény is. A tesztek egyik fele az SV-Comp-ról\footnote{\url{https://sv-comp.sosy-lab.org/2018/}} származik ahol eredetileg C kódok voltak amik aztán át lettek CFA-ba alakítva \cite{vpt2017}. Ezek különböző csoportba sorolhatóak \cite{akos-phd}:
 
 \begin{itemize}
 	\label{felsorolas}
@@ -16,9 +16,9 @@ A programom készítése közben folyamatosan teszteltem azt JUnit tesztek segí
 	
 	\item \texttt{ssh} nagy (557-716 LoC) kliens-szerver rendszereket ír le.
 	
-	\item \texttt{simple} kicsi (14-40) feladatok gyors teszteléshez.
+	\item \texttt{simple} kicsi (14-40 LoC) feladatok gyors teszteléshez.
 \end{itemize}
-
+\ \\
 Továbbá volt alkalmam tesztelni olyan CFA modelleket, melyek eredetileg ipari PLC szoftverkódok voltak a CERN-nél. \cite{darvas2019plcverif} Ezek mérete roppant változatos -- a pár tucattól a több ezerig is terjedhet. Mindegyik tesztről tudjuk, hogy abban mennyi változó van (azok között mennyi int és mennyi boolean típusú), mennyi hely, mennyi él, az egyes taszkok ciklikus komplexitása, az éleken mennyi hozzárendelés, mennyi őrfeltétel illetve hogy mennyi havoc van. Ezeket vázlatosan bemutatja a (\ref{table:tasksStat}) táblázat \cite{akos-phd}:
 
 \begin{table}[h] 
@@ -39,8 +39,8 @@ Továbbá volt alkalmam tesztelni olyan CFA modelleket, melyek eredetileg ipari 
 	\caption{Az egyes taszkok tulajdonságainak statisztikai jellemzői. A CC rövidítés a Cyclomatic Complexity azaz a ciklikus komplexitást jelöli.}
 	\label{table:tasksStat}
 \end{table}
-
-Míg a program fejlesztése közben azt 28 darab, véletlenszerűen kiválasztott teszttel ellenőriztem, a végén teszteltem mind a 479 tesztre is. A széleskörű teszteléshez \texttt{KInductionCommandLine} osztályt használtam, mely egy interfészt biztosít a programom parancssori futtatásához, és amelyet a következő paraméterekkel lehet meghívni:
+\ \\
+Míg a program fejlesztése közben azt 28 darab, véletlenszerűen kiválasztott teszttel ellenőriztem, a végén teszteltem mind a 479 tesztre is. A széleskörű teszteléshez \texttt{KInductionCLI} osztályt használtam, mely egy interfészt biztosít a programom parancssori futtatásához, és amelyet a következő paraméterekkel lehet meghívni:
 
 \begin{itemize}
 	\item \texttt{-{}-model} -- A CFA teszt elérési útvonala, ha csak egy darab tesztre szeretnénk lefuttatni. Nem kötelező.
@@ -49,20 +49,23 @@ Míg a program fejlesztése közben azt 28 darab, véletlenszerűen kiválasztot
 	\item \texttt{-{}-bound} -- Az algoritmus bejárási mélységét tudjuk vele korlátozni. Nem kötelező, alapértelmezetten -1.
 	\item \texttt{-{}-output} -- A kimenetel fájl neve (input paraméter esetén). Nem kötelező, alapértelmezetten ``output.csv''.
 \end{itemize}
-Bár se a \texttt{-{}-model} sem az \texttt{-{}-input} paraméter nem kötelező, a program \texttt{assert}-tel ellenőrzi, hogy legalább egy meg legyen adva. Viszont ugyanúgy hiba, ha mindkettő meg van adva. Ezt az alábbi kóddal ellenőrzöm:
+Habár se a \texttt{-{}-model} sem az \texttt{-{}-input} paraméter nem kötelező, a program \texttt{assert}-tel ellenőrzi, hogy legalább egy meg legyen adva. Viszont ugyanúgy hiba, ha kettő bemenet van adva. Ezt az alábbi kóddal ellenőrzöm:
 \ \\
 \begin{lstlisting}
-if (!input.equals("") && !model.equals("")) {
-		Assert.fail("Only one input source is allowed.");
-}
-if (input.equals("") && model.equals("")) {
-		Assert.fail("One input source is required.");
-}
+	if (!input.equals("") && !model.equals("")) {
+			Assert.fail("Only one input source is allowed.");
+	}
+	if (input.equals("") && model.equals("")) {
+			Assert.fail("One input source is required.");
+	}
 \end{lstlisting}
 
 \section{Eredmények}
 \label{sec:kiertekeles_ered}
 
+Azon teszteknél, melyekre a programom készítése közben folyamatosan teszteltem azt, az ideális ellenpéldahossz is meg volt adva. A programom kivétel nélkül mindre (11 darab) az optimális megoldást produkálta. 
+\\
+\\
 A 479 tesztet az előző oldalon található felsorolás szerint külön .csv fájlokba szerveztem. Ezután a 
 \ \\
 \begin{lstlisting}
@@ -72,21 +75,113 @@ A 479 tesztet az előző oldalon található felsorolás szerint külön .csv f�
 parancssori utasítást adtam ki, ahol xx = \{locks, eca, ssh, simple, plc\}, illetve yy = \{60, 120, 180, 300, 600\}, azaz szavakkal elmondva külön-külön mindegyik tesztkategóriát futtattam 1 perc, 2 perc, 3 perc, 5 perc illetve 10 perc időkorláttal. Azért döntöttem időkorlát használata mellett, mert tapasztalataim szerint egyes tesztek 8, 10 vagy annál több órás futási időt igényelnek, ami a nagy darabszámot is figyelembe véve korlátozásra ad okot. 
 \\
 \\
-A kapott eredményfájlokat a Pandas\footnote{\url{https://pandas.pydata.org/}} Python programkönyvtárral dolgoztam fel.
+A kapott eredményfájlokat a Pandas\footnote{\url{https://pandas.pydata.org/}} Python programkönyvtárral dolgoztam fel. A következő eredményekre jutottam:
 
+\begin{itemize}
+	\item A tesztek nem elhanyagolható része végződött ismeretlen eredménnyel.
+	\item Viszont arra lettem figyelmes, és ez az (\ref{fig:mivaaaa_geccasui}) ábrán jól is látszik, egyes tesztkategóriákban 100 felismerési arányt sikerült elérni. TODO : százalék
+\end{itemize}
 
+A felismerési arány alatt azt értem, hogy az adott kategóriában a tesztek hány sz. -a lett nem ismeretlen, tehát a tesztek hány százalékát láttuk be. Szeretném kihangsúlyozni, hogy minden egyes tesztre, ami nem ismeretlen lett, \textbf{helyes} választ adott a programom. Néhány nagyobb, bonyolultabb tesztnél engedtem végig futni (a statisztikában nem szerepelnek), és azokra is mind \textbf{helyes} eredményt kaptam, így arra jutottam, hogy a korlátozás nem befolyásolja a programom működését, egyszerűen csak időmenedzsmenti okai és következményei vannak.
+\\
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=100mm, keepaspectratio]{figures/fig_rec_rate_during_time.png}
+	\caption[Caption for LOF]{A tesztek felismerési arányainak a változása különböző időkorláttal futtatva.}
+	\label{fig:mivaaaa_geccasui}
+\end{figure}
 
+\clearpage
 
+\begin{figure}[ht] 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/ssh/vars.png} 
+		\caption{Változók} 
+		\label{fig7:a} 
+		\vspace{4ex}
+	\end{subfigure}%% 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/ssh/edges.png} 
+		\caption{Élek} 
+		\label{fig7:b} 
+		\vspace{4ex}
+	\end{subfigure} 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/ssh/locs.png} 
+		\caption{Helyek} 
+		\label{fig7:c} 
+	\end{subfigure}%%
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/ssh/cc.png} 
+		\caption{Ciklikus komplexitás} 
+		\label{fig7:d} 
+	\end{subfigure} 
+	\caption{SSH}
+	\label{fig_ssh} 
+\end{figure}
 
+\begin{figure}[ht] 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/plc/vars.png} 
+		\caption{Változók} 
+		\label{fig7:a} 
+		\vspace{4ex}
+	\end{subfigure}%% 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/plc/edges.png} 
+		\caption{Élek} 
+		\label{fig7:b} 
+		\vspace{4ex}
+	\end{subfigure} 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/plc/locs.png} 
+		\caption{Helyek} 
+		\label{fig7:c} 
+	\end{subfigure}%%
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/plc/cc.png} 
+		\caption{Ciklikus komplexitás} 
+		\label{fig7:d} 
+	\end{subfigure} 
+	\caption{PLC}
+	\label{fig_plc} 
+\end{figure}
 
-
-
-
-
-
-
-
-
-%%%%
-%Néhány nagyobb, bonyolultabb tesztnél engedtem végig futni, és mindre helyes eredményt kaptam, így arra jutottam, hogy a korlátozás nem befolyásolja a programom működ
-%%%%
+\begin{figure}[ht] 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/eca/vars.png} 
+		\caption{Változók} 
+		\label{fig7:a} 
+		\vspace{4ex}
+	\end{subfigure}%% 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/eca/edges.png} 
+		\caption{Élek} 
+		\label{fig7:b} 
+		\vspace{4ex}
+	\end{subfigure} 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/eca/locs.png} 
+		\caption{Helyek} 
+		\label{fig7:c} 
+	\end{subfigure}%%
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/eca/cc.png} 
+		\caption{Ciklikus komplexitás} 
+		\label{fig7:d} 
+	\end{subfigure} 
+	\caption{ECA}
+	\label{fig_eca} 
+\end{figure}
