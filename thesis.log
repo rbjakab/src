@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  10 DEC 2020 11:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  10 DEC 2020 13:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1487,58 +1487,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--203
  []
 
 [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 269--286
+Underfull \hbox (badness 10000) in paragraph at lines 269--283
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--286
+Underfull \hbox (badness 10000) in paragraph at lines 269--283
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--286
+Underfull \hbox (badness 1087) in paragraph at lines 269--283
+\T1/lmr/m/n/10.95 Ennél jobb stra-té-gia, ha ad-dig el-len-®r-zünk, amíg az $[]
+\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 s[]\OT1/lmr/m/n/10.95 )  \OMS/lmsy/m/n/
+10.95 ^  :\OML/lmm/m/it/10.95 P\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 s[]\OT1/
+lmr/m/n/10.95 )$
+ []
+
+
+Underfull \hbox (badness 1033) in paragraph at lines 269--283
+\T1/lmr/m/n/10.95 nem lesz el-lent-mon-dá-sos: egy, a \T1/lmr/m/it/10.95 P \T1/
+lmr/m/n/10.95 tu-laj-don-sá-got sér-t® ál-la-pot-ból (hi-ba-ál-la-pot-ból)
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 269--283
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--286
-\T1/lmr/m/n/10.95 Ehhez ha-son-ló-an te-het-jük azt is, hogy ad-dig el-len-®r-z
-ünk, amíg a
- []
+Underfull \hbox (badness 10000) in paragraph at lines 269--283
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 269--286
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 269--286
-
- []
-
-
-Underfull \hbox (badness 1603) in paragraph at lines 269--286
-\T1/lmr/m/n/10.95 A ([][]2.2[][])-as fe-je-zet-ben be-mu-ta-tott, és így a mód-
-szer ne-vét adó \T1/lmr/m/it/10.95 k-indukció \T1/lmr/m/n/10.95 ab-ból
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 290--295
-
- []
-
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 314--338
+Underfull \hbox (badness 10000) in paragraph at lines 287--291
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--338
+Underfull \hbox (badness 10000) in paragraph at lines 311--335
 
  []
 
-) [12]
+
+Underfull \hbox (badness 10000) in paragraph at lines 311--335
+
+ []
+
+[11]) [12]
 \openout2 = `tartalom/negyedik_fejezet.aux'.
 
  (./tartalom/negyedik_fejezet.tex
@@ -1858,7 +1855,7 @@ Here is how much of TeX's memory you used:
  47622 multiletter control sequences out of 15000+600000
  669240 words of font info for 102 fonts, out of 8000000 for 9000
  376 hyphenation exceptions out of 8191
- 112i,17n,113p,1288b,1520s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 112i,17n,113p,1288b,1524s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2020/tex
 mf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvip
 s/lm/lm-mathit.enc}{c:/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc
@@ -1880,7 +1877,7 @@ dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/p
 ublic/lm/lmsy8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
 ><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtl10.pfb><c:/texlive/2020/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (42 pages, 1433932 bytes).
+Output written on thesis.pdf (42 pages, 1433666 bytes).
 PDF statistics:
  778 PDF objects out of 1000 (max. 8388607)
  650 compressed objects within 7 object streams
