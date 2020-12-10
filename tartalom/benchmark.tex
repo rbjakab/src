@@ -10,13 +10,13 @@ A programom készítése közben folyamatosan teszteltem azt JUnit tesztek segí
 \begin{itemize}
 	\label{felsorolas}
 	
-	\item \texttt{locks} kicsi (94-234 LoC\footnote{Source lines of code - Hány sorból áll a CFA modellt leíró szöveges fájl.}) kizárási feladatokat ír le.
+	\item \texttt{Locks} kicsi (94-234 LoC\footnote{Source lines of code - Hány sorból áll a program melyet a CFA modellez.}) kizárási feladatokat ír le.
 	
 	\item \texttt{ECA} (event-condition-action) feladathalmaz nagy (591-1669 LoC) eseményvezérelt rendszereket tartalmaz.
 	
-	\item \texttt{ssh} nagy (557-716 LoC) kliens-szerver rendszereket ír le.
+	\item \texttt{SSH} nagy (557-716 LoC) kliens-szerver rendszereket ír le.
 	
-	\item \texttt{simple} kicsi (14-40 LoC) feladatok gyors teszteléshez.
+	\item \texttt{Simple} kicsi (14-40 LoC) feladatok gyors teszteléshez.
 \end{itemize}
 \ \\
 Továbbá volt alkalmam tesztelni olyan CFA modelleket, melyek eredetileg ipari PLC szoftverkódok voltak a CERN-nél. \cite{darvas2019plcverif} Ezek mérete roppant változatos -- a pár tucattól a több ezerig is terjedhet. Mindegyik tesztről tudjuk, hogy abban mennyi változó van (azok között mennyi int és mennyi boolean típusú), mennyi hely, mennyi él, az egyes taszkok ciklikus komplexitása, az éleken mennyi hozzárendelés, mennyi őrfeltétel illetve hogy mennyi havoc van. Ezeket vázlatosan bemutatja a (\ref{table:tasksStat}) táblázat \cite{akos-phd}:
@@ -27,9 +27,9 @@ Továbbá volt alkalmam tesztelni olyan CFA modelleket, melyek eredetileg ipari 
 		\toprule
 		Category & Tasks & Vars & Locs & Edges & CC\\
 		\midrule
-		simple & 10 & 1--2 & 4--12 & 3--13 & 3--9\\
+		Simple & 10 & 1--2 & 4--12 & 3--13 & 3--9\\
 		Locks & 143 & 4--32 & 9--40 & 10--57 & 3--23\\
-		ssh & 17 & 64--81 & 187--267 & 262--375 & 87--121\\
+		SSH & 17 & 64--81 & 187--267 & 262--375 & 87--121\\
 		PLC & 129 & 1--596 & 8--4614 & 7-4782 & 4-188\\
 		ECA & 180 & 9--30 & 302--1301 & 375--1516 & 73--231\\
 		
@@ -80,8 +80,8 @@ A parancssori interfészrő készítettem képeket, melyek megtekinthetők a Fü
 A kapott eredményfájlokat a Pandas\footnote{\url{https://pandas.pydata.org/}} Python programkönyvtárral dolgoztam fel. A következő eredményekre jutottam:
 
 \begin{itemize}
-	\item Azt tapasztaltam, hogy a tesztek 64.23\%-a lett biztonságos, 8.88\%-a nem biztonságos és 26.89\%-a lett ismeretlen. Magyarázható 
-	\item Viszont arra lettem figyelmes, és ez az (\ref{fig:mivaaaa_geccasui}) ábrán jól is látszik, egyes tesztkategóriákban 100\% felismerési arányt sikerült elérni.
+	\item Azt tapasztaltam, hogy a tesztek 64.23\%-a lett biztonságos, 8.88\%-a nem biztonságos és 26.89\%-a lett ismeretlen.
+	\item Viszont arra lettem figyelmes, és ez az (\ref{fig:rec_rate_during_time}) ábrán jól is látszik, egyes tesztkategóriákban 100\% felismerési arányt sikerült elérni.
 \end{itemize}
 
 A felismerési arány alatt azt értem, hogy az adott kategóriában a tesztek hány százaléka lett nem ismeretlen, tehát a tesztek hány százalékát láttuk be. Szeretném kihangsúlyozni, hogy minden egyes tesztre, ami nem ismeretlen lett, \textbf{helyes} választ adott a programom. Néhány nagyobb, bonyolultabb tesztnél engedtem végig futni (a statisztikában nem szerepelnek), és azokra is mind \textbf{helyes} eredményt kaptam, így arra jutottam, hogy a korlátozás nem befolyásolja a programom működését, egyszerűen csak időmenedzsmenti okai és következményei vannak.
@@ -89,13 +89,14 @@ A felismerési arány alatt azt értem, hogy az adott kategóriában a tesztek h
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=100mm, keepaspectratio]{figures/fig_rec_rate_during_time.png}
-	\caption[Caption for LOF]{A tesztek felismerési arányainak a változása különböző időkorláttal futtatva. A Simple végig 100\%-os, mint a Locks, csak az utóbbi kitakarja az ábrán.}
-	\label{fig:mivaaaa_geccasui}
+	\caption[Caption for LOF]{A tesztek felismerési arányainak a változása különböző időkorláttal futtatva. A Simple végig 100\%-os felismerési arányt produkált, mint a Locks, csak az utóbbi kitakarja az ábrán.}
+	\label{fig:rec_rate_during_time}
 \end{figure}
 \ \\
-A 100\%-os felismerési arány a Simple és a Locks kategóriák esetén nem meglepő, ha ránézünk a (\ref{fig:locks}) ábrára.
-
-\clearpage
+A fejezet maradék részében a futtatási eredményeket fogom ellenőrizni és elemezni -- arra vagyok kíváncsi, hogy a tesztek egyes tulajdonságai hogyan hatnak ki a futási időre. Mindegyik képen az X tengely a tesztek egy adott tulajdonsága látható, az Y tengelyen pedig a futási idő az adott tulajdonságra vetítve másodpercben. Mindegyik kép a 10 percig futtatott program eredményeit mutatja, azért, hogy a lehető legtöbb információt tudjam megjeleníteni.
+\\
+\\
+A 100\%-os felismerési arány a Simple és a Locks kategóriák esetén nem meglepő, ha ránézünk a (\ref{fig:locks}) ábrára. Látható, hogy másodpercek alatt képes volt a programom ellenőrizni a modelleket, így még csak közel sem került az időkorláthoz.
 
 \begin{figure}[ht] 
 	\begin{subfigure}[b]{0.5\linewidth}
@@ -124,8 +125,14 @@ A 100\%-os felismerési arány a Simple és a Locks kategóriák esetén nem meg
 		\caption{Ciklikus komplexitás} 
 		\label{fig7:d} 
 	\end{subfigure} 
-	\caption{Locks.\label{fig:locks} }
+	\caption{Locks tesztkategória. Az idő tengely mindegyiken másodpercben van.\label{fig:locks} }
 \end{figure}
+\ \\
+Az (\ref{fig:rec_rate_during_time}) ábrán látható, hogy az SSH tesztkategóriának az egyperces futási idő kevés, viszont ahogy emeljük a korlátot, úgy nő a sikeresen lefutott tesztek száma. Egészen öt percig, ahol is megtorpanni látszik: nem változik utána a felismerési arány. Öt percig az eredmény 3 biztonságos, 8 nem biztonságos és 6 ismeretlen, és hiába emeltük a duplájára az időkorlátot, a maradék 6 ismeretlenből egyiket se sikerült belátni. 
+
+A (\ref{fig_ssh}) ábrán a következőt láthatjuk: A változók számától önmagában egyedül biztosan nem függ a futási idő, tekintve, hogy volt olyan teszteset ahol 81 változóval a program 23 másodpercig futott illetve 78 változóval 42 és 45 másodpercekig, míg 77 változóval rendre (hatszor) túllépte a 600 másodperces időkorlátot. Tehát kell lennie legalább még egy tulajdonságnak, amivel együtt határozzák meg a futási időt.
+
+
 
 \begin{figure}[ht] 
 	\begin{subfigure}[b]{0.5\linewidth}
@@ -154,7 +161,7 @@ A 100\%-os felismerési arány a Simple és a Locks kategóriák esetén nem meg
 		\caption{Ciklikus komplexitás} 
 		\label{fig7:d} 
 	\end{subfigure} 
-	\caption{SSH}
+	\caption{SSH tesztkategória. Az idő tengely mindegyiken másodpercben van.}
 	\label{fig_ssh} 
 \end{figure}
 
@@ -185,7 +192,7 @@ A 100\%-os felismerési arány a Simple és a Locks kategóriák esetén nem meg
 		\caption{Ciklikus komplexitás} 
 		\label{fig7:d} 
 	\end{subfigure} 
-	\caption{PLC}
+	\caption{PLC tesztkategória. Az idő tengely mindegyiken másodpercben van.}
 	\label{fig_plc} 
 \end{figure}
 
@@ -216,6 +223,6 @@ A 100\%-os felismerési arány a Simple és a Locks kategóriák esetén nem meg
 		\caption{Ciklikus komplexitás} 
 		\label{fig7:d} 
 	\end{subfigure} 
-	\caption{ECA}
+	\caption{ECA tesztkategória. Az idő tengely mindegyiken másodpercben van.}
 	\label{fig_eca} 
 \end{figure}

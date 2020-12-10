@@ -36,7 +36,7 @@ A Theta architektúrája négy rétegre osztható. Nevezetesen:
 \label{sec:prog_imp}
 
 \subsection{Bemenet}
-A program bemenete egy CFA, mely számos hellyel rendelkezik, melyek közül kiemelkedik a kezdő-, a hiba- illetve a végső hely. Az utóbbit a k-indukciós algoritmus nem veszi figyelembe, mert az a teljes teret bejárja, viszont más algoritmusok működéséhez szükségesek lehetnek. Az ezután következő (\ref{sec:kiertekeles}.) fejezetben részletesen kitérek a programom tesztelésére, de elöljáróban azt érdemes tudni, hogy bizonyos CFA modellekre az algoritmus  lassan fut le. Ezért, ha a felhasználó igényeinek megfelel, bemenetnek megadhat egy maximális időkorlátot vagy egy maximális mélységet is a bejárandó állapottérnek, esetleg mindkettőt, melyek felső korlátot fognak szabni a programnak.
+A program bemenete egy CFA, mely számos hellyel rendelkezik, melyek közül kiemelkedik a kezdő-, a hiba- illetve a végső hely. Az utóbbit a k-indukciós algoritmus nem veszi figyelembe, mert az a teljes teret bejárja, viszont más algoritmusok működéséhez szükségesek lehetnek. Az ezután következő (\ref{sec:kiertekeles}). fejezetben részletesen kitérek a programom tesztelésére, de elöljáróban azt érdemes tudni, hogy bizonyos CFA modellekre az algoritmus  lassan fut le. Ezért, ha a felhasználó igényeinek megfelel, bemenetnek megadhat egy maximális időkorlátot vagy egy maximális mélységet is a bejárandó állapottérnek, esetleg mindkettőt, melyek felső korlátot fognak szabni a programnak.
 
 \subsection{Architektúra}
 \label{sec:architektura}
@@ -90,13 +90,13 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 \begin{itemize}
 	\item \textbf{\texttt{KInduction}} osztály
 	\begin{itemize}
-		\item \textcolor{blue}{KInduction(CFA cfa)} -- Az osztály egy paraméterű konstruktora.
+		\item \textcolor{blue}{KInduction(CFA cfa)} -- Az osztály egy paraméterű konstruktora. Akkor használjuk, mikor nem akarunk a programnak korlátozó követelményeket beadni.
 		\begin{itemize}
 			\item \textbf{Bemenet}: CFA modell.
 			\item \textbf{Kimenet}: -
 		\end{itemize}
 	
-		\item \textcolor{blue}{KInduction(CFA cfa, long maxTime, int bound)} -- Az osztály három paraméterű konstruktora.
+		\item \textcolor{blue}{KInduction(CFA cfa, long maxTime, int bound)} -- Az osztály három paraméterű konstruktora, a CFA mellett a két korlátozó követelmény megadására van lehetőség. Alapértelmezetten mindegyik -1, tehát nincsen.
 		\begin{itemize}
 			\item \textbf{Bemenet}: CFA modell, maximális megengedett idő és maximális bejárható mélység.
 			\item \textbf{Kimenet}: -
@@ -111,14 +111,14 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 		\item \textcolor{blue}{checkOutOfTime(long timeInSeconds)} -- Ellenőrzi, hogy ha van megadott időkorlát akkor azt nem-e léptük már át.
 		\begin{itemize}
 			\item \textbf{Bemenet}: A program indulása óta eltelt idő másodpercben.
-			\item \textbf{Kimenet}: Boolean.
+			\item \textbf{Kimenet}: Boolean -- igen vagy nem.
 		\end{itemize}
 	
 	
 		\item \textcolor{blue}{checkBound(int depth)} -- Ellenőrzi, hogy ha van megadott mélységkorlát akkor azt nem-e léptük már át.
 		\begin{itemize}
 			\item \textbf{Bemenet}: Az aktuális bejárásra váró mélység.
-			\item \textbf{Kimenet}: Boolean.
+			\item \textbf{Kimenet}: Boolean -- igen vagy nem.
 		\end{itemize}
 	
 		\item \textcolor{blue}{queueTransfer(Queue<PathState> copyFrom, Queue<PathState> pasteTo)} -- A korlátos szélességi kereséshez két vermet használok, az egyik a még bejárandó helyeket tartalmazza, a másik az ebben a mélységben már bejárt helyeket tárolja. A mélység bejárása után az utóbbit (copyFrom) beleteszem a másikba (pasteTo), így haladva egyre beljebb a térben.
@@ -127,7 +127,7 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 			\item \textbf{Kimenet}: A pasteTo verem tartalmazni fogja a copyFrom verem tartalmát (mást nem, mert előtte kiürítjük), a copyFrom verem pedig üres lesz.
 		\end{itemize}
 	
-		\item \textcolor{blue}{isSat(Solver solver, List<Stmt> stmtList)} -- Megnézi a solver megoldó segítségével, hogy az utasításlistát tartalmazó stmtList kielégíthető-e.
+		\item \textcolor{blue}{isSat(Solver solver, List<Stmt> stmtList)} -- Megnézi a solver segítségével, hogy az utasításlistát tartalmazó stmtList kielégíthető-e.
 		\begin{itemize}
 			\item \textbf{Bemenet}: Egy Z3 megoldó és egy utasításlista.
 			\item \textbf{Kimenet}: Boolean: ha kielégíthető, akkor igaz, különben hamis.
@@ -150,13 +150,13 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 	
 		\item \textcolor{blue}{KInductionResult(boolean isSafe, long time, int depth)} -- Az osztály három paraméteres konstruktora. Helyes használat esetén a \texttt{KIduction} osztály akkor inicializál ezzel egy objektumot, mikor a futás eredménye \textit{helyes} volt.
 		\begin{itemize}
-			\item \textbf{Bemenet}: A program futási eredménye (hiba, ha nem \texttt{true} az érték), a program futási ideje illetve a mélység ameddig jutott.
+			\item \textbf{Bemenet}: A program futási eredménye (hiba, ha nem \texttt{true} az érték, ezt assert-tel ellenőrzi), a program futási ideje illetve a mélység ameddig jutott.
 			\item \textbf{Kimenet}: -
 		\end{itemize}
 	
 		\item \textcolor{blue}{KInductionResult(boolean isUnsafe, Trace<CFA.Loc, CFA.Edge> trace, long time, int depth)} -- Az osztály négy paraméteres konstruktora. Helyes használat esetén a \texttt{KIduction} osztály akkor inicializál ezzel egy objektumot, mikor a futás eredménye \textit{nem helyes} volt. A Trace egy Theta beépített osztály, amelyben én az ellenpéldát tárolom.
 		\begin{itemize}
-			\item \textbf{Bemenet}: A program futási eredménye (hiba, ha nem \texttt{true} az érték), egy Trace típusú ellenpélda, a program futási ideje illetve a mélység ameddig jutott.
+			\item \textbf{Bemenet}: A program futási eredménye (hiba, ha nem \texttt{true} az érték, ezt assert-tel ellenőrzi), egy Trace típusú ellenpélda, a program futási ideje illetve a mélység ameddig jutott.
 			\item \textbf{Kimenet}: -
 		\end{itemize}
 		\ \\
@@ -204,19 +204,19 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 		\item \textcolor{blue}{main(final String[] args)} -- Létrehoz egy \texttt{KInductionCLI} objektumot aminek átadja a parancssori argumentumokat és aminek meghívja utána a \texttt{run()} függvényét.
 		\begin{itemize}
 			\item \textbf{Bemenet}: - Parancssori argumentumok.
-			\item \textbf{Bemenet}: -
+			\item \textbf{Kimenet}: -
 		\end{itemize}
 		
 		\item \textcolor{blue}{KInductionCLI(final String[] args)} -- A kapott parancssori argumentumokat eltárolja.
 		\begin{itemize}
 			\item \textbf{Bemenet}: - Parancssori argumentumok.
-			\item \textbf{Bemenet}: -
+			\item \textbf{Kimenet}: -
 		\end{itemize}
 		
-		\item \textcolor{blue}{run()} -- A parancssorból beolvasott paramétereket feldolgozza.
+		\item \textcolor{blue}{run()} -- A parancssorból beolvasott paramétereket kezeli (meghívja a \texttt{KInduction} osztály \texttt{$ check(\ldots) $} függvényét), illetve az interfész kinézetéért felel még.
 		\begin{itemize}
 			\item \textbf{Bemenet}: -
-			\item \textbf{Bemenet}: -
+			\item \textbf{Kimenet}: -
 		\end{itemize}
 	\end{itemize}
 
@@ -225,7 +225,7 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 		\item \textcolor{blue}{test()} -- @Test annotációval ellátott függvény, mely a JUnit tesztelésért felelős.
 		\begin{itemize}
 			\item \textbf{Bemenet}: -
-			\item \textbf{Bemenet}: -
+			\item \textbf{Kimenet}: -
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -290,8 +290,8 @@ Ebben az alfejezetben részletesen kifejtem a programom működésének folyamat
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=150mm, keepaspectratio]{figures/flow_chart_med_res.png}
-	\caption[Caption for LOF]{A programom folyamatábra diagramja. A kék színnel jelölt elágazás magába foglal még egy ekkora folyamatábrát, csak az hátulról ellenőriz a hibahelytől.}
+	\includegraphics[width=150mm, keepaspectratio]{figures/flow_chart_high_res_3.png}
+	\caption[Caption for LOF]{A programom folyamatábra diagramja. A kék színnel jelölt elágazás magába foglal még egy ekkora folyamatábrát, csak az hátulról ellenőriz a hibahelytől. A *-al jelölt \texttt{poll()} függvény kiválasztja a verem következő elemét és abból törli is.}
 	\label{fig:state_diagram2}
 \end{figure}
 \clearpage

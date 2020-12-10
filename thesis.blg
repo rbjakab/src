@@ -13,10 +13,11 @@ A level-1 auxiliary file: tartalom/negyedik_fejezet.aux
 A level-1 auxiliary file: tartalom/benchmark.aux
 A level-1 auxiliary file: tartalom/osszefoglalo.aux
 A level-1 auxiliary file: tartalom/acknowledgement.aux
-Illegal, another \bibstyle command---line 50 of file thesis.aux
+Illegal, another \bibstyle command---line 51 of file thesis.aux
  : \bibstyle
  :          {apa}
 I'm skipping whatever remains of this command
+A level-1 auxiliary file: tartalom/fuggelek.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -31,7 +32,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 You've used 14 entries,
             4991 wiz_defined-function locations,
-            1218 strings with 14541 characters,
+            1219 strings with 14562 characters,
 and the built_in function-call counts, 48781 in all, are:
 = -- 9065
 > -- 526

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  10 DEC 2020 13:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  10 DEC 2020 16:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1598,7 +1598,13 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 83.
 [15] [16 <./figures/allapot_diagram.png (PNG copy)>] [17
 
-] [18] [19]
+] [18]
+Underfull \hbox (badness 3098) in paragraph at lines 216--217
+[][]\T1/lmr/m/n/10.95 run()[] -- A pa-rancs-sor-ból be-ol-va-sott pa-ra-mé-te-r
+e-ket ke-ze-li (meg-hív-ja a
+ []
+
+[19]
 Underfull \hbox (badness 1297) in paragraph at lines 258--259
 []\T1/lmr/m/n/10.95 Végig ite-rál az \T1/lmtt/m/n/10.95 item \T1/lmr/m/n/10.95 
 ál-la-pot \T1/lmtt/m/n/10.95 loc \T1/lmr/m/n/10.95 vál-to-zó-já-nak a ki-me-n® 
@@ -1606,19 +1612,26 @@ Underfull \hbox (badness 1297) in paragraph at lines 258--259
  []
 
 [20]
-<figures/flow_chart_med_res.png, id=498, 840.13875pt x 1183.42125pt>
-File: figures/flow_chart_med_res.png Graphic file (type png)
-<use figures/flow_chart_med_res.png>
-Package pdftex.def Info: figures/flow_chart_med_res.png  used on input line 293
-.
-(pdftex.def)             Requested size: 426.79134pt x 601.17133pt.
- [21] [22 <./figures/flow_chart_med_res.png>]) [23
+<figures/flow_chart_high_res_3.png, id=497, 549.9747pt x 795.6927pt>
+File: figures/flow_chart_high_res_3.png Graphic file (type png)
+<use figures/flow_chart_high_res_3.png>
+Package pdftex.def Info: figures/flow_chart_high_res_3.png  used on input line 
+293.
+(pdftex.def)             Requested size: 426.79134pt x 617.46895pt.
+ [21]
+
+LaTeX Warning: Text page 22 contains only floats.
+
+
+Overfull \vbox (2.58035pt too high) has occurred while \output is active []
+
+
+[22 <./figures/flow_chart_high_res_3.png>]) [23
 
 ]
 \openout2 = `tartalom/benchmark.aux'.
 
-
-(./tartalom/benchmark.tex
+ (./tartalom/benchmark.tex
 5. fejezet.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1654,101 +1667,104 @@ Underfull \hbox (badness 1590) in paragraph at lines 77--81
 og-ram-könyv-tár-ral dol-goz-tam fel.
  []
 
-<figures/fig_rec_rate_during_time.png, id=555, 640.3925pt x 503.8825pt>
+<figures/fig_rec_rate_during_time.png, id=555, 661.47125pt x 517.935pt>
 File: figures/fig_rec_rate_during_time.png Graphic file (type png)
 <use figures/fig_rec_rate_during_time.png>
 Package pdftex.def Info: figures/fig_rec_rate_during_time.png  used on input li
 ne 91.
-(pdftex.def)             Requested size: 284.52756pt x 223.87717pt.
+(pdftex.def)             Requested size: 284.52756pt x 222.77882pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 87--100
+
+ []
+
 [26 <./figures/fig_rec_rate_during_time.png>]
-<figures/locks/vars.png, id=565, 665.48625pt x 499.8675pt>
+<figures/locks/vars.png, id=564, 701.62125pt x 517.935pt>
 File: figures/locks/vars.png Graphic file (type png)
 <use figures/locks/vars.png>
-Package pdftex.def Info: figures/locks/vars.png  used on input line 103.
-(pdftex.def)             Requested size: 202.72523pt x 152.27249pt.
-<figures/locks/edges.png, id=566, 665.48625pt x 499.8675pt>
+Package pdftex.def Info: figures/locks/vars.png  used on input line 104.
+(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
+<figures/locks/edges.png, id=565, 701.62125pt x 517.935pt>
 File: figures/locks/edges.png Graphic file (type png)
 <use figures/locks/edges.png>
-Package pdftex.def Info: figures/locks/edges.png  used on input line 110.
-(pdftex.def)             Requested size: 202.72523pt x 152.27249pt.
-<figures/locks/locs.png, id=567, 701.62125pt x 517.935pt>
+Package pdftex.def Info: figures/locks/edges.png  used on input line 111.
+(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
+<figures/locks/locs.png, id=566, 701.62125pt x 517.935pt>
 File: figures/locks/locs.png Graphic file (type png)
 <use figures/locks/locs.png>
-Package pdftex.def Info: figures/locks/locs.png  used on input line 117.
+Package pdftex.def Info: figures/locks/locs.png  used on input line 118.
 (pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
-<figures/locks/cc.png, id=568, 665.48625pt x 499.8675pt>
+<figures/locks/cc.png, id=567, 701.62125pt x 517.935pt>
 File: figures/locks/cc.png Graphic file (type png)
 <use figures/locks/cc.png>
-Package pdftex.def Info: figures/locks/cc.png  used on input line 123.
-(pdftex.def)             Requested size: 202.72523pt x 152.27249pt.
-<figures/ssh/vars.png, id=569, 668.4975pt x 517.935pt>
+Package pdftex.def Info: figures/locks/cc.png  used on input line 124.
+(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
+<figures/ssh/vars.png, id=570, 668.4975pt x 517.935pt>
 File: figures/ssh/vars.png Graphic file (type png)
 <use figures/ssh/vars.png>
-Package pdftex.def Info: figures/ssh/vars.png  used on input line 133.
+Package pdftex.def Info: figures/ssh/vars.png  used on input line 140.
 (pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/ssh/edges.png, id=570, 670.505pt x 517.935pt>
+<figures/ssh/edges.png, id=571, 670.505pt x 517.935pt>
 File: figures/ssh/edges.png Graphic file (type png)
 <use figures/ssh/edges.png>
-Package pdftex.def Info: figures/ssh/edges.png  used on input line 140.
+Package pdftex.def Info: figures/ssh/edges.png  used on input line 147.
 (pdftex.def)             Requested size: 202.72523pt x 156.59085pt.
-<figures/ssh/locs.png, id=571, 668.4975pt x 517.935pt>
+<figures/ssh/locs.png, id=572, 668.4975pt x 517.935pt>
 File: figures/ssh/locs.png Graphic file (type png)
 <use figures/ssh/locs.png>
-Package pdftex.def Info: figures/ssh/locs.png  used on input line 147.
+Package pdftex.def Info: figures/ssh/locs.png  used on input line 154.
 (pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/ssh/cc.png, id=572, 668.4975pt x 517.935pt>
+<figures/ssh/cc.png, id=573, 668.4975pt x 517.935pt>
 File: figures/ssh/cc.png Graphic file (type png)
 <use figures/ssh/cc.png>
-Package pdftex.def Info: figures/ssh/cc.png  used on input line 153.
+Package pdftex.def Info: figures/ssh/cc.png  used on input line 160.
 (pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/plc/vars.png, id=573, 674.52pt x 517.935pt>
+<figures/plc/vars.png, id=574, 674.52pt x 517.935pt>
 File: figures/plc/vars.png Graphic file (type png)
 <use figures/plc/vars.png>
-Package pdftex.def Info: figures/plc/vars.png  used on input line 164.
+Package pdftex.def Info: figures/plc/vars.png  used on input line 171.
 (pdftex.def)             Requested size: 202.72523pt x 155.6583pt.
-<figures/plc/edges.png, id=574, 703.62875pt x 517.935pt>
+<figures/plc/edges.png, id=575, 703.62875pt x 517.935pt>
 File: figures/plc/edges.png Graphic file (type png)
 <use figures/plc/edges.png>
-Package pdftex.def Info: figures/plc/edges.png  used on input line 171.
+Package pdftex.def Info: figures/plc/edges.png  used on input line 178.
 (pdftex.def)             Requested size: 202.72523pt x 149.21732pt.
-<figures/plc/locs.png, id=575, 668.4975pt x 517.935pt>
+<figures/plc/locs.png, id=576, 668.4975pt x 517.935pt>
 File: figures/plc/locs.png Graphic file (type png)
 <use figures/plc/locs.png>
-Package pdftex.def Info: figures/plc/locs.png  used on input line 178.
+Package pdftex.def Info: figures/plc/locs.png  used on input line 185.
 (pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/plc/cc.png, id=576, 668.4975pt x 517.935pt>
+<figures/plc/cc.png, id=577, 668.4975pt x 517.935pt>
 File: figures/plc/cc.png Graphic file (type png)
 <use figures/plc/cc.png>
-Package pdftex.def Info: figures/plc/cc.png  used on input line 184.
+Package pdftex.def Info: figures/plc/cc.png  used on input line 191.
 (pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/eca/vars.png, id=577, 668.4975pt x 517.935pt>
+<figures/eca/vars.png, id=578, 668.4975pt x 517.935pt>
 File: figures/eca/vars.png Graphic file (type png)
 <use figures/eca/vars.png>
-Package pdftex.def Info: figures/eca/vars.png  used on input line 195.
+Package pdftex.def Info: figures/eca/vars.png  used on input line 202.
 (pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/eca/edges.png, id=578, 672.5125pt x 517.935pt>
+<figures/eca/edges.png, id=579, 672.5125pt x 517.935pt>
 File: figures/eca/edges.png Graphic file (type png)
 <use figures/eca/edges.png>
-Package pdftex.def Info: figures/eca/edges.png  used on input line 202.
+Package pdftex.def Info: figures/eca/edges.png  used on input line 209.
 (pdftex.def)             Requested size: 202.72523pt x 156.12457pt.
-<figures/eca/locs.png, id=579, 668.4975pt x 517.935pt>
+<figures/eca/locs.png, id=580, 668.4975pt x 517.935pt>
 File: figures/eca/locs.png Graphic file (type png)
 <use figures/eca/locs.png>
-Package pdftex.def Info: figures/eca/locs.png  used on input line 209.
+Package pdftex.def Info: figures/eca/locs.png  used on input line 216.
 (pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/eca/cc.png, id=580, 668.4975pt x 517.935pt>
+<figures/eca/cc.png, id=581, 668.4975pt x 517.935pt>
 File: figures/eca/cc.png Graphic file (type png)
 <use figures/eca/cc.png>
-Package pdftex.def Info: figures/eca/cc.png  used on input line 215.
+Package pdftex.def Info: figures/eca/cc.png  used on input line 222.
 (pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-) [27
-
- <./figures/locks/vars.png> <./figures/locks/edges.png> <./figures/locks/locs.p
-ng> <./figures/locks/cc.png>] [28 <./figures/ssh/vars.png> <./figures/ssh/edges
-.png> <./figures/ssh/locs.png> <./figures/ssh/cc.png>] [29 <./figures/plc/vars.
-png> <./figures/plc/edges.png> <./figures/plc/locs.png> <./figures/plc/cc.png>]
- [30 <./figures/eca/vars.png> <./figures/eca/edges.png> <./figures/eca/locs.png
-> <./figures/eca/cc.png>]
+) [27 <./figures/locks/vars.png> <./figures/locks/edges.png> <./figures/locks/l
+ocs.png> <./figures/locks/cc.png>] [28 <./figures/ssh/vars.png> <./figures/ssh/
+edges.png> <./figures/ssh/locs.png> <./figures/ssh/cc.png>] [29 <./figures/plc/
+vars.png> <./figures/plc/edges.png> <./figures/plc/locs.png> <./figures/plc/cc.
+png>] [30 <./figures/eca/vars.png> <./figures/eca/edges.png> <./figures/eca/loc
+s.png> <./figures/eca/cc.png>]
 \openout2 = `tartalom/osszefoglalo.aux'.
 
 
@@ -1811,17 +1827,17 @@ hub . com / ftsrg-[]ca / ca / tree / master /
 \openout2 = `tartalom/fuggelek.aux'.
 
  (./tartalom/fuggelek.tex
-<figures/cli/eleje.png, id=643, 752.8125pt x 584.93532pt>
+<figures/cli/eleje.png, id=645, 752.8125pt x 584.93532pt>
 File: figures/cli/eleje.png Graphic file (type png)
 <use figures/cli/eleje.png>
 Package pdftex.def Info: figures/cli/eleje.png  used on input line 19.
 (pdftex.def)             Requested size: 384.1122pt x 298.4648pt.
-<figures/cli/kozepe.png, id=644, 752.8125pt x 584.93532pt>
+<figures/cli/kozepe.png, id=646, 752.8125pt x 584.93532pt>
 File: figures/cli/kozepe.png Graphic file (type png)
 <use figures/cli/kozepe.png>
 Package pdftex.def Info: figures/cli/kozepe.png  used on input line 26.
 (pdftex.def)             Requested size: 384.1122pt x 298.4648pt.
-<figures/cli/vege.png, id=645, 626.34pt x 301.8778pt>
+<figures/cli/vege.png, id=647, 626.34pt x 301.8778pt>
 File: figures/cli/vege.png Graphic file (type png)
 <use figures/cli/vege.png>
 Package pdftex.def Info: figures/cli/vege.png  used on input line 32.
@@ -1850,7 +1866,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  31702 strings out of 480804
- 591070 string characters out of 5903687
+ 591092 string characters out of 5903687
  1137868 words of memory out of 5000000
  47622 multiletter control sequences out of 15000+600000
  669240 words of font info for 102 fonts, out of 8000000 for 9000
@@ -1877,10 +1893,10 @@ dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/p
 ublic/lm/lmsy8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
 ><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtl10.pfb><c:/texlive/2020/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (42 pages, 1433666 bytes).
+Output written on thesis.pdf (42 pages, 2751793 bytes).
 PDF statistics:
- 778 PDF objects out of 1000 (max. 8388607)
- 650 compressed objects within 7 object streams
+ 780 PDF objects out of 1000 (max. 8388607)
+ 652 compressed objects within 7 object streams
  183 named destinations out of 1000 (max. 500000)
  396 words of extra memory for PDF output out of 10000 (max. 10000000)
 
