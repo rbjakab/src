@@ -73,25 +73,59 @@ A 479 tesztet az előző oldalon található felsorolás szerint külön .csv f�
 \end{lstlisting}
 \ \\
 parancssori utasítást adtam ki, ahol xx = \{locks, eca, ssh, simple, plc\}, illetve yy = \{60, 120, 180, 300, 600\}, azaz szavakkal elmondva külön-külön mindegyik tesztkategóriát futtattam 1 perc, 2 perc, 3 perc, 5 perc illetve 10 perc időkorláttal. Azért döntöttem időkorlát használata mellett, mert tapasztalataim szerint egyes tesztek 8, 10 vagy annál több órás futási időt igényelnek, ami a nagy darabszámot is figyelembe véve korlátozásra ad okot. 
+
+A parancssori interfészrő készítettem képeket, melyek megtekinthetők a Függelékben (\ref{sec:fuggelek}). Itt a harmadik ábra (\ref{fig:cli_3}) érdekes: a program futása után statisztikát közlök arról, hogy hány teszt lett sikeres, mennyi nem sikerült azért, mert ismeretlen lett és mennyi nem sikerült azért, mert rosszat mondott a programom. Ez az utóbbi minden futtatásnál \textbf{0} volt.
 \\
 \\
 A kapott eredményfájlokat a Pandas\footnote{\url{https://pandas.pydata.org/}} Python programkönyvtárral dolgoztam fel. A következő eredményekre jutottam:
 
 \begin{itemize}
-	\item A tesztek nem elhanyagolható része végződött ismeretlen eredménnyel.
-	\item Viszont arra lettem figyelmes, és ez az (\ref{fig:mivaaaa_geccasui}) ábrán jól is látszik, egyes tesztkategóriákban 100 felismerési arányt sikerült elérni. TODO : százalék
+	\item Azt tapasztaltam, hogy a tesztek 64.23\%-a lett biztonságos, 8.88\%-a nem biztonságos és 26.89\%-a lett ismeretlen. Magyarázható 
+	\item Viszont arra lettem figyelmes, és ez az (\ref{fig:mivaaaa_geccasui}) ábrán jól is látszik, egyes tesztkategóriákban 100\% felismerési arányt sikerült elérni.
 \end{itemize}
 
-A felismerési arány alatt azt értem, hogy az adott kategóriában a tesztek hány sz. -a lett nem ismeretlen, tehát a tesztek hány százalékát láttuk be. Szeretném kihangsúlyozni, hogy minden egyes tesztre, ami nem ismeretlen lett, \textbf{helyes} választ adott a programom. Néhány nagyobb, bonyolultabb tesztnél engedtem végig futni (a statisztikában nem szerepelnek), és azokra is mind \textbf{helyes} eredményt kaptam, így arra jutottam, hogy a korlátozás nem befolyásolja a programom működését, egyszerűen csak időmenedzsmenti okai és következményei vannak.
+A felismerési arány alatt azt értem, hogy az adott kategóriában a tesztek hány százaléka lett nem ismeretlen, tehát a tesztek hány százalékát láttuk be. Szeretném kihangsúlyozni, hogy minden egyes tesztre, ami nem ismeretlen lett, \textbf{helyes} választ adott a programom. Néhány nagyobb, bonyolultabb tesztnél engedtem végig futni (a statisztikában nem szerepelnek), és azokra is mind \textbf{helyes} eredményt kaptam, így arra jutottam, hogy a korlátozás nem befolyásolja a programom működését, egyszerűen csak időmenedzsmenti okai és következményei vannak.
 \\
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=100mm, keepaspectratio]{figures/fig_rec_rate_during_time.png}
-	\caption[Caption for LOF]{A tesztek felismerési arányainak a változása különböző időkorláttal futtatva.}
+	\caption[Caption for LOF]{A tesztek felismerési arányainak a változása különböző időkorláttal futtatva. A Simple végig 100\%-os, mint a Locks, csak az utóbbi kitakarja az ábrán.}
 	\label{fig:mivaaaa_geccasui}
 \end{figure}
+\ \\
+A 100\%-os felismerési arány a Simple és a Locks kategóriák esetén nem meglepő, ha ránézünk a (\ref{fig:locks}) ábrára.
 
 \clearpage
+
+\begin{figure}[ht] 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/locks/vars.png} 
+		\caption{Változók} 
+		\label{fig7:a} 
+		\vspace{4ex}
+	\end{subfigure}%% 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/locks/edges.png} 
+		\caption{Élek} 
+		\label{fig7:b} 
+		\vspace{4ex}
+	\end{subfigure} 
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/locks/locs.png} 
+		\caption{Helyek} 
+		\label{fig7:c} 
+	\end{subfigure}%%
+	\begin{subfigure}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[width=0.95\linewidth]{figures/locks/cc.png} 
+		\caption{Ciklikus komplexitás} 
+		\label{fig7:d} 
+	\end{subfigure} 
+	\caption{Locks.\label{fig:locks} }
+\end{figure}
 
 \begin{figure}[ht] 
 	\begin{subfigure}[b]{0.5\linewidth}
