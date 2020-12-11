@@ -55,7 +55,7 @@ A következő osztályokat definiáltam:
 	\item \textbf{\texttt{KInductionCLI}}
 \end{itemize}
 \ \\
-A \textbf{\texttt{KInduction}} a főosztályom, ő teszi kontextusba és adja meg az ellenőrzés ívét. Benne található a \texttt{check($ \ldots $)} függvény, melyet a tesztelő \texttt{CfaTest} osztály hív és amely végzi az ellenőrzést.
+A \textbf{\texttt{KInduction}} a főosztályom, ő teszi kontextusba és adja meg az ellenőrzés ívét. Benne található a \texttt{check($ \ldots $)} függvény mely az ellenőrzésért felelős.
 \newline
 \newline
 A \textbf{\texttt{KInductionResult}} osztályú objektummal tér vissza a \texttt{check($ \ldots $)} függvény és így a programom. Magába foglal minden olyan információt, mely az eredményhez kötődik: az ellenőrzés tényleges eredményét, ha nem volt biztonságos a modell akkor egy ellenpéldát, illetve hány másodpercig futott és hogy milyen mélységig jutott a program.
@@ -190,7 +190,9 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 			\item \textbf{Kimenet}: Egy PathState lista (útvonal) az item PathState állapotból indulva, mely a HashMap kiinduló eleméig tart (ami vagy a kezdőhely vagy a hibahely).
 		\end{itemize}
 	\end{itemize}
-
+	
+	\clearpage
+	
 	\item \textbf{\texttt{PathState}} osztály
 	\begin{itemize}
 		\item \textcolor{blue}{PathState(int key, int parentKey, CFA.Loc loc, CFA.Edge edge, List<Stmt> stmtList)} -- az osztály öt elemű konstruktora.
@@ -202,7 +204,7 @@ Miután van egy széles, de nem túl mély rálátásunk a programra, most elmer
 
 	\item \textbf{\texttt{KInductionCLI}} osztály
 	\begin{itemize}
-		\item \textcolor{blue}{main(final String[] args)} -- Létrehoz egy \texttt{KInductionCLI} objektumot aminek átadja a parancssori argumentumokat és aminek meghívja utána a \texttt{run()} függvényét.
+		\item \textcolor{blue}{main(final String[] args)} -- Létrehoz egy \texttt{KInductionCLI} objektumot, aminek átadja a parancssori argumentumokat és aminek meghívja utána a \texttt{run()} függvényét.
 		\begin{itemize}
 			\item \textbf{Bemenet}: - Parancssori argumentumok.
 			\item \textbf{Kimenet}: -
@@ -244,7 +246,7 @@ Ebben az alfejezetben részletesen kifejtem a programom működésének folyamat
 		\item \texttt{availablePaths} -- a bejárás utáni queueTemp méretét tárolja, a programkód jobb olvashatóságának érdekében van külön is vezetve,
 		\item \texttt{queueBW} -- ugyanaz, mint a queue, csak a hátrafelé haladó kereséshez (\textit{BackWard}), kezdetben csak a hibaállapotot tárolja,
 		\item \texttt{queueTempBW} -- ugyanaz, mint a queueTemp, csak a hátrafelé haladó kereséshez (\textit{BackWard}),
-		\item \texttt{pathMap} -- egy HashMap mely PathState állapotokat tárol s azok egyedi kulcsait használja kulcsnak, kezdetben csak a kezdőállapotot tárolja, illetve
+		\item \texttt{pathMap} -- egy HashMap, mely PathState állapotokat tárol s azok egyedi kulcsait használja kulcsnak, kezdetben csak a kezdőállapotot tárolja, illetve
 		\item a program futási idejének a mérését segítő változókat.
 	\end{enumerate}
 	\item lépés: Elindít egy végtelen ciklust.
@@ -275,7 +277,7 @@ Ebben az alfejezetben részletesen kifejtem a programom működésének folyamat
 	\end{enumerate}
 	\item Ellenőrzi, hogy a hibahely elérhető-e hátra felől:
 	\begin{enumerate}
-		\item Ugyanaz, mint a 6. lépés, csak \texttt{queue} helyett \texttt{queueBW} veremmel, \texttt{queueTemp} helyett \texttt{queueTempBW} veremmel, illetve egy lokális \texttt{availablePaths} változóval, leszámítva a \texttt{(a) $ \rightarrow $ iv} lépést: \texttt{pathMap} HashMap-hez itt nem adjuk hozzá a \texttt{nextPV} állapotot, mert az csak az ellenpélda meghatározásához kell, amit meg úgy értelmeztünk, hogy csak a kezdőhelyből indulhat ki.
+		\item Ugyanaz, mint a 6. lépés, csak \texttt{queue} helyett \texttt{queueBW} veremmel, \texttt{queueTemp} helyett \texttt{queueTempBW} veremmel, illetve egy lokális \texttt{availablePaths} változóval, leszámítva a \texttt{(a) $ \rightarrow $ iv} lépést: \texttt{pathMap} HashMap-hez itt nem adjuk hozzá a \texttt{nextPV} állapotot, mert az csak az ellenpélda meghatározásához kell, amit úgy értelmezünk, hogy csak a kezdőhelyből indulhat ki.
 		\item Ha \texttt{availablePaths} nem nulla, azaz van elérhető hely, akkor a modellről nem tudtunk meg új információt, csak továbbra is azt látjuk, hogy talán elérhető a hibahely. Ha viszont \texttt{availablePaths} nulla, azaz a hibahelytől bejárva a gráfot arra jutunk egy bizonyos szint után, hogy nincs több elérhető hely, azzal akkor beláttuk, hogy a hibahely nem érhető el.
 		\item Ha a hibahely nem érhető el, akkor létrehoz egy KInductionResult objektumot és befejezi a program a futását \textit{helyes} válasszal.
 	\end{enumerate}

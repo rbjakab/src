@@ -11,7 +11,7 @@
 Az elmúlt években növekvő tendenciát mutat a biztonságkritikus rendszerek száma a világban, ahol a nem megengedett viselkedés katasztrofális eredménnyel is járhat. Ezért ezeknek a rendszereknek a tesztelése kritikus fontosságú. Viszont méretükből és komplexitásukból adódóan általában lehetetlen a tesztelésük, ezért azokat modellezni vagyunk kénytelenek. Egy ilyen modellezés a Control Flow Automaton, mely gráf formájában reprezentálja a programkódokat, így magát a tesztelni kívánt programot is.
 \\
 \\
-Az én feladatom egy program készítése volt, mely kihasználja a Theta verifikációs keretrendszer nyújtotta lehetőségeket, és amely a k-indukció nevezetű algoritmust használja CFA modellek helyességeinek a bebizonyítására. A programom a modelleken a biztonság követelményét ellenőrzi, vagyis azt nézi, hogy a modell hibaállapota elérhető-e a kezdőállapotból. Miképp a CFA modell egy az egyben megfeleltethető az eredeti programkódjával, így ha az előbbire belátjuk a hibamentes működést, úgy belátjuk azt az utóbbira is.
+Az én feladatom egy program készítése volt, mely kihasználja a Theta verifikációs keretrendszer nyújtotta lehetőségeket, és amely a k-indukció nevezetű algoritmust használja CFA modellek helyességeinek a bebizonyítására. A programom a modelleken a biztonság követelményét ellenőrzi, vagyis azt nézi, hogy a modell hibaállapota elérhető-e a kezdőállapotból. Miképp a CFA modell egy az egyben megfeleltethető az eredeti programkódjával, így ha az előbbire belátjuk a hibamentes működést, úgy belátjuk azt az utóbbira is. A programomat a fejlesztés után széleskörűen teszteltem is.
 
 \vfill
 \selectenglish
@@ -25,7 +25,7 @@ Az én feladatom egy program készítése volt, mely kihasználja a Theta verifi
 In past years it shows a growing tendency the number of the safety critical systems, where the prohibited behaviour can cause catastrophic results. Therefore, the testing of these critical systems is so relevant. However, generally the testing of them is impossible because of their size and complexity, that is why they needed to be modelling. This type of modelling called Control Flow Automaton represents the programming codes as a graph, also the program itself. 
 \\
 \\
-My task was to create a program, which utilises the possibilities of Theta model checking framework, also utilises the algorithm called k-induction to prove the safety of CFA models. My program checks the requirement of the committee on the models, which means if the error conditions are not available from the initial state. As CFA model can be one in one compatible the original program coding, this way if we admit to the previous one the error free work, then we can admit to the latter one as well. 
+My task was to create a program, which utilises the possibilities of Theta model checking framework, also utilises the algorithm called k-induction to prove the safety of CFA models. My program checks the requirement of the committee on the models, which means if the error conditions are not available from the initial state. As CFA model can be one in one compatible the original program coding, this way if we admit to the previous one the error free work, then we can admit to the latter one as well. After implementation I have tested it with several CFA tests.
 
 \vfill
 \cleardoublepage

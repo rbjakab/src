@@ -11,10 +11,10 @@
 \select@language {magyar} \addvspace {10\p@ }
 \select@language {magyar} \contentsline {figure}{\numberline {5.1.}{\ignorespaces A tesztek felismerési arányainak a változása különböző időkorlátokkal futtatva. A Simple végig 100\%-os felismerési arányt produkált, mint a Locks, csak az utóbbi kitakarja az ábrán.\relax }}{26}{figure.caption.18}%
 \select@language {magyar} \addvspace {10\p@ }
-\select@language {magyar} \contentsline {figure}{\numberline {F.1.1.}{\ignorespaces Locks tesztkategória. \relax }}{33}{figure.caption.23}%
-\select@language {magyar} \contentsline {figure}{\numberline {F.1.2.}{\ignorespaces SSH tesztkategória.\relax }}{34}{figure.caption.24}%
-\select@language {magyar} \contentsline {figure}{\numberline {F.1.3.}{\ignorespaces PLC tesztkategória.\relax }}{35}{figure.caption.25}%
-\select@language {magyar} \contentsline {figure}{\numberline {F.1.4.}{\ignorespaces ECA tesztkategória. \relax }}{36}{figure.caption.26}%
-\select@language {magyar} \contentsline {figure}{\numberline {F.2.1.}{\ignorespaces A parancssori interfész a futás elején.\relax }}{37}{figure.caption.27}%
-\select@language {magyar} \contentsline {figure}{\numberline {F.2.2.}{\ignorespaces A parancssori interfész futás közben.\relax }}{38}{figure.caption.28}%
-\select@language {magyar} \contentsline {figure}{\numberline {F.2.3.}{\ignorespaces A parancssori interfész a futás végén.\relax }}{38}{figure.caption.29}%
+\select@language {magyar} \contentsline {figure}{\numberline {F.1.1.}{\ignorespaces Locks tesztkategória. \relax }}{34}{figure.caption.23}%
+\select@language {magyar} \contentsline {figure}{\numberline {F.1.2.}{\ignorespaces SSH tesztkategória.\relax }}{35}{figure.caption.24}%
+\select@language {magyar} \contentsline {figure}{\numberline {F.1.3.}{\ignorespaces PLC tesztkategória.\relax }}{36}{figure.caption.25}%
+\select@language {magyar} \contentsline {figure}{\numberline {F.1.4.}{\ignorespaces ECA tesztkategória. \relax }}{37}{figure.caption.26}%
+\select@language {magyar} \contentsline {figure}{\numberline {F.2.1.}{\ignorespaces A parancssori interfész a futás elején.\relax }}{38}{figure.caption.27}%
+\select@language {magyar} \contentsline {figure}{\numberline {F.2.2.}{\ignorespaces A parancssori interfész futás közben.\relax }}{39}{figure.caption.28}%
+\select@language {magyar} \contentsline {figure}{\numberline {F.2.3.}{\ignorespaces A parancssori interfész a futás végén.\relax }}{39}{figure.caption.29}%

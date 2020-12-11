@@ -5,7 +5,7 @@ Ebben a fejezetben a programom tesztelését mutatom be. Az első alfejezetben (
 
 \section{Tesztelés}
 \label{sec:kiertekeles_teszt}
-A programom készítése közben folyamatosan teszteltem azt JUnit tesztek segítségével az Architektúra (\ref{sec:architektura}) alfejezetben bemutatott \texttt{CfaTest} osztállyal. A tesztekhez a CFA modelleket egyrészt az \texttt{ftsrg} kutatócsoport \texttt{ca} github repository-jából nyertem \cite{ca-lab-tests}, illetve készítettem sajátokat is, de a tesztek túlnyomó többsége a Thetához kapcsolódó, privát GitHub repository-ból való, amelyek különböző frontendekkel lettek generálva. Az utóbbiban többek között 479 darab CFA teszt található, melyekhez tartozik előre ismert eredmény is. A tesztek egyik fele az SV-Comp-ról\footnote{\url{https://sv-comp.sosy-lab.org/2018/}} származik ahol eredetileg C kódok voltak amik aztán át lettek CFA-ba alakítva \cite{vpt2017}. Ezek különböző csoportba sorolhatóak \cite{akos-phd}:
+A programom készítése közben folyamatosan teszteltem azt JUnit tesztek segítségével az Architektúra (\ref{sec:architektura}) alfejezetben bemutatott \texttt{CfaTest} osztállyal. A tesztekhez a CFA modelleket egyrészt az \texttt{ftsrg} kutatócsoport \texttt{ca} github repository-jából nyertem \cite{ca-lab-tests}, illetve készítettem sajátokat is, de a tesztek túlnyomó többsége a Thetához kapcsolódó, privát GitHub repository-ból való, amelyek különböző frontendekkel lettek generálva. Az utóbbiban többek között 479 darab CFA teszt található, melyekhez tartozik előre ismert eredmény is. A tesztek egyik fele az SV-Comp-ról\footnote{\url{https://sv-comp.sosy-lab.org/2018/}} származik ahol eredetileg C kódok voltak, amik aztán át lettek CFA-ba alakítva \cite{vpt2017}. Ezek különböző csoportba sorolhatóak \cite{akos-phd}:
 
 \begin{itemize}
 	\label{felsorolas}
@@ -92,7 +92,9 @@ A felismerési arány alatt azt értem, hogy az adott kategóriában a tesztek h
 	\caption{A tesztek felismerési arányainak a változása különböző időkorlátokkal futtatva. A Simple végig 100\%-os felismerési arányt produkált, mint a Locks, csak az utóbbi kitakarja az ábrán.}
 	\label{fig:rec_rate_during_time}
 \end{figure}
-\ \\
+
+\clearpage
+
 A fejezet maradék részében a futtatási eredményeket fogom elemezni, hogy a tesztek egyes tulajdonságai hogyan hatnak ki a futási időre. A futtatásokat elemző képek a Függelék Teszteredmények (\ref{sec:fug_teszt_ered}) alfejezetében találhatóak. Mindegyik képen az X tengely a tesztek egy adott tulajdonsága látható, az Y tengelyen pedig a futási idő az adott tulajdonságra vetítve másodpercben. Mindegyik kép a 10 percig futtatott program eredményeit mutatja, azért, hogy a lehető legtöbb információt tudjam megjeleníteni.
 \\
 \\
@@ -106,12 +108,13 @@ Az (\ref{fig_ssh_a}) ábrán a következőt láthatjuk: a változók számától
 Az (\ref{fig_plc}) ábrán láthatjuk a PLC tesztkategória eredményeit. Fontos megjegyezni, hogy PLC tesztből közel 8x annyi állt rendelkezésre, mint SSH-ból, így a következő eredmények biztosan pontosabban fogják leírni a tesztek szórását. Az láthatóan kijelenthető, hogy nagy (változó, él, hely illetve komplexitás) értékekre a futásidő nem fog beleférni a 10 perces korlátba. Érdemes megfigyelni az ábrák elején lévő pont-sűrűsödést, amik alapján elmondható, hogy alacsony paraméterek mellett (Vars < 60, Edges < 150, Locs < 150, CC < 25) a programom nagy valószínűséggel fut le 10 percen belül. 
 \\
 \\
-Az ECA tesztkategóriánál az (\ref{fig_eca}) ábrán a kétpóluság figyelhető meg: az ábrák négy sarkaiban jelennek meg a futtatások eredményei, tehát vannak tesztek amik kevés változó / él / hely mellett gyorsan lefutottak de olyanok is amik túllépték az időkorlátot, illetve vannak tesztek melyek sok változó / él / hely esetén néhány pár másodperc alatt lefutottak, a többi meg túllépte az időkorlátot. A CC ábra nem közöl sok új információt, csupán annyit, hogy minél kisebb, annál nagyobb az esélye, hogy időben lefut -- viszont ez az esély nem sokkal nagyobb.
+Az ECA tesztkategóriánál az (\ref{fig_eca}) ábrán a kétpóluság figyelhető meg: az ábrák négy sarkaiban jelennek meg a futtatások eredményei, tehát vannak tesztek amik kevés változó / él / hely mellett gyorsan lefutottak de olyanok is amik túllépték az időkorlátot, illetve vannak tesztek melyek sok változó / él / hely esetén néhány pár másodperc alatt lefutottak, a többi meg túllépte az időkorlátot. A komplexitást mutató (\ref{fig_eca_cc}) ábra nem közöl sok új információt, csupán annyit, hogy minél kisebb, annál nagyobb az esélye, hogy időben lefut -- viszont ez az esély nem sokkal nagyobb.
+
+\clearpage
 
 \section{Összesítés}
 \label{sec:osszesites}
 
 Megállapítható, hogy az esetek többségében a kisebb  \{változó, él, hely\} szám illetve komplexitás érték gyorsabb futási időt jelent, ahogy az várható is volt, viszont sok esetben pont ennek az ellentette látszik. Úgy láttam, nem lehet egyértelműen kijelenteni, hogy a futási idő melyik paramétertől függ, az sokkal inkább a tesztfelépítésétől függ: ha az állapottér kifejtése során nagy végtelen ciklusba kerülünk már az elején, akkor azt a program végéig fogjuk megállás nélkül körbe fejteni, illetve közben az állapottér újabb és újabb szintjeit fedezzük fel, így azokat is ki kell minden egyes körben mellé fejteni. Ez nagyon sok erőforrást lefoglal és lassú lesz a bejárás.
-\\
-\\
+
 Ezzel szemben míg ha sok változót, helyet illetve élet is tartalmaz a teszt, de nem található benne nagyobb végtelen kör, a bejárás gyors lesz és a program le fog tudni futni az időkorláton belül.

@@ -13,7 +13,7 @@ A level-1 auxiliary file: tartalom/negyedik_fejezet.aux
 A level-1 auxiliary file: tartalom/benchmark.aux
 A level-1 auxiliary file: tartalom/osszefoglalo.aux
 A level-1 auxiliary file: tartalom/acknowledgement.aux
-Illegal, another \bibstyle command---line 52 of file thesis.aux
+Illegal, another \bibstyle command---line 53 of file thesis.aux
  : \bibstyle
  :          {apa}
 I'm skipping whatever remains of this command
@@ -30,45 +30,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 15 entries,
+You've used 16 entries,
             4991 wiz_defined-function locations,
-            1226 strings with 14886 characters,
-and the built_in function-call counts, 54144 in all, are:
-= -- 10089
-> -- 562
+            1230 strings with 15157 characters,
+and the built_in function-call counts, 56685 in all, are:
+= -- 10588
+> -- 569
 < -- 6
-+ -- 3695
-- -- 748
-* -- 683
-:= -- 1733
-add.period$ -- 53
-call.type$ -- 15
-change.case$ -- 76
++ -- 3886
+- -- 753
+* -- 705
+:= -- 1804
+add.period$ -- 55
+call.type$ -- 16
+change.case$ -- 80
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 9468
-empty$ -- 779
-format.name$ -- 72
-if$ -- 11108
+cite$ -- 16
+duplicate$ -- 9868
+empty$ -- 823
+format.name$ -- 75
+if$ -- 11655
 int.to.chr$ -- 0
-int.to.str$ -- 15
+int.to.str$ -- 16
 missing$ -- 10
-newline$ -- 190
-num.names$ -- 36
-pop$ -- 1675
+newline$ -- 195
+num.names$ -- 38
+pop$ -- 1777
 preamble$ -- 1
-purify$ -- 61
+purify$ -- 64
 quote$ -- 23
-skip$ -- 585
+skip$ -- 601
 stack$ -- 0
-substring$ -- 5683
-swap$ -- 6139
+substring$ -- 5981
+swap$ -- 6431
 text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 81
+type$ -- 86
 warning$ -- 0
-while$ -- 235
-width$ -- 17
-write$ -- 285
+while$ -- 244
+width$ -- 18
+write$ -- 295
 (There was 1 error message)

@@ -74,7 +74,7 @@ Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölé
 ahol $s_i \in S$ és az $s_{[0..n]}$ rövidítés az $(s_{0}, s_{1}, \dots, s_{n})$ állapotsorozatot jelöli. Az útvonal $n$ hosszúságú, ha $n$ darab tranzakcióból áll. A nulla hosszúságú útvonal egy darab állapotot tartalmaz és nem értelmezzük rajta a tranzakció műveletét.
 \newline
 \newline
-Definiáljuk emellett a ciklusmentes útvonalat is: olyan útvonal, melyben minden állapot maximum csak egyszer szerepelhet:
+Definiáljuk emellett a ciklusmentes útvonalat is: olyan útvonal, melyben minden állapot maximum csak egyszer szerepelhet \cite{korl_mod_majz}:
 \begin{align}
 	\mathit{cmUtvonal}(s_{[0..n]})~\dot{=}~\mathit{utvonal}(s_{[0..n]}) \wedge \bigwedge_{0 \leq i < j \leq n} s_{i} \neq s_{j}.
 \end{align}

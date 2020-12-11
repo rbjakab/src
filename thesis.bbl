@@ -139,6 +139,14 @@ Alastair~F. Donaldson\bibAnd 0Leopold Haller\bibAnd 0Daniel Kroening\bibAnd
   \textsc{url:}~\url{https://inf.mit.bme.hu/sites/default/files/materials/category/kategória/oktatás/doktorandusz-tárgyak/szoftver-verifikáció-és-validáció/11/SZVV_EA01_intro.pdf},
   2011.\ 9.
 
+\bibitem{korl_mod_majz}
+{Dr. Majzik Istv\'an}:
+\bibNewBlock Hatékony technikák modellellenőrzéshez: Korlátos
+  modellellenőrzés.
+\bibNewBlock
+  \textsc{url:}~\url{https://inf.mit.bme.hu/sites/default/files/materials/category/kategória/oktatás/msc-tárgyak/formális-módszerek/16/FM-2016_EA04b_korlatos_modellellenorzes.pdf},
+  2016.\ 3.
+
 \bibitem{alapfogalmak}
 {Dr. Majzik Istv\'an}:
 \bibNewBlock Rendszertervezés és -integráció.
