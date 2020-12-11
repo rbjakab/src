@@ -13,7 +13,7 @@ A level-1 auxiliary file: tartalom/negyedik_fejezet.aux
 A level-1 auxiliary file: tartalom/benchmark.aux
 A level-1 auxiliary file: tartalom/osszefoglalo.aux
 A level-1 auxiliary file: tartalom/acknowledgement.aux
-Illegal, another \bibstyle command---line 51 of file thesis.aux
+Illegal, another \bibstyle command---line 52 of file thesis.aux
  : \bibstyle
  :          {apa}
 I'm skipping whatever remains of this command
@@ -30,45 +30,45 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 14 entries,
+You've used 15 entries,
             4991 wiz_defined-function locations,
-            1219 strings with 14562 characters,
-and the built_in function-call counts, 48781 in all, are:
-= -- 9065
-> -- 526
-< -- 5
-+ -- 3261
-- -- 726
-* -- 600
-:= -- 1548
-add.period$ -- 48
-call.type$ -- 14
-change.case$ -- 68
+            1226 strings with 14886 characters,
+and the built_in function-call counts, 54144 in all, are:
+= -- 10089
+> -- 562
+< -- 6
++ -- 3695
+- -- 748
+* -- 683
+:= -- 1733
+add.period$ -- 53
+call.type$ -- 15
+change.case$ -- 76
 chr.to.int$ -- 0
-cite$ -- 14
-duplicate$ -- 8599
-empty$ -- 706
-format.name$ -- 60
-if$ -- 9990
+cite$ -- 15
+duplicate$ -- 9468
+empty$ -- 779
+format.name$ -- 72
+if$ -- 11108
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 9
-newline$ -- 183
-num.names$ -- 32
-pop$ -- 1522
+int.to.str$ -- 15
+missing$ -- 10
+newline$ -- 190
+num.names$ -- 36
+pop$ -- 1675
 preamble$ -- 1
-purify$ -- 54
+purify$ -- 61
 quote$ -- 23
-skip$ -- 562
+skip$ -- 585
 stack$ -- 0
-substring$ -- 5055
-swap$ -- 5523
-text.length$ -- 5
+substring$ -- 5683
+swap$ -- 6139
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
+type$ -- 81
 warning$ -- 0
-while$ -- 205
-width$ -- 16
-write$ -- 271
+while$ -- 235
+width$ -- 17
+write$ -- 285
 (There was 1 error message)

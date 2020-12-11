@@ -5,9 +5,9 @@ Ebben a fejezetben bemutatom a programom technikai oldalát. Az első (\ref{sec:
 \section{Theta keretrendszer}
 \label{sec:theta_keretrendszer}
 
-A \emph{Theta}\footnote{\url{https://github.com/FTSRG/theta}} egy nyílt forráskódú, általános célú, moduláris és konfigurálható modellellenőrző keretrendszer, melyet absztrakciós finomításon alapuló algoritmusok tervezésének és értékelésének támogatására hoztak létre a különböző formalizmusok elérhetőségi elemzéséhez.
+A \emph{Theta} \cite{theta-fmcad2017} egy nyílt forráskódú, általános célú, moduláris és konfigurálható modellellenőrző keretrendszer, melyet absztrakciós finomításon alapuló algoritmusok tervezésének és értékelésének támogatására hoztak létre a különböző formalizmusok elérhetőségi elemzéséhez.
 
-A keretrendszer a már évek óta tartó fejlesztéseknek köszönhetően számos eszközt tud nyújtani modellellenőrzéshez:\footnote{2020 decemberének elején.}
+A keretrendszer a már évek óta tartó fejlesztéseknek köszönhetően számos eszközt tud nyújtani modellellenőrzéshez:\footnote{2020 decemberének elején}
 
 \begin{itemize}
 	\item \verb+theta-cfa-cli+ -- Control Flow Automata hibahelyeinek az elérhetőségét vizsgálja CEGAR alapú algoritmusokkal.
@@ -29,14 +29,15 @@ A Theta architektúrája négy rétegre osztható. Nevezetesen:
 	\item \textbf{Sat-megoldó interfész} -- Ennek segítségével történik a verifikáció. A Theta a Z3 Sat-megoldót használja jelenleg.
 	
 	\item \textbf{Eszközök} -- Parancssori alkalmazások melyek futtatható \verb+jar+ fájlba fordíthatóak le. Jellemzően csak beolvassák az inputot és meghívják az alsóbb szinten lévő algoritmusokat. Az én programom is rendelkezik \textit{command line interface (CLI)}-vel azaz parancssori interfésszel.
-	
 \end{itemize}
 
 \section{A program implementálása}
 \label{sec:prog_imp}
 
+A programomat Java 11-ben írtam és fejlesztettem a Theta követelményeinek megfelelően. A programom készítése közben azt folyamatosan verziókövettem: a keretrendszer kikötése volt, hogy ha új projekttel szeretnénk kiegészíteni, akkor azt külön git ágra kell csinálni. Én így is tettem, létrehoztam egy \texttt{k-induction} git ágat és arra dolgoztam végig, a keretrendszer más részét nem módosítottam (leszámítva a \texttt{settings.gradle.kts} fájlt, de ez kellett ahhoz hogy build-elni tudjam a programomat).
+
 \subsection{Bemenet}
-A program bemenete egy CFA, mely számos hellyel rendelkezik, melyek közül kiemelkedik a kezdő-, a hiba- illetve a végső hely. Az utóbbit a k-indukciós algoritmus nem veszi figyelembe, mert az a teljes teret bejárja, viszont más algoritmusok működéséhez szükségesek lehetnek. Az ezután következő (\ref{sec:kiertekeles}). fejezetben részletesen kitérek a programom tesztelésére, de elöljáróban azt érdemes tudni, hogy bizonyos CFA modellekre az algoritmus  lassan fut le. Ezért, ha a felhasználó igényeinek megfelel, bemenetnek megadhat egy maximális időkorlátot vagy egy maximális mélységet is a bejárandó állapottérnek, esetleg mindkettőt, melyek felső korlátot fognak szabni a programnak.
+A program bemenete egy CFA, mely számos hellyel rendelkezik, melyek közül kiemelkedik a kezdő-, a hiba-, illetve a végső hely. Az utóbbit a k-indukciós algoritmus nem veszi figyelembe, mert az a teljes teret bejárja, viszont más algoritmusok működéséhez szükségesek lehetnek. Az ezután következő (\ref{sec:kiertekeles}). fejezetben részletesen kitérek a programom tesztelésére, de elöljáróban azt érdemes tudni, hogy bizonyos CFA modellekre az algoritmus  lassan fut le. Ezért, ha a felhasználó igényeinek megfelel, bemenetnek megadhat egy maximális időkorlátot vagy egy maximális mélységet a bejárandó állapottérnek, esetleg mindkettőt, melyek felső korlátot fognak szabni a programnak.
 
 \subsection{Architektúra}
 \label{sec:architektura}
@@ -290,7 +291,7 @@ Ebben az alfejezetben részletesen kifejtem a programom működésének folyamat
 
 \begin{figure}[!ht]
 	\centering
-	\includegraphics[width=150mm, keepaspectratio]{figures/flow_chart_high_res_3.png}
+	\includegraphics[width=150mm, keepaspectratio]{figures/flow_chart_high_res_4_png.png}
 	\caption{A programom folyamatábra diagramja. A kék színnel jelölt elágazás magába foglal még egy ekkora folyamatábrát, csak az hátulról ellenőriz a hibahelytől. A *-al jelölt \texttt{poll()} függvény kiválasztja a verem következő elemét és abból törli is.}
 	\label{fig:state_diagram2}
 \end{figure}
@@ -300,15 +301,15 @@ Ebben az alfejezetben részletesen kifejtem a programom működésének folyamat
 A program kimenetele egy \verb+KInductionResult+ osztályú objektum, melynek a következő változói vannak:
 
 \begin{itemize}
-	\item \verb+enumResult+ mely egy enum típusú változó és tárolja a program futásának a kimenetelét, ami az egyik a következőkből:
+	\item \verb+enumResult+, mely egy enum típusú változó és tárolja a program futásának a kimenetelét, ami az egyik a következőkből:
 	\begin{itemize}
 		\item Safe (\emph{Biztonságos})
 		\item Unsafe (\emph{Nem biztonságos})
 		\item Unknown (\emph{Ismeretlen})
 	\end{itemize}
-	\item \verb+trace+ mely egy \verb+Trace+ típusú változó és ami tárolja az ellenpéldát, ha van, különben \verb+null+.
-	\item \verb+time+ mely \verb+long+ típusú és tárolja, hogy a program mennyi másodpercig futott.
-	\item \verb+depth+ mely \verb+int+ típusú és azt mondja meg, hogy milyen mélységben fejeződött be a program futása.
+	\item \verb+trace+, mely egy \verb+Trace+ típusú változó és ami tárolja az ellenpéldát, ha van, különben \verb+null+.
+	\item \verb+time+, mely \verb+long+ típusú és tárolja, hogy a program mennyi másodpercig futott.
+	\item \verb+depth+, mely \verb+int+ típusú és azt mondja meg, hogy milyen mélységben fejeződött be a program futása.
 \end{itemize}
 
 A \textit{biztonságosról} és a \textit{nem biztonságosról} az előző fejezetekben sok szó esett. Az \textit{ismeretlen} válasszal a programom akkor tér vissza, ha kifutott az időből illetve ha elérte a maximális mélységet (a két feltétel között diszjunkció van), és addigra nem sikerült belátnia sem a modell helyességét, sem annak ellentettjét.

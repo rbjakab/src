@@ -1,6 +1,6 @@
 \chapter{Háttérismeretek}
 
-Ebben a fejezetben a dolgozat további részeinek megértéséhez szükséges elméleti előismereteket mutatom be. Először kitérek a szoftververifikációra a (\ref{sec:szoftverver}) alfejezetben, majd a \emph{k}-indukció nevű matematikai módszert \cite{k_induction_principle} ismertetem a (\ref{sec:k_induction}) alfejezetben, majd végül formalizálom a problémát a (\ref{sec:problema_form}) alfejezetben.
+Ebben a fejezetben a dolgozat további részeinek megértéséhez szükséges elméleti előismereteket mutatom be. Először kitérek a szoftververifikációra a (\ref{sec:szoftverver}) alfejezetben, majd a \emph{k}-indukció nevű matematikai módszert ismertetem a (\ref{sec:k_induction}) alfejezetben, majd végül formalizálom a problémát a (\ref{sec:problema_form}) alfejezetben.
 
 \section{Szoftververifikáció}
 \label{sec:szoftverver}
@@ -13,7 +13,7 @@ Elemzések azt mutatják \cite{majzik_szoftver}, hogy kliens-szerver illetve be�
 		\pie [rotate = 20, color = {green!50!blue, cyan!80, blue!30!yellow, blue!10!yellow, blue!50}, radius = 2] {10/Hardverhiba, 40/Szoftverhiba, 15/Emberi hiba, 5/Környezeti hatás, 30/Tervezett leállás}
 		\pie [pos = {7.2, 0}, rotate = 30, color = {green!25, green!50!blue, cyan!80, pink!50}, radius = 2] {20/Operációs rendszer, 45/Hardverhiba, 25/Szoftverhiba, 10/Egyéb}
 	\end{tikzpicture}
-	\caption{A leállások illetve hibák okainak százalékos eloszlása. Baloldalt a kliens-szervereken, jobb oldalt a beágyazott rendszereken mért adatok.}
+	\caption{A leállások, illetve hibák okainak százalékos eloszlása. Baloldalt a kliens-szervereken, jobb oldalt a beágyazott rendszereken mért adatok.}
 	\label{kli-szer}
 \end{figure}
 %\end{comment}
@@ -39,7 +39,7 @@ A verifikáció egyik legfőbb funkciója, hogy követni tudjuk, hogy a tervezet
 	\item Karbantarthatóság (\emph{maintainability}) -- Javítás és fejlesztés lehetősége
 \end{itemize}
 \ \\
-Modellellenőrzés során a tesztelni kívánt rendszert modellezzük, és azon hajtjuk végre a fentebb említett követelmények ellenőrzését. A dolgozatomban Control Flow Automata modelleket tesztelek biztonságosság tulajdonságra. A modellek eredetileg C illetve PLC programozási nyelveken írt programok voltak.
+Modellellenőrzés során a tesztelni kívánt rendszert modellezzük, és azon hajtjuk végre a fentebb említett követelmények ellenőrzését. A dolgozatomban Control Flow Automata modelleket tesztelek biztonságosság szempontjából. A modellek eredetileg C illetve PLC programozási nyelveken írt programok voltak.
 \\
 \\
 A fejezet további részében az általam használt algoritmus elméleti oldalát ismertetem.
@@ -58,7 +58,7 @@ Ezt tovább gondolva megtehetjük azt, hogy az első két lépésre nézzük meg
 \begin{align}
 	P(0) \wedge P(1) \wedge \forall n ((P(n) \wedge P(n+1)) \Rightarrow P(n+2) ) \Rightarrow \forall n P(n).
 \end{align}
-Ezt az elvet általánosíthatjuk \emph{k} lépésre, $k \in \mathbb{N} : k \geq 1$, melyet a irodalom \cite{k_induction_principle} k-indukciónak nevez, formálisan:\footnote{A k-indukció helyességének a bizonyítására a dolgozatomban nem térek ki.}
+Ezt az elvet általánosíthatjuk \emph{k} lépésre, $k \in \mathbb{N} : k \geq 1$, melyet az irodalom \cite{k_induction_principle} k-indukciónak nevez, formálisan:\footnote{A k-indukció helyességének a bizonyítására a dolgozatomban nem térek ki.}
 \begin{align}
 	\left( \bigwedge_{i=0}^{k-1} P(i) \right) \wedge \forall n \left( \left( \bigwedge_{i=0}^{k-1} P(n+i) \right) \Rightarrow P(n+k) \right) \Rightarrow \forall n P(n).
 \end{align}
@@ -66,7 +66,7 @@ Ezt az elvet általánosíthatjuk \emph{k} lépésre, $k \in \mathbb{N} : k \geq
 \section{A probléma formalizálása}
 \label{sec:problema_form}
 
-Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölések és fogalmak bevezetésére \cite{k_induction_article}. Adott egy tranzakciós relációkból felépülő gráf, melyben $T(x, y)$-al jelöljük azt, ha létezik egy, az $x \in S$ állapotból az $y \in S$ állapotba mutató tranzakciós reláció, ahol \emph{S} az állapotok halmazát jelöli \textit{T} pedig a tranzakciós relációt. Így már tudjuk definiálni az útvonal fogalmát, mely állapotok sorozatát jelenti \emph{T}-n keresztül:
+Ahhoz, hogy a problémát precízebben megfogalmazhassuk, szükség van jelölések és fogalmak bevezetésére \cite{k_induction_article}. Adott egy tranzakciós relációkból felépülő gráf, melyben $T(x, y)$-nal jelöljük azt, ha létezik egy, az $x \in S$ állapotból az $y \in S$ állapotba mutató tranzakciós reláció, ahol \emph{S} az állapotok halmazát jelöli \textit{T} pedig a tranzakciós relációt. Így már tudjuk definiálni az útvonal fogalmát, mely állapotok sorozatát jelenti \emph{T}-n keresztül:
 \begin{align}
 	\label{eq:relacio_sor}
 	\mathit{utvonal}(s_{[0..n]})~\dot{=}~\bigwedge_{0 \leq i < n} T(s_{i}, s_{i+1}),
@@ -83,7 +83,7 @@ A továbbiakban lesz olyan, mikor egy útvonal alatt nem csak azt értjük, hogy
 \newline
 Feltételezzük, hogy \emph{T} a teljes állapottérre értelmezve van, tehát minden állapotnak (a kezdőállapotokat leszámítva) van egy szülőállapota \emph{T}-n keresztül. Jelöljük \emph{I}-vel a kezdőállapotokat, és azt vizsgáljuk, hogy az állapotok teljesítik-e a \emph{P} tulajdonságot.
 
-A problémát informálisan a következőképp foglalhatjuk össze: beszeretnénk azt látni, hogy ha egy kezdőállapotból elindulunk, akkor a tranzakciós relációkon keresztül csak olyan állapotba fogunk eljutni, mely kielégíti \emph{P}-t. Formálisan a következőt akarjuk belátni:
+A problémát informálisan a következőképp foglalhatjuk össze: be szeretnénk azt látni, hogy ha egy kezdőállapotból elindulunk, akkor a tranzakciós relációkon keresztül csak olyan állapotba fogunk eljutni, mely kielégíti \emph{P}-t. Formálisan a következőt akarjuk belátni:
 \begin{align}
 	\forall i:~\forall s_{0} \dots s_{i}:~(I(s_{0}) \wedge \mathit{utvonal}(s_{[0..i]}) \rightarrow P(s_{i})),
 \end{align}

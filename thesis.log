@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  11 DEC 2020 03:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.11.21)  11 DEC 2020 11:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1082,7 +1082,7 @@ LaTeX Info: Redefining \mit on input line 578.
 
 
 (./include/feladatkiiras.tex
-<include/feladatkiiras.pdf, id=146, 597.55246pt x 845.07718pt>
+<include/feladatkiiras.pdf, id=150, 597.55246pt x 845.07718pt>
 File: include/feladatkiiras.pdf Graphic file (type pdf)
 <use include/feladatkiiras.pdf>
 Package pdftex.def Info: include/feladatkiiras.pdf  used on input line 3.
@@ -1091,7 +1091,7 @@ File: include/feladatkiiras.pdf Graphic file (type pdf)
 <use include/feladatkiiras.pdf>
 Package pdftex.def Info: include/feladatkiiras.pdf  used on input line 3.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-<include/feladatkiiras.pdf, id=149, page=1, 597.55246pt x 845.07718pt>
+<include/feladatkiiras.pdf, id=153, page=1, 597.55246pt x 845.07718pt>
 File: include/feladatkiiras.pdf Graphic file (type pdf)
 <use include/feladatkiiras.pdf, page 1>
 Package pdftex.def Info: include/feladatkiiras.pdf , page1 used on input line 3
@@ -1127,7 +1127,7 @@ Package pdftex.def Info: include/feladatkiiras.pdf , page1 used on input line 3
 
 (./include/titlepage.tex
 Package hyperref Info: Option `pageanchor' set `false' on input line 1.
-<figures/bme_logo.pdf, id=195, 705.63625pt x 188.705pt>
+<figures/bme_logo.pdf, id=199, 705.63625pt x 188.705pt>
 File: figures/bme_logo.pdf Graphic file (type pdf)
 <use figures/bme_logo.pdf>
 Package pdftex.def Info: figures/bme_logo.pdf  used on input line 7.
@@ -1424,22 +1424,38 @@ Underfull \hbox (badness 7308) in paragraph at lines 171--171
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--203
+Underfull \hbox (badness 10000) in paragraph at lines 199--210
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--210
+
+ []
+
+
+Underfull \hbox (badness 1102) in paragraph at lines 199--210
+\T1/lmr/m/n/10.95 Vegyük ész-re, hogy a CFA meg-fe-lel egy, az el®-z® fe-je-zet
+-ben em-lí-tett tranz-ak-ci-ós
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--210
 
  []
 
 [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 269--283
+Underfull \hbox (badness 10000) in paragraph at lines 271--285
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--283
+Underfull \hbox (badness 10000) in paragraph at lines 271--285
 
  []
 
 
-Underfull \hbox (badness 1087) in paragraph at lines 269--283
+Underfull \hbox (badness 1087) in paragraph at lines 271--285
 \T1/lmr/m/n/10.95 Ennél jobb stra-té-gia, ha ad-dig el-len-®r-zünk, amíg az $[]
 \OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 s[]\OT1/lmr/m/n/10.95 )  \OMS/lmsy/m/n/
 10.95 ^  :\OML/lmm/m/it/10.95 P\OT1/lmr/m/n/10.95 (\OML/lmm/m/it/10.95 s[]\OT1/
@@ -1447,33 +1463,33 @@ lmr/m/n/10.95 )$
  []
 
 
-Underfull \hbox (badness 1033) in paragraph at lines 269--283
+Underfull \hbox (badness 1033) in paragraph at lines 271--285
 \T1/lmr/m/n/10.95 nem lesz el-lent-mon-dá-sos: egy, a \T1/lmr/m/it/10.95 P \T1/
 lmr/m/n/10.95 tu-laj-don-sá-got sér-t® ál-la-pot-ból (hi-ba-ál-la-pot-ból)
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--283
+Underfull \hbox (badness 10000) in paragraph at lines 271--285
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--283
+Underfull \hbox (badness 10000) in paragraph at lines 271--285
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 287--291
+Underfull \hbox (badness 10000) in paragraph at lines 289--294
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--335
+Underfull \hbox (badness 10000) in paragraph at lines 313--337
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--335
+Underfull \hbox (badness 10000) in paragraph at lines 313--337
 
  []
 
@@ -1489,76 +1505,76 @@ Underfull \hbox (badness 10000) in paragraph at lines 311--335
 
 ]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 49.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 50.
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--67
+Underfull \hbox (badness 10000) in paragraph at lines 57--68
 
  []
 
 
-Underfull \hbox (badness 1460) in paragraph at lines 56--67
+Underfull \hbox (badness 1460) in paragraph at lines 57--68
 \T1/lmr/m/n/10.95 A \T1/lmtt/b/n/10.95 KInductionResult \T1/lmr/m/n/10.95 osz-t
 á-lyú ob-jek-tum-mal tér vissza a \T1/lmtt/m/n/10.95 check($[]$) \T1/lmr/m/n/10
 .95 függ-vény és
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--67
+Underfull \hbox (badness 10000) in paragraph at lines 57--68
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--67
+Underfull \hbox (badness 10000) in paragraph at lines 57--68
 
  []
 
 [14]
-Underfull \hbox (badness 10000) in paragraph at lines 74--78
+Underfull \hbox (badness 10000) in paragraph at lines 75--79
 
  []
 
 
-Underfull \hbox (badness 7133) in paragraph at lines 74--78
+Underfull \hbox (badness 7133) in paragraph at lines 75--79
 \T1/lmr/m/n/10.95 A \T1/lmtt/b/n/10.95 KInductionCLI \T1/lmr/m/n/10.95 osz-tály
  a pa-rancs-sor-ból tör-té-n® tesz-te-lé-sért (\T1/lmtt/m/n/10.95 Command Line
  []
 
 
-Underfull \hbox (badness 1033) in paragraph at lines 74--78
+Underfull \hbox (badness 1033) in paragraph at lines 75--79
 \T1/lmtt/m/n/10.95 Interface\T1/lmr/m/n/10.95 ) il-let-ve ve-ri-fi-ká-ci-ó-ért 
 fe-lel. Le-het csak egy CFA-t tesz-tel-ni, de ar-ra is
  []
 
-<figures/allatpot_diag_png.png, id=467, 1064.97874pt x 1532.72626pt>
+<figures/allatpot_diag_png.png, id=466, 1064.97874pt x 1532.72626pt>
 File: figures/allatpot_diag_png.png Graphic file (type png)
 <use figures/allatpot_diag_png.png>
-Package pdftex.def Info: figures/allatpot_diag_png.png  used on input line 81.
+Package pdftex.def Info: figures/allatpot_diag_png.png  used on input line 82.
 (pdftex.def)             Requested size: 426.79134pt x 614.22563pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 83.
+(Font)              <10> on input line 84.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 83.
+(Font)              <7> on input line 84.
 [15] [16 <./figures/allatpot_diag_png.png (PNG copy)>] [17
 
 ] [18]
-Underfull \hbox (badness 3098) in paragraph at lines 216--217
+Underfull \hbox (badness 3098) in paragraph at lines 217--218
 [][]\T1/lmr/m/n/10.95 run()[] -- A pa-rancs-sor-ból be-ol-va-sott pa-ra-mé-te-r
 e-ket ke-ze-li (meg-hív-ja a
  []
 
 [19]
-Underfull \hbox (badness 1297) in paragraph at lines 258--259
+Underfull \hbox (badness 1297) in paragraph at lines 259--260
 []\T1/lmr/m/n/10.95 Végig ite-rál az \T1/lmtt/m/n/10.95 item \T1/lmr/m/n/10.95 
 ál-la-pot \T1/lmtt/m/n/10.95 loc \T1/lmr/m/n/10.95 vál-to-zó-já-nak a ki-me-n® 
 éle-in (\T1/lmtt/m/n/10.95 edge :
  []
 
 [20]
-<figures/flow_chart_high_res_3.png, id=520, 549.9747pt x 795.6927pt>
-File: figures/flow_chart_high_res_3.png Graphic file (type png)
-<use figures/flow_chart_high_res_3.png>
-Package pdftex.def Info: figures/flow_chart_high_res_3.png  used on input line 
-293.
+<figures/flow_chart_high_res_4_png.png, id=521, 549.9747pt x 795.6927pt>
+File: figures/flow_chart_high_res_4_png.png Graphic file (type png)
+<use figures/flow_chart_high_res_4_png.png>
+Package pdftex.def Info: figures/flow_chart_high_res_4_png.png  used on input l
+ine 294.
 (pdftex.def)             Requested size: 426.79134pt x 617.46895pt.
  [21]
 
@@ -1568,7 +1584,7 @@ LaTeX Warning: Text page 22 contains only floats.
 Overfull \vbox (2.58035pt too high) has occurred while \output is active []
 
 
-[22 <./figures/flow_chart_high_res_3.png>]) [23
+[22 <./figures/flow_chart_high_res_4_png.png>]) [23
 
 ]
 \openout2 = `tartalom/benchmark.aux'.
@@ -1609,7 +1625,7 @@ Underfull \hbox (badness 1590) in paragraph at lines 77--81
 og-ram-könyv-tár-ral dol-goz-tam fel.
  []
 
-<figures/fig_rec_rate_during_time.png, id=578, 661.47125pt x 517.935pt>
+<figures/fig_rec_rate_during_time.png, id=580, 661.47125pt x 517.935pt>
 File: figures/fig_rec_rate_during_time.png Graphic file (type png)
 <use figures/fig_rec_rate_during_time.png>
 Package pdftex.def Info: figures/fig_rec_rate_during_time.png  used on input li
@@ -1621,98 +1637,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--100
  []
 
 [26 <./figures/fig_rec_rate_during_time.png>]
-<figures/locks/vars.png, id=587, 701.62125pt x 517.935pt>
-File: figures/locks/vars.png Graphic file (type png)
-<use figures/locks/vars.png>
-Package pdftex.def Info: figures/locks/vars.png  used on input line 104.
-(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
-<figures/locks/edges.png, id=588, 701.62125pt x 517.935pt>
-File: figures/locks/edges.png Graphic file (type png)
-<use figures/locks/edges.png>
-Package pdftex.def Info: figures/locks/edges.png  used on input line 110.
-(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
-<figures/locks/locs.png, id=589, 701.62125pt x 517.935pt>
-File: figures/locks/locs.png Graphic file (type png)
-<use figures/locks/locs.png>
-Package pdftex.def Info: figures/locks/locs.png  used on input line 116.
-(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
-<figures/locks/cc.png, id=590, 701.62125pt x 517.935pt>
-File: figures/locks/cc.png Graphic file (type png)
-<use figures/locks/cc.png>
-Package pdftex.def Info: figures/locks/cc.png  used on input line 121.
-(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
-<figures/ssh/vars.png, id=593, 668.4975pt x 517.935pt>
-File: figures/ssh/vars.png Graphic file (type png)
-<use figures/ssh/vars.png>
-Package pdftex.def Info: figures/ssh/vars.png  used on input line 134.
-(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/ssh/edges.png, id=594, 670.505pt x 517.935pt>
-File: figures/ssh/edges.png Graphic file (type png)
-<use figures/ssh/edges.png>
-Package pdftex.def Info: figures/ssh/edges.png  used on input line 140.
-(pdftex.def)             Requested size: 202.72523pt x 156.59085pt.
-<figures/ssh/locs.png, id=595, 668.4975pt x 517.935pt>
-File: figures/ssh/locs.png Graphic file (type png)
-<use figures/ssh/locs.png>
-Package pdftex.def Info: figures/ssh/locs.png  used on input line 146.
-(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/ssh/cc.png, id=596, 668.4975pt x 517.935pt>
-File: figures/ssh/cc.png Graphic file (type png)
-<use figures/ssh/cc.png>
-Package pdftex.def Info: figures/ssh/cc.png  used on input line 151.
-(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
- [27 <./figures/locks/vars.png> <./figures/locks/edges.png> <./figures/locks/lo
-cs.png> <./figures/locks/cc.png>]
-<figures/plc/vars.png, id=608, 674.52pt x 517.935pt>
-File: figures/plc/vars.png Graphic file (type png)
-<use figures/plc/vars.png>
-Package pdftex.def Info: figures/plc/vars.png  used on input line 163.
-(pdftex.def)             Requested size: 202.72523pt x 155.6583pt.
-<figures/plc/edges.png, id=609, 703.62875pt x 517.935pt>
-File: figures/plc/edges.png Graphic file (type png)
-<use figures/plc/edges.png>
-Package pdftex.def Info: figures/plc/edges.png  used on input line 169.
-(pdftex.def)             Requested size: 202.72523pt x 149.21732pt.
-<figures/plc/locs.png, id=610, 668.4975pt x 517.935pt>
-File: figures/plc/locs.png Graphic file (type png)
-<use figures/plc/locs.png>
-Package pdftex.def Info: figures/plc/locs.png  used on input line 175.
-(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/plc/cc.png, id=611, 668.4975pt x 517.935pt>
-File: figures/plc/cc.png Graphic file (type png)
-<use figures/plc/cc.png>
-Package pdftex.def Info: figures/plc/cc.png  used on input line 180.
-(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/eca/vars.png, id=613, 668.4975pt x 517.935pt>
-File: figures/eca/vars.png Graphic file (type png)
-<use figures/eca/vars.png>
-Package pdftex.def Info: figures/eca/vars.png  used on input line 192.
-(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/eca/edges.png, id=614, 672.5125pt x 517.935pt>
-File: figures/eca/edges.png Graphic file (type png)
-<use figures/eca/edges.png>
-Package pdftex.def Info: figures/eca/edges.png  used on input line 198.
-(pdftex.def)             Requested size: 202.72523pt x 156.12457pt.
-<figures/eca/locs.png, id=615, 668.4975pt x 517.935pt>
-File: figures/eca/locs.png Graphic file (type png)
-<use figures/eca/locs.png>
-Package pdftex.def Info: figures/eca/locs.png  used on input line 204.
-(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-<figures/eca/cc.png, id=616, 668.4975pt x 517.935pt>
-File: figures/eca/cc.png Graphic file (type png)
-<use figures/eca/cc.png>
-Package pdftex.def Info: figures/eca/cc.png  used on input line 209.
-(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
-) [28 <./figures/ssh/vars.png> <./figures/ssh/edges.png> <./figures/ssh/locs.pn
-g> <./figures/ssh/cc.png>] [29 <./figures/plc/vars.png> <./figures/plc/edges.pn
-g> <./figures/plc/locs.png> <./figures/plc/cc.png>] [30 <./figures/eca/vars.png
-> <./figures/eca/edges.png> <./figures/eca/locs.png> <./figures/eca/cc.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 103--110
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--110
+
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 114--59
+
+ []
+
+[27]
 \openout2 = `tartalom/osszefoglalo.aux'.
 
-
-(./tartalom/osszefoglalo.tex
+ (./tartalom/osszefoglalo.tex
 6. fejezet.
-) [31
+) [28
 
 
 
@@ -1720,31 +1664,51 @@ g> <./figures/plc/locs.png> <./figures/plc/cc.png>] [30 <./figures/eca/vars.png
 ]
 \openout2 = `tartalom/acknowledgement.aux'.
 
- (./tartalom/acknowledgement.tex) [32
+ (./tartalom/acknowledgement.tex) [29
 
 
 
 
 ] (./thesis.lof
-Overfull \hbox (2.03804pt too wide) detected at line 18
+Overfull \hbox (2.03804pt too wide) detected at line 14
 \T1/lmr/m/n/10.95 F.1.1. 
  []
 
 
-Overfull \hbox (2.03804pt too wide) detected at line 19
+Overfull \hbox (2.03804pt too wide) detected at line 15
 \T1/lmr/m/n/10.95 F.1.2. 
  []
 
 
-Overfull \hbox (2.03804pt too wide) detected at line 20
+Overfull \hbox (2.03804pt too wide) detected at line 16
 \T1/lmr/m/n/10.95 F.1.3. 
+ []
+
+
+Overfull \hbox (2.03804pt too wide) detected at line 17
+\T1/lmr/m/n/10.95 F.1.4. 
+ []
+
+
+Overfull \hbox (2.03804pt too wide) detected at line 18
+\T1/lmr/m/n/10.95 F.2.1. 
+ []
+
+
+Overfull \hbox (2.03804pt too wide) detected at line 19
+\T1/lmr/m/n/10.95 F.2.2. 
+ []
+
+
+Overfull \hbox (2.03804pt too wide) detected at line 20
+\T1/lmr/m/n/10.95 F.2.3. 
  []
 
 )
 \tf@lof=\write6
 \openout6 = `thesis.lof'.
 
- (./thesis.bbl [33
+ (./thesis.bbl [30
 
 
 
@@ -1778,56 +1742,144 @@ Underfull \hbox (badness 10000) in paragraph at lines 143--148
 MA11 _ RTI _ 08 _ Biztonsagi _
  []
 
-[34
+[31
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 193--198
+Underfull \hbox (badness 10000) in paragraph at lines 204--209
 []\T1/lmr/m/n/10.95 Tamás Tóth. [] URL  [][]$\T1/lmtt/m/n/10.95 https : / / git
 hub . com / ftsrg-[]ca / ca / tree / master /
  []
 
-) [35]
+) [32]
 \openout2 = `tartalom/fuggelek.aux'.
 
  (./tartalom/fuggelek.tex
-<figures/cli/eleje.png, id=699, 752.8125pt x 584.93532pt>
+<figures/locks/vars.png, id=661, 701.62125pt x 517.935pt>
+File: figures/locks/vars.png Graphic file (type png)
+<use figures/locks/vars.png>
+Package pdftex.def Info: figures/locks/vars.png  used on input line 18.
+(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
+<figures/locks/edges.png, id=662, 701.62125pt x 517.935pt>
+File: figures/locks/edges.png Graphic file (type png)
+<use figures/locks/edges.png>
+Package pdftex.def Info: figures/locks/edges.png  used on input line 24.
+(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
+<figures/locks/locs.png, id=663, 701.62125pt x 517.935pt>
+File: figures/locks/locs.png Graphic file (type png)
+<use figures/locks/locs.png>
+Package pdftex.def Info: figures/locks/locs.png  used on input line 30.
+(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
+<figures/locks/cc.png, id=664, 701.62125pt x 517.935pt>
+File: figures/locks/cc.png Graphic file (type png)
+<use figures/locks/cc.png>
+Package pdftex.def Info: figures/locks/cc.png  used on input line 35.
+(pdftex.def)             Requested size: 202.72523pt x 149.65198pt.
+<figures/ssh/vars.png, id=665, 668.4975pt x 517.935pt>
+File: figures/ssh/vars.png Graphic file (type png)
+<use figures/ssh/vars.png>
+Package pdftex.def Info: figures/ssh/vars.png  used on input line 44.
+(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
+<figures/ssh/edges.png, id=666, 670.505pt x 517.935pt>
+File: figures/ssh/edges.png Graphic file (type png)
+<use figures/ssh/edges.png>
+Package pdftex.def Info: figures/ssh/edges.png  used on input line 50.
+(pdftex.def)             Requested size: 202.72523pt x 156.59085pt.
+<figures/ssh/locs.png, id=667, 668.4975pt x 517.935pt>
+File: figures/ssh/locs.png Graphic file (type png)
+<use figures/ssh/locs.png>
+Package pdftex.def Info: figures/ssh/locs.png  used on input line 56.
+(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
+<figures/ssh/cc.png, id=668, 668.4975pt x 517.935pt>
+File: figures/ssh/cc.png Graphic file (type png)
+<use figures/ssh/cc.png>
+Package pdftex.def Info: figures/ssh/cc.png  used on input line 61.
+(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
+<figures/plc/vars.png, id=669, 674.52pt x 517.935pt>
+File: figures/plc/vars.png Graphic file (type png)
+<use figures/plc/vars.png>
+Package pdftex.def Info: figures/plc/vars.png  used on input line 71.
+(pdftex.def)             Requested size: 202.72523pt x 155.6583pt.
+<figures/plc/edges.png, id=670, 703.62875pt x 517.935pt>
+File: figures/plc/edges.png Graphic file (type png)
+<use figures/plc/edges.png>
+Package pdftex.def Info: figures/plc/edges.png  used on input line 77.
+(pdftex.def)             Requested size: 202.72523pt x 149.21732pt.
+<figures/plc/locs.png, id=671, 668.4975pt x 517.935pt>
+File: figures/plc/locs.png Graphic file (type png)
+<use figures/plc/locs.png>
+Package pdftex.def Info: figures/plc/locs.png  used on input line 83.
+(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
+<figures/plc/cc.png, id=672, 668.4975pt x 517.935pt>
+File: figures/plc/cc.png Graphic file (type png)
+<use figures/plc/cc.png>
+Package pdftex.def Info: figures/plc/cc.png  used on input line 88.
+(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
+<figures/eca/vars.png, id=673, 668.4975pt x 517.935pt>
+File: figures/eca/vars.png Graphic file (type png)
+<use figures/eca/vars.png>
+Package pdftex.def Info: figures/eca/vars.png  used on input line 98.
+(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
+<figures/eca/edges.png, id=674, 672.5125pt x 517.935pt>
+File: figures/eca/edges.png Graphic file (type png)
+<use figures/eca/edges.png>
+Package pdftex.def Info: figures/eca/edges.png  used on input line 104.
+(pdftex.def)             Requested size: 202.72523pt x 156.12457pt.
+<figures/eca/locs.png, id=675, 668.4975pt x 517.935pt>
+File: figures/eca/locs.png Graphic file (type png)
+<use figures/eca/locs.png>
+Package pdftex.def Info: figures/eca/locs.png  used on input line 110.
+(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
+<figures/eca/cc.png, id=676, 668.4975pt x 517.935pt>
+File: figures/eca/cc.png Graphic file (type png)
+<use figures/eca/cc.png>
+Package pdftex.def Info: figures/eca/cc.png  used on input line 115.
+(pdftex.def)             Requested size: 202.72523pt x 157.06503pt.
+ [33
+
+
+ <./figures/locks/vars.png> <./figures/locks/edges.png> <./figures/locks/locs.p
+ng> <./figures/locks/cc.png>] [34 <./figures/ssh/vars.png> <./figures/ssh/edges
+.png> <./figures/ssh/locs.png> <./figures/ssh/cc.png>] [35 <./figures/plc/vars.
+png> <./figures/plc/edges.png> <./figures/plc/locs.png> <./figures/plc/cc.png>]
+ [36 <./figures/eca/vars.png> <./figures/eca/edges.png> <./figures/eca/locs.png
+> <./figures/eca/cc.png>]
+<figures/cli/eleje.png, id=706, 752.8125pt x 584.93532pt>
 File: figures/cli/eleje.png Graphic file (type png)
 <use figures/cli/eleje.png>
-Package pdftex.def Info: figures/cli/eleje.png  used on input line 19.
+Package pdftex.def Info: figures/cli/eleje.png  used on input line 131.
 (pdftex.def)             Requested size: 384.1122pt x 298.4648pt.
-<figures/cli/kozepe.png, id=700, 752.8125pt x 584.93532pt>
+<figures/cli/kozepe.png, id=707, 752.8125pt x 584.93532pt>
 File: figures/cli/kozepe.png Graphic file (type png)
 <use figures/cli/kozepe.png>
-Package pdftex.def Info: figures/cli/kozepe.png  used on input line 26.
+Package pdftex.def Info: figures/cli/kozepe.png  used on input line 138.
 (pdftex.def)             Requested size: 384.1122pt x 298.4648pt.
-<figures/cli/vege.png, id=701, 626.34pt x 301.8778pt>
+<figures/cli/vege.png, id=708, 626.34pt x 301.8778pt>
 File: figures/cli/vege.png Graphic file (type png)
 <use figures/cli/vege.png>
-Package pdftex.def Info: figures/cli/vege.png  used on input line 32.
+Package pdftex.def Info: figures/cli/vege.png  used on input line 144.
 (pdftex.def)             Requested size: 384.1122pt x 185.13553pt.
-) [36
+) [37
 
-
- <./figures/cli/eleje.PNG>] [37 <./figures/cli/kozepe.PNG> <./figures/cli/vege.
+ <./figures/cli/eleje.PNG>] [38 <./figures/cli/kozepe.PNG> <./figures/cli/vege.
 PNG>]
 \tf@thm=\write7
 \openout7 = `thesis.thm'.
 
- (./thesis.aux
-(./include/feladatkiiras.aux) (./include/titlepage.aux)
+
+(./thesis.aux (./include/feladatkiiras.aux) (./include/titlepage.aux)
 (./include/declaration.aux) (./tartalom/abstract.aux)
 (./tartalom/introduction.aux) (./tartalom/masodik_fejezet.aux)
 (./tartalom/harmadik_fejezet.aux) (./tartalom/negyedik_fejezet.aux)
 (./tartalom/benchmark.aux) (./tartalom/osszefoglalo.aux)
 (./tartalom/acknowledgement.aux) (./tartalom/fuggelek.aux))
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 58363B7DD7E78B6225E7559659E761DB;4742.
+(rerunfilecheck)             Checksum: BA95DC18875A2E0FA17EFD923504D4B1;4780.
  ) 
 Here is how much of TeX's memory you used:
- 31705 strings out of 480804
- 591151 string characters out of 5903687
- 1137867 words of memory out of 5000000
- 47618 multiletter control sequences out of 15000+600000
+ 31713 strings out of 480804
+ 591321 string characters out of 5903687
+ 1137868 words of memory out of 5000000
+ 47626 multiletter control sequences out of 15000+600000
  669240 words of font info for 102 fonts, out of 8000000 for 9000
  376 hyphenation exceptions out of 8191
  112i,17n,113p,1288b,1524s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1852,10 +1904,10 @@ dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/p
 ublic/lm/lmsy8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
 ><c:/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtl10.pfb><c:/texlive/2020/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (44 pages, 2778914 bytes).
+Output written on thesis.pdf (45 pages, 2774343 bytes).
 PDF statistics:
- 834 PDF objects out of 1000 (max. 8388607)
- 703 compressed objects within 8 object streams
+ 840 PDF objects out of 1000 (max. 8388607)
+ 708 compressed objects within 8 object streams
  187 named destinations out of 1000 (max. 500000)
- 428 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 436 words of extra memory for PDF output out of 10000 (max. 10000000)
 

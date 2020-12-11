@@ -189,6 +189,17 @@ Mary Sheeran\bibAnd 0Satnam Singh\bibAnd 2Gunnar St\aa lmarck:
 \bibNewBlock Berlin, Heidelberg, 2000, Springer Berlin Heidelberg, 127--144.~p.
 \bibNewBlock ISBN 978-3-540-40922-9.
 
+\bibitem{theta-fmcad2017}
+Tam\'as T\'oth\bibAnd 0\'{A}kos Hajdu\bibAnd 0Andr\'as V\"or\"os\bibAnd
+  0Zolt\'an Micskei\bibAnd 2Istv\'an Majzik:
+\bibNewBlock Theta: a framework for abstraction refinement-based model
+  checking.
+\bibNewBlock In Daryl Stewart\bibAnd 1Georg Weissenbacher\bibEd 1: {\em
+  Proceedings of the 17th Conference on Formal Methods in Computer-Aided
+  Design} (kon\-fe\-ren\-cia\-anyag).
+\bibNewBlock 2017, 176--179.~p.
+\bibNewBlock ISBN 978-0-9835678-7-5.
+
 \bibitem{ca-lab-tests}
 Tamás T\'oth.
 \bibNewBlock
