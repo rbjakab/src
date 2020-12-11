@@ -1,2 +1,20 @@
 \select@language {magyar} \addvspace {10\p@ }
 \select@language {magyar} \addvspace {10\p@ }
+\select@language {magyar} \contentsline {figure}{\numberline {2.1.}{\ignorespaces A leállások illetve hibák okainak százalékos eloszlása. Baloldalt a kliens-szervereken, jobb oldalt a beágyazott rendszereken mért adatok.\relax }}{3}{figure.caption.4}%
+\select@language {magyar} \addvspace {10\p@ }
+\select@language {magyar} \contentsline {figure}{\numberline {3.1.}{\ignorespaces Egy C program és a hozzátartozó Control Flow Automaton (CFA).\relax }}{7}{figure.caption.8}%
+\select@language {magyar} \contentsline {figure}{\numberline {3.2.}{\ignorespaces A strukturált programozás elemei (szekvencia, feltételes elágazás, feltételes ciklus) és a megvalósításuk CFA modelleken.\relax }}{8}{figure.caption.10}%
+\select@language {magyar} \contentsline {figure}{\numberline {3.3.}{\ignorespaces C program \emph {assert} paranccsal és a hozzátartozó CFA modell. A program \emph {assert} parancsát a CFA modell $h_3$ helye jelöli, mely hibás működés esetén a $h_e$ hibahelyre viszi a vezérlést.\relax }}{9}{figure.caption.11}%
+\select@language {magyar} \addvspace {10\p@ }
+\select@language {magyar} \contentsline {figure}{\numberline {4.1.}{\ignorespaces A programom UML állapotdiagramja.\textsuperscript {*}\relax }}{16}{figure.caption.14}%
+\select@language {magyar} \contentsline {figure}{\numberline {4.2.}{\ignorespaces A programom folyamatábra diagramja. A kék színnel jelölt elágazás magába foglal még egy ekkora folyamatábrát, csak az hátulról ellenőriz a hibahelytől. A *-al jelölt \texttt {poll()} függvény kiválasztja a verem következő elemét és abból törli is.\relax }}{22}{figure.caption.16}%
+\select@language {magyar} \addvspace {10\p@ }
+\select@language {magyar} \contentsline {figure}{\numberline {5.1.}{\ignorespaces A tesztek felismerési arányainak a változása különböző időkorlátokkal futtatva. A Simple végig 100\%-os felismerési arányt produkált, mint a Locks, csak az utóbbi kitakarja az ábrán.\relax }}{26}{figure.caption.18}%
+\select@language {magyar} \contentsline {figure}{\numberline {5.2.}{\ignorespaces Locks tesztkategória. \relax }}{27}{figure.caption.19}%
+\select@language {magyar} \contentsline {figure}{\numberline {5.3.}{\ignorespaces SSH tesztkategória.\relax }}{28}{figure.caption.20}%
+\select@language {magyar} \contentsline {figure}{\numberline {5.4.}{\ignorespaces PLC tesztkategória.\relax }}{29}{figure.caption.21}%
+\select@language {magyar} \contentsline {figure}{\numberline {5.5.}{\ignorespaces ECA tesztkategória. \relax }}{30}{figure.caption.22}%
+\select@language {magyar} \addvspace {10\p@ }
+\select@language {magyar} \contentsline {figure}{\numberline {F.1.1.}{\ignorespaces A parancssori interfész a futás elején.\relax }}{36}{figure.caption.27}%
+\select@language {magyar} \contentsline {figure}{\numberline {F.1.2.}{\ignorespaces A parancssori interfész futás közben.\relax }}{37}{figure.caption.28}%
+\select@language {magyar} \contentsline {figure}{\numberline {F.1.3.}{\ignorespaces A parancssori interfész a futás végén.\relax }}{37}{figure.caption.29}%

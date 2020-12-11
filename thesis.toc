@@ -31,8 +31,12 @@
 \select@language {magyar} \contentsline {chapter}{\numberline {5}Kiértékelés}{24}{chapter.5}%
 \select@language {magyar} \contentsline {section}{\numberline {5.1}Tesztelés}{24}{section.5.1}%
 \select@language {magyar} \contentsline {section}{\numberline {5.2}Eredmények}{25}{section.5.2}%
+\select@language {magyar} \contentsline {section}{\numberline {5.3}Eredmény}{28}{section.5.3}%
 \select@language {magyar} \contentsline {chapter}{\numberline {6}Összefoglaló}{31}{chapter.6}%
+\select@language {magyar} \contentsline {section}{\numberline {6.1}Továbbfejlesztési lehetőségek}{31}{section.6.1}%
+\select@language {magyar} \contentsline {section}{\numberline {6.2}Tapasztalatok}{31}{section.6.2}%
 \select@language {magyar} \contentsline {chapter}{Köszönetnyilvánítás}{32}{chapter*.23}%
-\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{33}{chapter*.23}%
-\select@language {magyar} \contentsline {chapter}{Függelék}{35}{appendix*.25}%
-\select@language {magyar} \contentsline {section}{\numberline {F.1}A parancssori interfész felülete}{35}{section.F.1}%
+\select@language {magyar} \contentsline {chapter}{\'Abr\'ak jegyz\'eke}{33}{chapter*.24}%
+\select@language {magyar} \contentsline {chapter}{Irodalomjegyz\'ek}{33}{chapter*.24}%
+\select@language {magyar} \contentsline {chapter}{Függelék}{36}{appendix*.26}%
+\select@language {magyar} \contentsline {section}{\numberline {F.1}A parancssori interfész felülete}{36}{section.F.1}%

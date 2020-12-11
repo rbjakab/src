@@ -1,1 +1,12 @@
 \chapter{Összefoglaló}
+
+A szakdolgozat keretei közt megismerkedtem a Theta verifikációs keretrendszerrel, melyben implementáltam a programomat. A program modellellenőrzésre készült, egész pontosan CFA modellek ellenőrzésére. Az ellenőrzésekhez a k-indukció nevű algoritmust használja, mely addig bontja ki az állapotteret, míg be nem tudja bizonyítani a modell helyességét vagy annak ellentettjét. Ezt a mélységet jelöljük $ k $-val, melyre igaz, hogy ha addigra beláttuk a modell eredményét, akkor $ k+1 $-re is igaz az az eredmény.
+
+A programomhoz készítettem parancssori interfészt is, így egyszerre tetszőleges mennyiségű modellt tudunk neki beadni tesztelésre. 
+
+\section{Továbbfejlesztési lehetőségek}
+
+A tanszéki kollégákkal szó esett arról, hogy bizonyos mértékben képesek lehetünk ciklikusságot nézni a bejárt állapottérben. A következő félévekre szeretném a munkámat tovább vinni, és kiegészíteni egy ilyen extra ellenőrzéssel is. Ez a kiegészítés nem módosítana az algoritmusom helyességén, csupán a végtelen ciklusokat küszöbölné ki extra számítások árán.
+
+\section{Tapasztalatok}
+

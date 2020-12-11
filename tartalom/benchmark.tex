@@ -19,7 +19,7 @@ A programom készítése közben folyamatosan teszteltem azt JUnit tesztek segí
 	\item \texttt{Simple} kicsi (14-40 LoC) feladatok gyors teszteléshez.
 \end{itemize}
 \ \\
-Továbbá volt alkalmam tesztelni olyan CFA modelleket, melyek eredetileg ipari PLC szoftverkódok voltak a CERN-nél. \cite{darvas2019plcverif} Ezek mérete roppant változatos -- a pár tucattól a több ezerig is terjedhet. Mindegyik tesztről tudjuk, hogy abban mennyi változó van (azok között mennyi int és mennyi boolean típusú), mennyi hely, mennyi él, az egyes taszkok ciklikus komplexitása, az éleken mennyi hozzárendelés, mennyi őrfeltétel illetve hogy mennyi havoc van. Ezeket vázlatosan bemutatja a (\ref{table:tasksStat}) táblázat \cite{akos-phd}:
+Továbbá volt alkalmam tesztelni olyan CFA modelleket is, melyek eredetileg ipari PLC szoftverkódok voltak a CERN-nél. \cite{darvas2019plcverif} Ezek mérete roppant változatos -- a pár tucattól a több ezerig is terjedhet. Mindegyik tesztről tudjuk, hogy abban mennyi változó van (azok között mennyi int és mennyi boolean típusú), mennyi hely, mennyi él, az egyes taszkok ciklikus komplexitása, az éleken mennyi hozzárendelés, mennyi őrfeltétel illetve hogy mennyi havoc van. Ezeket vázlatosan bemutatja a (\ref{table:tasksStat}) táblázat \cite{akos-phd}:
 
 \begin{table}[h] 
 	\centering
@@ -40,7 +40,7 @@ Továbbá volt alkalmam tesztelni olyan CFA modelleket, melyek eredetileg ipari 
 	\label{table:tasksStat}
 \end{table}
 \ \\
-Míg a program fejlesztése közben azt 28 darab, véletlenszerűen kiválasztott teszttel ellenőriztem, a végén teszteltem mind a 479 tesztre is. A széleskörű teszteléshez \texttt{KInductionCLI} osztályt használtam, mely egy interfészt biztosít a programom parancssori futtatásához, és amelyet a következő paraméterekkel lehet meghívni:
+Míg a program fejlesztése közben azt 28 darab, véletlenszerűen kiválasztott teszttel ellenőriztem, a végén teszteltem mind a 479 tesztre is. A széleskörű teszteléshez a \texttt{KInductionCLI} osztályt használtam, mely egy interfészt biztosít a programom parancssori futtatásához, és amelyet a következő paraméterekkel lehet meghívni:
 
 \begin{itemize}
 	\item \texttt{-{}-model} -- A CFA teszt elérési útvonala, ha csak egy darab tesztre szeretnénk lefuttatni. Nem kötelező.
@@ -63,7 +63,7 @@ Habár se a \texttt{-{}-model} sem az \texttt{-{}-input} paraméter nem kötelez
 \section{Eredmények}
 \label{sec:kiertekeles_ered}
 
-Azon teszteknél, melyekre a programom készítése közben folyamatosan teszteltem azt, az ideális ellenpéldahossz is meg volt adva. A programom kivétel nélkül mindre (11 darab) az optimális megoldást produkálta. 
+Azon teszteknél, melyekre a programom készítése közben azt folyamatosan teszteltem, az ideális ellenpéldahossz is meg volt adva. A programom kivétel nélkül mindre (11 darab) az optimális megoldást produkálta. 
 \\
 \\
 A 479 tesztet az előző oldalon található felsorolás szerint külön .csv fájlokba szerveztem. Ezután a 
@@ -72,28 +72,28 @@ A 479 tesztet az előző oldalon található felsorolás szerint külön .csv f�
 	java -jar theta-k-induction.jar --input input_xx.csv --output output_xx_yy.csv --time yy
 \end{lstlisting}
 \ \\
-parancssori utasítást adtam ki, ahol xx = \{locks, eca, ssh, simple, plc\}, illetve yy = \{60, 120, 180, 300, 600\}, azaz szavakkal elmondva külön-külön mindegyik tesztkategóriát futtattam 1 perc, 2 perc, 3 perc, 5 perc illetve 10 perc időkorláttal. Azért döntöttem időkorlát használata mellett, mert tapasztalataim szerint egyes tesztek 8, 10 vagy annál több órás futási időt igényelnek, ami a nagy darabszámot is figyelembe véve korlátozásra ad okot. 
+parancssori utasítást adtam ki, ahol xx = \{locks, eca, ssh, simple, plc\}, illetve yy = \{60, 120, 180, 300, 600\}, azaz szavakkal elmondva külön-külön mindegyik tesztkategóriát futtattam 1 perc, 2 perc, 3 perc, 5 perc illetve 10 perc időkorláttal. Azért döntöttem időkorlát használata mellett, mert tapasztalataim szerint egyes tesztek 8, 10 vagy annál több óra futási időt is igényelhetnek, ami a nagy darabszámot is figyelembe véve korlátozásra ad okot. 
 
-A parancssori interfészrő készítettem képeket, melyek megtekinthetők a Függelékben (\ref{sec:fuggelek}). Itt a harmadik ábra (\ref{fig:cli_3}) érdekes: a program futása után statisztikát közlök arról, hogy hány teszt lett sikeres, mennyi nem sikerült azért, mert ismeretlen lett és mennyi nem sikerült azért, mert rosszat mondott a programom. Ez az utóbbi minden futtatásnál \textbf{0} volt.
+A parancssori interfészről készítettem képeket, melyek megtekinthetők a Függelékben (\ref{sec:fuggelek}). Itt a harmadik ábra (\ref{fig:cli_3}) külön érdekes: a program futása után statisztikát közlök arról, hogy hány teszt lett sikeres, mennyi nem sikerült azért, mert ismeretlen lett és mennyi nem sikerült azért, mert tévedett a programom. Ez az utóbbi minden futtatásnál \textbf{0} volt.
 \\
 \\
 A kapott eredményfájlokat a Pandas\footnote{\url{https://pandas.pydata.org/}} Python programkönyvtárral dolgoztam fel. A következő eredményekre jutottam:
 
 \begin{itemize}
-	\item Azt tapasztaltam, hogy a tesztek 64.23\%-a lett biztonságos, 8.88\%-a nem biztonságos és 26.89\%-a lett ismeretlen.
+	\item Azt tapasztaltam, hogy a tesztek 64.3\%-a lett biztonságos, 9.39\%-a lett nem biztonságos és 26.3\%-a lett ismeretlen.
 	\item Viszont arra lettem figyelmes, és ez az (\ref{fig:rec_rate_during_time}) ábrán jól is látszik, egyes tesztkategóriákban 100\% felismerési arányt sikerült elérni.
 \end{itemize}
 
-A felismerési arány alatt azt értem, hogy az adott kategóriában a tesztek hány százaléka lett nem ismeretlen, tehát a tesztek hány százalékát láttuk be. Szeretném kihangsúlyozni, hogy minden egyes tesztre, ami nem ismeretlen lett, \textbf{helyes} választ adott a programom. Néhány nagyobb, bonyolultabb tesztnél engedtem végig futni (a statisztikában nem szerepelnek), és azokra is mind \textbf{helyes} eredményt kaptam, így arra jutottam, hogy a korlátozás nem befolyásolja a programom működését, egyszerűen csak időmenedzsmenti okai és következményei vannak.
+A felismerési arány alatt azt értem, hogy az adott kategóriában a tesztek hány százaléka lett nem ismeretlen, tehát a tesztek hány százalékát láttuk be. Szeretném kihangsúlyozni, hogy minden egyes tesztre, ami nem ismeretlen lett, \textbf{helyes} választ adott a programom. Néhány nagyobb, bonyolultabb tesztnél engedtem végig futni (a statisztikában nem szerepelnek), és azokra is mind \textbf{helyes} eredményt kaptam, így arra jutottam, hogy a korlátozás nem befolyásolja a programom működését, annak csak időmenedzsmenti okai és következményei vannak.
 \\
 \begin{figure}[!ht]
 	\centering
 	\includegraphics[width=100mm, keepaspectratio]{figures/fig_rec_rate_during_time.png}
-	\caption[Caption for LOF]{A tesztek felismerési arányainak a változása különböző időkorláttal futtatva. A Simple végig 100\%-os felismerési arányt produkált, mint a Locks, csak az utóbbi kitakarja az ábrán.}
+	\caption{A tesztek felismerési arányainak a változása különböző időkorlátokkal futtatva. A Simple végig 100\%-os felismerési arányt produkált, mint a Locks, csak az utóbbi kitakarja az ábrán.}
 	\label{fig:rec_rate_during_time}
 \end{figure}
 \ \\
-A fejezet maradék részében a futtatási eredményeket fogom ellenőrizni és elemezni -- arra vagyok kíváncsi, hogy a tesztek egyes tulajdonságai hogyan hatnak ki a futási időre. Mindegyik képen az X tengely a tesztek egy adott tulajdonsága látható, az Y tengelyen pedig a futási idő az adott tulajdonságra vetítve másodpercben. Mindegyik kép a 10 percig futtatott program eredményeit mutatja, azért, hogy a lehető legtöbb információt tudjam megjeleníteni.
+A fejezet maradék részében a futtatási eredményeket fogom elemezni, hogy a tesztek egyes tulajdonságai hogyan hatnak ki a futási időre. Mindegyik képen az X tengely a tesztek egy adott tulajdonsága látható, az Y tengelyen pedig a futási idő az adott tulajdonságra vetítve másodpercben. Mindegyik kép a 10 percig futtatott program eredményeit mutatja, azért, hogy a lehető legtöbb információt tudjam megjeleníteni.
 \\
 \\
 A 100\%-os felismerési arány a Simple és a Locks kategóriák esetén nem meglepő, ha ránézünk a (\ref{fig:locks}) ábrára. Látható, hogy másodpercek alatt képes volt a programom ellenőrizni a modelleket, így még csak közel sem került az időkorláthoz.
@@ -103,126 +103,114 @@ A 100\%-os felismerési arány a Simple és a Locks kategóriák esetén nem meg
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/locks/vars.png} 
 		\caption{Változók} 
-		\label{fig7:a} 
 		\vspace{4ex}
 	\end{subfigure}%% 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/locks/edges.png} 
 		\caption{Élek} 
-		\label{fig7:b} 
 		\vspace{4ex}
 	\end{subfigure} 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/locks/locs.png} 
 		\caption{Helyek} 
-		\label{fig7:c} 
 	\end{subfigure}%%
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/locks/cc.png} 
 		\caption{Ciklikus komplexitás} 
-		\label{fig7:d} 
 	\end{subfigure} 
-	\caption{Locks tesztkategória. Az időtengely mindegyiken másodpercben van.\label{fig:locks} }
+	\caption{Locks tesztkategória.\label{fig:locks} }
 \end{figure}
 \ \\
 Az (\ref{fig:rec_rate_during_time}) ábrán látható, hogy az SSH tesztkategóriának az egyperces futási idő kevés, viszont ahogy emeljük a korlátot, úgy nő a sikeresen lefutott tesztek száma. Egészen öt percig, ahol is megtorpanni látszik: nem változik utána a felismerési arány. Öt percig az eredmény 3 biztonságos, 8 nem biztonságos és 6 ismeretlen, és hiába emeltük a duplájára az időkorlátot, a maradék 6 ismeretlenből egyiket se sikerült belátni. 
 
-A (\ref{fig_ssh}) ábrán a következőt láthatjuk: A változók számától önmagában egyedül biztosan nem függ a futási idő, tekintve, hogy volt olyan teszteset ahol 81 változóval a program 23 másodpercig futott illetve 78 változóval 42 és 45 másodpercekig, míg 77 változóval rendre (hatszor) túllépte a 600 másodperces időkorlátot. Tehát kell lennie legalább még egy tulajdonságnak, amivel együtt határozzák meg a tesztek futási idejét.
+Az (\ref{fig_ssh_a}) ábrán a következőt láthatjuk: a változók számától önmagában egyedül biztosan nem függ a futási idő, tekintve, hogy volt olyan teszteset ahol 81 változóval a program 23 másodpercig futott illetve 78 változóval 42 és 45 másodpercekig, míg 77 változóval rendre (hatszor) túllépte a 600 másodperces időkorlátot. Tehát kell lennie legalább még egy tulajdonságnak, amivel együtt határozzák meg a tesztek futási idejét.
 
 \begin{figure}[ht] 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/ssh/vars.png} 
-		\caption{Változók} 
-		\label{fig7:a} 
+		\caption{Változók\label{fig_ssh_a}} 
 		\vspace{4ex}
 	\end{subfigure}%% 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/ssh/edges.png} 
 		\caption{Élek} 
-		\label{fig7:b} 
 		\vspace{4ex}
 	\end{subfigure} 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/ssh/locs.png} 
 		\caption{Helyek} 
-		\label{fig7:c} 
 	\end{subfigure}%%
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/ssh/cc.png} 
 		\caption{Ciklikus komplexitás} 
-		\label{fig7:d} 
 	\end{subfigure} 
-	\caption{SSH tesztkategória. Az időtengely mindegyiken másodpercben van.}
+	\caption{SSH tesztkategória.}
 	\label{fig_ssh} 
 \end{figure}
 \ \\
-A (\ref{fig_plc}) ábrán láthatjuk a PLC tesztkagetória eredményeit. Az biztosan kijelenthető, hogy nagy (változó, él, hely illetve komplexitás) értékekre a futásidő nem fog beleférni a 10 perces korlátba. Ami ennél érdekesebb, hogy 
+Az (\ref{fig_plc}) ábrán láthatjuk a PLC tesztkategória eredményeit. Fontos megjegyezni, hogy PLC tesztből közel 8x annyi állt rendelkezésre, mint SSH-ból, így a következő eredmények biztosan pontosabban fogják leírni a tesztek szórását. Az láthatóan kijelenthető, hogy nagy (változó, él, hely illetve komplexitás) értékekre a futásidő nem fog beleférni a 10 perces korlátba. Érdemes megfigyelni az ábrák elején lévő pont-sűrűsödést, amik alapján elmondható, hogy alacsony paraméterek mellett (Vars < 60, Edges < 150, Locs < 150, CC < 25) a programom nagy valószínűséggel fut le 10 percen belül. 
 
 \begin{figure}[ht] 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/plc/vars.png} 
 		\caption{Változók} 
-		\label{fig7:a} 
 		\vspace{4ex}
 	\end{subfigure}%% 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/plc/edges.png} 
 		\caption{Élek} 
-		\label{fig7:b} 
 		\vspace{4ex}
 	\end{subfigure} 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/plc/locs.png} 
 		\caption{Helyek} 
-		\label{fig7:c} 
 	\end{subfigure}%%
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
-		\includegraphics[width=0.95\linewidth]{figures/plc/cc.png} 
-		\caption{Ciklikus komplexitás} 
-		\label{fig7:d} 
-	\end{subfigure} 
-	\caption{PLC tesztkategória. Az időtengely mindegyiken másodpercben van.}
-	\label{fig_plc} 
+		\includegraphics[width=0.95\linewidth]{figures/plc/cc.png}
+		\caption{Ciklikus komplexitás}
+	\end{subfigure}
+	\caption{PLC tesztkategória.}
+	\label{fig_plc}
 \end{figure}
+\ \\
+Az ECA tesztkategóriánál az (\ref{fig_eca}) ábrán a kétpóluság figyelhető meg: az ábrák négy sarkaiban jelennek meg a futtatások eredményei, tehát vannak tesztek amik kevés változó / él / hely mellett gyorsan lefutottak de olyanok is amik túllépték az időkorlátot, illetve vannak tesztek melyek sok változó / él / hely esetén néhány pár másodperc alatt lefutottak, a többi meg túllépte az időkorlátot. A CC ábra nem közöl sok új információt, csupán annyit, hogy minél kisebb, annál nagyobb az esélye, hogy időben lefut -- viszont ez az esély nem sokkal nagyobb.
 
 \begin{figure}[ht] 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/eca/vars.png} 
 		\caption{Változók} 
-		\label{fig7:a} 
 		\vspace{4ex}
 	\end{subfigure}%% 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/eca/edges.png} 
 		\caption{Élek} 
-		\label{fig7:b} 
 		\vspace{4ex}
 	\end{subfigure} 
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/eca/locs.png} 
 		\caption{Helyek} 
-		\label{fig7:c} 
 	\end{subfigure}%%
 	\begin{subfigure}[b]{0.5\linewidth}
 		\centering
 		\includegraphics[width=0.95\linewidth]{figures/eca/cc.png} 
 		\caption{Ciklikus komplexitás} 
-		\label{fig7:d} 
 	\end{subfigure} 
-	\caption{ECA tesztkategória. Az időtengely mindegyiken másodpercben van.}
-	\label{fig_eca} 
+	\caption{ECA tesztkategória.\label{fig_eca} }
 \end{figure}
+
+\section{Eredmény}
+
